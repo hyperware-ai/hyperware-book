@@ -9,7 +9,7 @@
 ///
 /// # Watch as process continually restarts, incrementing the counter in state.
 /// ```
-use kinode_process_lib::{call_init, get_state, println, set_state, Address};
+use hyperware_process_lib::{call_init, get_state, println, set_state, Address};
 
 wit_bindgen::generate!({
     path: "target/wit",

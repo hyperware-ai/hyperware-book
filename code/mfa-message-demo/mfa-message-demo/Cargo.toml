@@ -4,11 +4,11 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-kinode_process_lib = "0.10.1"
+hyperware_process_lib = "1.0.2"
 wit-bindgen = "0.36.0"
 
 [lib]
 crate-type = ["cdylib"]
 
 [package.metadata.component]
-package = "kinode:process"
+package = "hyperware:process"

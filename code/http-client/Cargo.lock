@@ -1320,7 +1320,7 @@ dependencies = [
 name = "http-client"
 version = "0.1.0"
 dependencies = [
- "kinode_process_lib",
+ "hyperware_process_lib",
  "serde",
  "serde_json",
  "url",
@@ -1497,9 +1497,9 @@ dependencies = [
 ]
 
 [[package]]
-name = "kinode_process_lib"
+name = "hyperware_process_lib"
 version = "0.9.6"
-source = "git+https://github.com/kinode-dao/process_lib?tag=v0.9.6#11daa549c367175614d9275a89fbdab30361e70c"
+source = "git+https://github.com/hyperware-ai/process_lib?tag=v0.9.6#11daa549c367175614d9275a89fbdab30361e70c"
 dependencies = [
  "alloy",
  "alloy-primitives 0.7.7",

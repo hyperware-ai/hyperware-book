@@ -1,6 +1,6 @@
 # Managing Contacts
 
-Like iOS and Android, Kinode OS includes a handy contacts system primitive, called `contacts:contacts:sys`.
+Like iOS and Android, Hyperdrive includes a handy contacts system primitive, called `contacts:contacts:sys`.
 Using it is optional, but as a peer-to-peer application developer, importing existing contacts is a great way to bootstrap your protocol.
 Given the proper capabilities, an app can get the list of existing contacts, get information about a specific contact or all contacts, add new contacts, edit information about contacts, and remove contacts.
 

@@ -1,6 +1,6 @@
-# Kinode Book
+# Hyperware Book
 
-"Rust Book"-style introduction and documentation for Kinode OS.
+"Rust Book"-style introduction and documentation for Hyperware.
 
 ## To build:
 

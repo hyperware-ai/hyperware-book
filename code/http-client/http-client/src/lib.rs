@@ -7,14 +7,15 @@
 /// # Start package from a new terminal.
 /// kit bs http-client
 /// ```
-use kinode_process_lib::{call_init, http, println, Address};
+use hyperware_process_lib::{call_init, http, println, Address};
 
 wit_bindgen::generate!({
     path: "target/wit",
     world: "process-v1",
 });
 
-const URL: &str = "https://raw.githubusercontent.com/kinode-dao/kinode-wit/master/kinode.wit";
+const URL: &str =
+    "https://raw.githubusercontent.com/hyperware-ai/hyperware-wit/master/hyperware.wit";
 
 call_init!(init);
 fn init(_our: Address) {

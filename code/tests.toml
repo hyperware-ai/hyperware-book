@@ -1,5 +1,6 @@
-runtime = { FetchVersion = "latest" }
-# runtime = { RepoPath = "../kinode" }
+# runtime = { FetchVersion = "latest" }
+# runtime = { RepoPath = "../../hyperdrive" }
+runtime = { RepoPath = "../../../hyperdrive-release/hyperdrive-sim" }
 persist_home = false
 runtime_build_release = false
 always_print_node_output = false

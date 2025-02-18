@@ -994,7 +994,7 @@ name = "download"
 version = "0.1.0"
 dependencies = [
  "anyhow",
- "kinode_process_lib",
+ "hyperware_process_lib",
  "process_macros",
  "serde",
  "serde_json",
@@ -1104,7 +1104,7 @@ name = "file-transfer"
 version = "0.1.0"
 dependencies = [
  "anyhow",
- "kinode_process_lib",
+ "hyperware_process_lib",
  "process_macros",
  "serde",
  "serde_json",
@@ -1117,7 +1117,7 @@ version = "0.1.0"
 dependencies = [
  "anyhow",
  "bincode",
- "kinode_process_lib",
+ "hyperware_process_lib",
  "process_macros",
  "serde",
  "serde_json",
@@ -1129,7 +1129,7 @@ name = "file-transfer-worker-api"
 version = "0.1.0"
 dependencies = [
  "anyhow",
- "kinode_process_lib",
+ "hyperware_process_lib",
  "process_macros",
  "serde",
  "serde_json",
@@ -1731,7 +1731,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "kinode_process_lib"
+name = "hyperware_process_lib"
 version = "0.9.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "29b2cb309fa374e2ec3f7c00c3285d75c2c6cccec33f937f699251680372dcd6"
@@ -1792,7 +1792,7 @@ name = "list_files"
 version = "0.1.0"
 dependencies = [
  "anyhow",
- "kinode_process_lib",
+ "hyperware_process_lib",
  "process_macros",
  "serde",
  "serde_json",
@@ -2214,7 +2214,7 @@ dependencies = [
 [[package]]
 name = "process_macros"
 version = "0.1.0"
-source = "git+https://github.com/kinode-dao/process_macros?rev=626e501#626e501d351e3365480ec6f770d474ed4ae339bf"
+source = "git+https://github.com/hyperware-ai/process_macros?rev=626e501#626e501d351e3365480ec6f770d474ed4ae339bf"
 dependencies = [
  "quote",
  "syn 2.0.87",

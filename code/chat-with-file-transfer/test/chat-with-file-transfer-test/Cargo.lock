@@ -771,7 +771,7 @@ version = "0.1.0"
 dependencies = [
  "anyhow",
  "bincode",
- "kinode_process_lib",
+ "hyperware_process_lib",
  "process_macros",
  "rmp-serde",
  "serde",
@@ -1462,9 +1462,9 @@ dependencies = [
 ]
 
 [[package]]
-name = "kinode_process_lib"
+name = "hyperware_process_lib"
 version = "0.8.3"
-source = "git+https://github.com/kinode-dao/process_lib?tag=v0.8.3#f9fc2460b22e7d63bb74385d3adbaefebc71b333"
+source = "git+https://github.com/hyperware-ai/process_lib?tag=v0.8.3#f9fc2460b22e7d63bb74385d3adbaefebc71b333"
 dependencies = [
  "alloy",
  "alloy-primitives",
@@ -1889,7 +1889,7 @@ dependencies = [
 [[package]]
 name = "process_macros"
 version = "0.1.0"
-source = "git+https://github.com/kinode-dao/process_macros?rev=626e501#626e501d351e3365480ec6f770d474ed4ae339bf"
+source = "git+https://github.com/hyperware-ai/process_macros?rev=626e501#626e501d351e3365480ec6f770d474ed4ae339bf"
 dependencies = [
  "quote",
  "syn 2.0.74",

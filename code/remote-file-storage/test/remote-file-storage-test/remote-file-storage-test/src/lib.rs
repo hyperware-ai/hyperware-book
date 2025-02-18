@@ -1,8 +1,8 @@
-use crate::kinode::process::server::{get_file, list_files, put_file};
-use crate::kinode::process::tester::{
+use crate::hyperware::process::server::{get_file, list_files, put_file};
+use crate::hyperware::process::tester::{
     FailResponse, Request as TesterRequest, Response as TesterResponse, RunRequest,
 };
-use kinode_process_lib::{
+use hyperware_process_lib::{
     await_message, call_init, get_blob, println, vfs::File, Address, Response,
 };
 

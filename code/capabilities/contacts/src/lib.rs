@@ -1,5 +1,5 @@
-use crate::kinode::process::contacts;
-use kinode_process_lib::{
+use crate::hyperware::process::contacts;
+use hyperware_process_lib::{
     await_message, call_init, get_typed_state, kiprintln, set_state, Address, Capability,
     LazyLoadBlob, Message, NodeId, Response,
 };

@@ -1,4 +1,4 @@
-use kinode_process_lib::{await_message, call_init, println, Address, Request, Response};
+use hyperware_process_lib::{await_message, call_init, println, Address, Request, Response};
 
 wit_bindgen::generate!({
     path: "target/wit",

@@ -1,5 +1,5 @@
-use crate::exports::kinode::process::server::{ClientRequest, ClientResponse, Guest};
-use kinode_process_lib::{vfs, Request, Response};
+use crate::exports::hyperware::process::server::{ClientRequest, ClientResponse, Guest};
+use hyperware_process_lib::{vfs, Request, Response};
 
 wit_bindgen::generate!({
     path: "target/wit",

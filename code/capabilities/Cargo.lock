@@ -798,7 +798,7 @@ checksum = "c2459377285ad874054d797f3ccebf984978aa39129f6eafde5cdc8315b612f8"
 name = "contacts"
 version = "0.1.0"
 dependencies = [
- "kinode_process_lib",
+ "hyperware_process_lib",
  "serde",
  "serde_json",
  "wit-bindgen",
@@ -808,7 +808,7 @@ dependencies = [
 name = "contacts-test"
 version = "0.1.0"
 dependencies = [
- "kinode_process_lib",
+ "hyperware_process_lib",
  "serde",
  "serde_json",
  "wit-bindgen",
@@ -1510,7 +1510,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "kinode_process_lib"
+name = "hyperware_process_lib"
 version = "0.9.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7722aef4bff0625445fafda89a02f82ce0e16c7def6024e1317ae55a632ad331"
