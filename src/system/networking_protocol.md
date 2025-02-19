@@ -33,7 +33,7 @@ Therefore, all nodes must have robust access to the onchain PKI, meaning: multip
 Because it may take time for a new networking key to proliferate to all nodes, (anywhere from seconds to days depending on chain indexing access) a node that changes its networking key should expect downtime immediately after doing so.
 
 Nodes that wish to make direct connections must post an IP and port onchain.
-This is done by publishing `note` keys in [Hypermap](../getting_started/Hypermap.md).
+This is done by publishing `note` keys in [Hypermap](../getting_started/hypermap.md).
 In particular, the networking protocol expects the following pattern of data available:
 
 1. A `~net-key` note AND

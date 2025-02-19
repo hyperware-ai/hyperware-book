@@ -82,4 +82,4 @@ There are a few important things to note when subscribing to contract events and
 
 4. If a subscription fails, it makes sense to try resubscribing, but keep in mind that events might occur between the failure and the resubscribe. A good strategy is to fetch logs for this time period.
 
-For a full example of an app that uses the ETH Provider in a critical use-case, check out the [kns-indexer](https://github.com/hyperware-ai/hyperdrive/blob/main/hyperdrive/packages/kns-indexer/kns-indexer/src/lib.rs) in the Kinode repo.
+For a full example of an app that uses the ETH Provider in a critical use-case, check out the [hns-indexer](https://github.com/hyperware-ai/hyperdrive/blob/main/hyperdrive/packages/hns-indexer/hns-indexer/src/lib.rs) in the Hyperdrive repo.

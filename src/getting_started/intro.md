@@ -25,7 +25,7 @@ Processes are programs compiled to Wasm, which export a single `init()` function
 They can be started once and complete immediately, or they can run "forever".
 
 Hyperware peers are identified by their onchain username in the "HNS": Hyperware Name System, which is modeled after ENS.
-The modular architecture of the KNS allows for any Ethereum NFT, including ENS names themselves, to generate a unique Hyperware identity once it is linked to a KNS entry.
+The modular architecture of the HNS allows for any Ethereum NFT, including ENS names themselves, to generate a unique Hyperware identity once it is linked to a HNS entry.
 
 Data persistence and blockchain access, as fundamental primitives for p2p apps, are built directly into the kernel.
 The filesystem is abstracted away from the developer, and data is automatically persisted across an arbitrary number of encrypted remote backups as configured at the user-system-level.

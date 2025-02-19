@@ -193,7 +193,7 @@ $ cat my-chat-app/metadata.json
     "animation_url": ""
 }
 ```
-Here, the `publisher` is the default value (`"template.os"`), but for a real package, this field should contain the KNS ID of the publishing node.
+Here, the `publisher` is the default value (`"template.os"`), but for a real package, this field should contain the HNS ID of the publishing node.
 The `publisher` can also be set with a `kit new --publisher` flag.
 The `wit_version` is an optional field:
 

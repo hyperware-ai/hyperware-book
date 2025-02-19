@@ -64,11 +64,11 @@ Protocols can be defined on Hypermap.
 
 Examples:
 
-The KNS protocol stores contact information for all [nodes](#node) in Hypermap entries.
+The HNS protocol stores contact information for all [nodes](#node) in Hypermap entries.
 That contact information looks like:
 1. A public key.
 2. Either an IP address or a list of other nodes that will route messages to that node.
-The `kns-indexer` Hyperware [process](#process) reads the Hypermap, looking for these specific path/entries, and then uses that information to contact other nodes offchain.
+The `hns-indexer` Hyperware [process](#process) reads the Hypermap, looking for these specific path/entries, and then uses that information to contact other nodes offchain.
 
 The Hyperware [App Store](#app-store) protocol stores the app metadata URI and hash of that metadata in Hypermap entries.
 The `app-store` Hyperware process reads the Hypermap, looking for these specific path/entries, and then uses that information to coordinate:

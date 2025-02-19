@@ -3,7 +3,7 @@
 - [Getting Started](./getting_started/getting_started.md)
   - [Quick Start](./getting_started/quick_start.md)
   - [Introduction](./getting_started/intro.md)
-  - [Hypermap and KNS](./getting_started/hypermap.md)
+  - [Hypermap and HNS](./getting_started/hypermap.md)
   - [Design Philosophy](./getting_started/design_philosophy.md)
   - [Installation](./getting_started/install.md)
   - [Join the Network](./getting_started/login.md)

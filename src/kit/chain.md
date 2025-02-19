@@ -17,7 +17,7 @@ This json file includes the HNS (Hyperware Name System) & `app-store` contracts,
 
 The [`kinostate.json`](https://github.com/hyperware-ai/kit/blob/master/src/chain/kinostate) files can be found written into `/tmp/hyperdrive-kit-cache/kinostate-{hash}.json` upon running the command.
 
-Note that while the `kns-indexer` and `app-store` apps in fake nodes use this chain to index events, any events loaded from a json statefile, aren't replayed upon restarting anvil.
+Note that while the `hns-indexer` and `app-store` apps in fake nodes use this chain to index events, any events loaded from a json statefile, aren't replayed upon restarting anvil.
 
 ## Arguments
 

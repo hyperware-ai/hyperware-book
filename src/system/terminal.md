@@ -11,9 +11,9 @@ These scripts are fully named `<SCRIPT>:terminal:sys` e.g `hi:terminal:sys`, but
 ### `hi` - ping another node
 
 ```
-Usage: hi <KNS_ID> <MESSAGE>
+Usage: hi <HNS_ID> <MESSAGE>
 Arguments:
-  <KNS_ID>  id of the node you want to message, e.g. some-node.os
+  <HNS_ID>  id of the node you want to message, e.g. some-node.os
   <MESSAGE> any string
 Example:
 hi other-node.os Hello other-node.os! how are you?
@@ -24,7 +24,7 @@ hi other-node.os Hello other-node.os! how are you?
 ```
 Usage: m <ADDRESS> <BODY>
 Arguments:
-  <ADDRESS> kns addresss e.g. some-node.os@process:pkg:publisher.os
+  <ADDRESS> hns addresss e.g. some-node.os@process:pkg:publisher.os
   <BODY>    json payload wrapped in single quotes, e.g. '{"foo": "bar"}'
 Options:
   -a, --await <SECONDS> await the response, timing out after SECONDS

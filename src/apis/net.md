@@ -32,9 +32,9 @@ pub enum NetAction {
     /// with the NodeId given.
     ConnectionRequest(NodeId),
     /// can only receive from trusted source: requires net root cap
-    KnsUpdate(KnsUpdate),
+    HnsUpdate(HnsUpdate),
     /// can only receive from trusted source: requires net root cap
-    KnsBatchUpdate(Vec<KnsUpdate>),
+    HnsBatchUpdate(Vec<HnsUpdate>),
     /// get a list of peers we are connected to
     GetPeers,
     /// get the [`Identity`] struct for a single peer
@@ -53,7 +53,7 @@ pub enum NetAction {
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize, Hash, Eq, PartialEq)]
-pub struct KnsUpdate {
+pub struct HnsUpdate {
     pub name: String,
     pub public_key: String,
     pub ips: Vec<String>,
@@ -67,7 +67,7 @@ This type must be parsed from a request body using MessagePack.
 This is responded to with either an `Accepted` or `Rejected` variant of `NetResponses`.
 
 `HnsUpdate` and `HnsBatchUpdate` both are used as entry point by which the `net` module becomes aware of the Hyperware PKI, or HNS.
-In the current distro these are only accepted from the local node, and specifically the `kns-indexer` distro package.
+In the current distro these are only accepted from the local node, and specifically the `hns-indexer` distro package.
 
 `GetPeers` is used to request a list of peers that the `net` module is connected to. It can only be received from the local node.
 

@@ -13,7 +13,7 @@ Print out the arguments expected by the binary:
 $ ./hyperdrive --help
 A General Purpose Sovereign Cloud Computing Platform
 
-Usage: kinode [OPTIONS] <home>
+Usage: hyperdrive [OPTIONS] <home>
 
 Arguments:
   <home>  Path to home directory
@@ -22,9 +22,9 @@ Options:
   -p, --port <PORT>
           Port to bind [default: first unbound at or above 8080]
       --ws-port <PORT>
-          Kinode internal WebSockets protocol port [default: first unbound at or above 9000]
+          Hyperdrive internal WebSockets protocol port [default: first unbound at or above 9000]
       --tcp-port <PORT>
-          Kinode internal TCP protocol port [default: first unbound at or above 10000]
+          Hyperdrive internal TCP protocol port [default: first unbound at or above 10000]
   -v, --verbosity <VERBOSITY>
           Verbosity level: higher is more verbose [default: 0]
   -l, --logging-off
@@ -35,6 +35,8 @@ Options:
           Run in detached mode (don't accept input)
       --rpc <RPC>
           Add a WebSockets RPC URL at boot
+      --rpc-config <RPC_CONFIG_PATH>
+          Add WebSockets RPC URLs specified in config at boot
       --password <PASSWORD>
           Node password (in double quotes)
       --max-log-size <MAX_LOG_SIZE_BYTES>
@@ -56,7 +58,7 @@ Options:
 ```
 
 A home directory must be supplied — where the node will store its files.
-The `--rpc` flag is an optional `wss://` WebSocket link to an Ethereum RPC, allowing Hyperdrive to send and receive Ethereum transactions — used in the [identity system](../getting_started/Hypermap.md#hns-hyperware-name-system) as mentioned [above](#creating-an-alchemy-account).
+The `--rpc` flag is an optional `wss://` WebSocket link to an Ethereum RPC, allowing Hyperdrive to send and receive Ethereum transactions — used in the [identity system](../getting_started/hypermap.md#hns-hyperware-name-system) as mentioned [above](#creating-an-alchemy-account).
 If this is not supplied, the node will use a set of default RPC providers served by other nodes on the network.
 If the `--port` flag is supplied, Hyperdrive will attempt to bind that port for serving HTTP and will exit if that port is already taken.
 If no `--port` flag is supplied, Hyperdrive will bind to `8080` if it is available, or the first port above `8080` if not.

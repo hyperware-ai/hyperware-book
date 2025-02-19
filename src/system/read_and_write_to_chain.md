@@ -39,7 +39,7 @@ The file is a JSON object: a list of providers, with the following shape (exampl
     "provider": {
       "Node": {
         "use_as_provider": true,
-        "kns_update": {
+        "hns_update": {
           "name": "default-router-1.os",
           "owner": "",
           "node": "0xb35eb347deb896bc3fb6132a07fca1601f83462385ed11e835c24c33ba4ef73d",
@@ -58,4 +58,4 @@ One can see that the provider list includes both node-providers (other nodes tha
 Nodes that wish to maximize their connectivity should supply themselves with url-providers, ideally trusted ones — they can even be running locally, with a light client for Ethereum such as [Helios](https://github.com/a16z/helios).
 In fact, a future update to the provider module will likely integrate Helios, which will allow nodes to convert untrusted endpoints to trusted ones. This is the reason for the `trusted` flag in the provider object.
 
-Lastly, note that the `kns_update` object must fully match the onchain PKI data for the given node, otherwise the two nodes will likely not be able to establish a connection.
+Lastly, note that the `hns_update` object must fully match the onchain PKI data for the given node, otherwise the two nodes will likely not be able to establish a connection.

@@ -195,7 +195,7 @@ pub struct ProviderConfig {
 #[derive(Clone, Debug, Deserialize, Serialize, Hash, Eq, PartialEq)]
 pub enum NodeOrRpcUrl {
     Node {
-        kns_update: crate::core::KnsUpdate,
+        hns_update: crate::core::HnsUpdate,
         use_as_provider: bool, // false for just-routers inside saved config
     },
     RpcUrl(String),
@@ -209,7 +209,7 @@ pub enum NodeOrRpcUrl {
 pub enum EthConfigResponse {
     Ok,
     /// Response from a GetProviders request.
-    /// Note the [`crate::core::KnsUpdate`] will only have the correct `name` field.
+    /// Note the [`crate::core::HnsUpdate`] will only have the correct `name` field.
     /// The rest of the Update is not saved in this module.
     Providers(SavedConfigs),
     /// Response from a GetAccessSettings request.

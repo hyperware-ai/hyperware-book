@@ -1,4 +1,4 @@
-# Hypermap and KNS
+# Hypermap and HNS
 
 Hypermap is an onchain namespace for the Hyperware stack.
 It serves as the base-level shared global state that all nodes use to share critical signaling data with the entire network.
@@ -30,8 +30,8 @@ This identity must be self-sovereign, unforgeable, and easy to discover by peers
 Hyperware uses a PKI (public-key infrastructure) that runs *within* Hypermap to achieve this.
 It should be noted that, in our system, the concepts of `domain`, `identity`, and `username` are identical and interchangeable.
 
-Also important to understanding KNS identities is that other onchain identity protocols can be absorbed and supported by KNS.
-The KNS is not an attempt at replacing or competing with existing onchain identity primitives such as ENS and Lens.
+Also important to understanding HNS identities is that other onchain identity protocols can be absorbed and supported by HNS.
+The HNS is not an attempt at replacing or competing with existing onchain identity primitives such as ENS and Lens.
 This has already been done for ENS protocol.
 
 Hyperware names are registered by a wallet and owned in the form of an NFT like any other Hypermap namespace entry.
@@ -42,11 +42,11 @@ They contain metadata necessary to cover both:
 
 It's easy enough to check for provenance of a given Hyperware identity.
 If you have a Hyperware domain, you can prove ownership by signing a message with the wallet that owns the domain.
-However, to effectively use your Hyperware identity as a domain name for your personal server, KNS domains have routing information, similar to a DNS record, that points to an IP address.
+However, to effectively use your Hyperware identity as a domain name for your personal server, HNS domains have routing information, similar to a DNS record, that points to an IP address.
 
 ### Domain Resolution
 
-A KNS identity can either be `direct` or `indirect`.
+A HNS identity can either be `direct` or `indirect`.
 When users first boot a node, they may decide between these two types as they create their initial identity.
 Direct nodes share their literal IP address and port in their metadata, allowing other nodes to message them directly.
 Again, this is similar to registering a WWW domain name and pointing it at your web server.
@@ -60,7 +60,7 @@ The router is responsible for forwarding the message to the indirect node and si
 
 ### Specification Within Hypermap
 
-The definition of a node identity in the KNS protocol is any Hypermap entry that has:
+The definition of a node identity in the HNS protocol is any Hypermap entry that has:
 
 1. A `~net-key` note AND
 2. Either:
