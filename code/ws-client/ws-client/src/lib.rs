@@ -12,11 +12,11 @@
 /// ```
 use anyhow::{anyhow, Result};
 
-use kinode_process_lib::{
+use hyperware_process_lib::{
     await_message, call_init, get_blob, http, println, Address, LazyLoadBlob, Message,
 };
 #[cfg(feature = "test")]
-use kinode_process_lib::{OnExit, Request};
+use hyperware_process_lib::{OnExit, Request};
 
 wit_bindgen::generate!({
     path: "target/wit",

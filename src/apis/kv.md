@@ -1,12 +1,12 @@
 ### KV API
 
-Useful helper functions can be found in the [`kinode_process_lib`](../process_stdlib/overview.md).
-More discussion of databases in Kinode can be found [here](../system/databases.md).
+Useful helper functions can be found in the [`hyperware_process_lib`](../process_stdlib/overview.md).
+More discussion of databases in Hyperware can be found [here](../system/databases.md).
 
 #### Creating/Opening a database
 
 ```rust
-use kinode_process_lib::kv;
+use hyperware_process_lib::kv;
 
 let kv = kv::open(our.package_id(), "birthdays")?;
 

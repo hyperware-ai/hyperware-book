@@ -1,10 +1,10 @@
 # Managing Contacts
 
-Like iOS and Android, Kinode OS includes a handy contacts system primitive, called `contacts:contacts:sys`.
+Like iOS and Android, Hyperdrive includes a handy contacts system primitive, called `contacts:contacts:sys`.
 Using it is optional, but as a peer-to-peer application developer, importing existing contacts is a great way to bootstrap your protocol.
 Given the proper capabilities, an app can get the list of existing contacts, get information about a specific contact or all contacts, add new contacts, edit information about contacts, and remove contacts.
 
-Each contact is a valid node identity that's been registered in [kimap](../getting_started/kimap.md).
+Each contact is a valid node identity that's been registered in [Hypermap](../getting_started/hypermap.md).
 Each contact has a map of fields which are labeled by a string key and contain a JSON value.
 
 Here is the full [WIT API](../system/process/wit_apis.md) for `contacts:contacts:sys`:
@@ -107,8 +107,8 @@ wit_bindgen::generate!({
 4. In your process, create the capability and use it to make a request
 
 ```rust
-use crate::kinode::process::contacts;
-use kinode_process_lib::{kiprintln, Address, Capability, Request};
+use crate::hyperware::process::contacts;
+use hyperware_process_lib::{kiprintln, Address, Capability, Request};
 
 let contacts_process = Address::from((our.node(), "contacts", "contacts", "sys"));
 

@@ -1,7 +1,7 @@
 use anyhow::{anyhow, Result};
 
-use crate::kinode::process::mfa_data_demo::{Request as MfaRequest, Response as MfaResponse};
-use kinode_process_lib::{
+use crate::hyperware::process::mfa_data_demo::{Request as MfaRequest, Response as MfaResponse};
+use hyperware_process_lib::{
     await_message, call_init, get_blob, homepage, http, println, Address, Message, Request,
     Response,
 };
@@ -20,7 +20,7 @@ const ICON: &str = include_str!("./icon");
 // you can embed an external URL
 // const WIDGET: &str = "<iframe src='https://example.com'></iframe>";
 // or you can embed your own HTML
-const WIDGET: &str = "<html><body><h1>Hello, Kinode!</h1></body></html>";
+const WIDGET: &str = "<html><body><h1>Hello, Hyperware!</h1></body></html>";
 
 #[derive(Debug, serde::Deserialize, serde::Serialize, process_macros::SerdeJsonInto)]
 #[serde(untagged)] // untagged as a meta-type for all incoming responses
@@ -96,7 +96,6 @@ fn init(our: Address) {
     server.bind_http_path("/api", server_config).unwrap();
     server
         .serve_file(
-            &our,
             "ui/index.html",
             vec!["/"],
             http::server::HttpBindingConfig::default(),

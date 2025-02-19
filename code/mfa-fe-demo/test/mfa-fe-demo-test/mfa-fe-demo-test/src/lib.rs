@@ -1,8 +1,8 @@
-use crate::kinode::process::mfa_data_demo::{Request as MfaRequest, Response as MfaResponse};
-use crate::kinode::process::tester::{
+use crate::hyperware::process::mfa_data_demo::{Request as MfaRequest, Response as MfaResponse};
+use crate::hyperware::process::tester::{
     FailResponse, Request as TesterRequest, Response as TesterResponse, RunRequest,
 };
-use kinode_process_lib::{await_message, call_init, println, Address, Request, Response};
+use hyperware_process_lib::{await_message, call_init, println, Address, Request, Response};
 
 mod tester_lib;
 

@@ -7,8 +7,8 @@ Note — the app you will build in Sections 2 through 5 is *not* `my-chat-app`; 
 
 ## Requirements
 
-This section assumes you've completed the steps outlined in [Environment Setup](./chapter_1.md) to setup your development environment or otherwise have a basic Kinode app open in your code editor of choice.
-You should also be actively running a Kinode ([live](../getting_started/login.md) or [fake](./chapter_1.md#booting-a-fake-kinode-node)) such that you can quickly compile and test your code!
+This section assumes you've completed the steps outlined in [Environment Setup](./chapter_1.md) to setup your development environment or otherwise have a basic Hyperware app open in your code editor of choice.
+You should also be actively running a Hyperware node ([live](../getting_started/login.md) or [fake](./chapter_1.md#booting-a-fake-hyperware-node)) such that you can quickly compile and test your code!
 Tight feedback loops when building: very important.
 
 ## Starting from Scratch
@@ -36,12 +36,12 @@ The component, however, internally defines how that `world` is implemented.
 This interface is defined via [WIT](https://component-model.bytecodealliance.org/design/wit.html).
 
 WIT bindings are the glue code that is necessary for the interaction between Wasm modules and their host environment.
-They may be written in any Wasm-compatible language — Kinode offers the most support for Rust with [`kit`](../kit/kit-dev-toolkit.md) and [`process_lib`](../process_stdlib/overview.md).
-The `world`, types, imports, and exports are all declared in a [WIT file](https://github.com/kinode-dao/kinode-wit/blob/v0.8/kinode.wit), and using that file, [`wit_bindgen`](https://github.com/bytecodealliance/wit-bindgen) generates the code for the bindings.
+They may be written in any Wasm-compatible language — Hyperware offers the most support for Rust with [`kit`](../kit/kit-dev-toolkit.md) and [`process_lib`](../process_stdlib/overview.md).
+The `world`, types, imports, and exports are all declared in a [WIT file](https://github.com/hyperware-ai/hyperdrive-wit/blob/v0.8/hyperware.wit), and using that file, [`wit_bindgen`](https://github.com/bytecodealliance/wit-bindgen) generates the code for the bindings.
 
 So, to bring it all together...
 
-Every process must generate WIT bindings based on a WIT file for either the default `process-v0` world or a package-specific `world` in order to interface with the Kinode kernel:
+Every process must generate WIT bindings based on a WIT file for either the default `process-v1` world or a package-specific `world` in order to interface with the Hyperware kernel:
 
 ```rust
 {{#include ../../code/mfa-message-demo/mfa-message-demo/src/lib.rs:3:6}}
@@ -56,21 +56,21 @@ The following prose is an explanation of what is happening under-the-hood in the
 
 After generating the bindings, every process must define a `Component` struct which implements the `Guest` trait (i.e. a wrapper around the process which defines the export interface, as discussed [above](#generating-wit-bindings)).
 The `Guest` trait should define a single function — `init()`.
-This is the entry point for the process, and the `init()` function is the first function called by the Kinode runtime when the process is started.
+This is the entry point for the process, and the `init()` function is the first function called by the Hyperware runtime (such as Hyperdrive) when the process is started.
 
-The definition of the `Component` struct can be done manually, but it's easier to import the [`kinode_process_lib`](../process_stdlib/overview.md) crate (a sort of standard library for Kinode processes written in Rust) and use the `call_init!` macro.
+The definition of the `Component` struct can be done manually, but it's easier to import the [`hyperware_process_lib`](../process_stdlib/overview.md) crate (a sort of standard library for Hyperware processes written in Rust) and use the `call_init!` macro.
 
 ```rust
 {{#include ../../code/mfa-message-demo/mfa-message-demo/src/lib.rs::9}}
 ...
 ```
 
-Every Kinode process written in Rust will need code that does the same thing as the code above (i.e. use the `wit_bindgen::generate!()` and `call_init!()` macros).
-See [`kinode.wit`](../apis/kinode_wit.md) for more details on what is imported by the WIT bindgen macro.
-These imports are the necessary "system calls" for talking to other processes and runtime components on Kinode.
+Every Hyperware process written in Rust will need code that does the same thing as the code above (i.e. use the `wit_bindgen::generate!()` and `call_init!()` macros).
+See [`hyperware.wit`](../apis/hyperware_wit.md) for more details on what is imported by the WIT bindgen macro.
+These imports are the necessary "system calls" for talking to other processes and runtime components on Hyperware.
 Note that there are a variety of imports from the [`process_lib`](../process_stdlib/overview.md) including a `println!` macro that replaces the standard Rust one.
 
-The [`our` parameter](https://docs.rs/kinode_process_lib/latest/kinode_process_lib/kinode/process/standard/struct.Address.html) tells the process what its globally-unique name is.
+The [`our` parameter](https://docs.rs/hyperware_process_lib/latest/hyperware_process_lib/hyperware/process/standard/struct.Address.html) tells the process what its globally-unique name is.
 
 The `init()` function can either do one task and then return, or it can `loop`, waiting for a new message and then acting based on the nature of the message.
 The first pattern is more usual for scripts that do one task and then exit.
@@ -78,7 +78,7 @@ The second pattern is more usual for long-lived state machine processes that, e.
 
 ## Sending a Message
 
-The [`Request`](https://docs.rs/kinode_process_lib/latest/kinode_process_lib/struct.Request.html) type from the [`process_lib`](../process_stdlib/overview.md) provides all the necessary functionality to send a Message.
+The [`Request`](https://docs.rs/hyperware_process_lib/latest/hyperware_process_lib/struct.Request.html) type from the [`process_lib`](../process_stdlib/overview.md) provides all the necessary functionality to send a Message.
 
 `Request` is a builder struct that abstracts over the raw interface presented in the WIT bindings.
 It's very simple to use:
@@ -138,9 +138,9 @@ kit start-package your_pkg_directory -p 8080
 ```
 to see the messages being sent by your process.
 
-You can find the full code [here](https://github.com/kinode-dao/kinode-book/tree/main/code/mfa-message-demo).
+You can find the full code [here](https://github.com/hyperware-ai/hyperware-book/tree/main/code/mfa-message-demo).
 
-The basic structure of this process — an infinite loop of `await_message()` and then handling logic — can be found in the majority of Kinode processes.
+The basic structure of this process — an infinite loop of `await_message()` and then handling logic — can be found in the majority of Hyperware processes.
 The other common structure is a script-like process, that handles and sends a fixed series of messages and then exits.
 
 In the next section, you will learn how to turn this very basic `Request-`Response` pattern into something that can be extensible and composable.

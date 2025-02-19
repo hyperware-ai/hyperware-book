@@ -22,7 +22,7 @@ kit build-start-package
 
 ```
 $ kit build-start-package --help
-Build and start a Kinode package
+Build and start a Hyperware package
 
 Usage: kit build-start-package [OPTIONS] [DIR]
 
@@ -31,7 +31,7 @@ Arguments:
 
 Options:
   -p, --port <NODE_PORT>
-          localhost node port; for remote see https://book.kinode.org/hosted-nodes.html#using-kit-with-your-hosted-node [default: 8080]
+          localhost node port; for remote see https://book.hyperware.ai/hosted-nodes.html#using-kit-with-your-hosted-node [default: 8080]
   -d, --download-from <NODE>
           Download API from this node if not found
   -w, --world <WORLD>

@@ -5,7 +5,7 @@
 
 This entry will teach you to add a simple UI to the [file transfer app](./file_transfer.md), using [`kit`](../kit/kit-dev-toolkit.md)'s built-in UI template.
 
-This guide assumes a basic understanding of Kinode process building, some familiarity with [`kit`](../kit/kit-dev-toolkit.md), requests and responses, and some knowledge of Rust syntax.
+This guide assumes a basic understanding of Hyperware process building, some familiarity with [`kit`](../kit/kit-dev-toolkit.md), requests and responses, and some knowledge of Rust syntax.
 It's also strongly recommended that you read and understand the [file transfer app](./file_transfer.md) before continuing.
 
 ## Contents
@@ -29,7 +29,7 @@ This will create a new project with a `ui` directory for the Vite/React UI code,
 ## File Transfer
 
 The file transfer app is a simple app that allows users to upload and download files to and from their node.
-It's a good example of a simple app that can be built on Kinode.
+It's a good example of a simple app that can be built on Hyperware.
 
 ### Existing Features
 
@@ -71,7 +71,7 @@ However, you will need to configure Vite to allow your UI to communicate seamles
 
 ### Configure Vite
 
-You will be configuring your Vite environment in order to enable development on Kinode.
+You will be configuring your Vite environment in order to enable development on Hyperware.
 This step is necessary to allow your *development* UI (which will change often, and rebuild quickly) to communicate with the `file-transfer` app on your node (which will change rarely, and rebuild slowly).
 
 #### Example `vite.config.ts`
@@ -182,7 +182,7 @@ The `fileTransferStore` is a Zustand store that will manage your state.
 import { create } from 'zustand'
 import { persist, createJSONStorage } from 'zustand/middleware'
 import KinoFile from '../types/KinoFile'
-import KinodeEncryptorApi from '@uqbar/client-encryptor-api'
+import HyperwareEncryptorApi from '@uqbar/client-encryptor-api'
 
 export interface FileTransferStore {
   // handleWsMessage is a function that will be called when the websocket receives a message.
@@ -196,9 +196,9 @@ export interface FileTransferStore {
   filesInProgress: { [key: string]: number }
   setFilesInProgress: (filesInProgress: { [key: string]: number }) => void
 
-  // the initialized Kinode api which you will communicate with
-  api: KinodeEncryptorApi | null
-  setApi: (api: KinodeEncryptorApi) => void
+  // the initialized Hyperware api which you will communicate with
+  api: HyperwareEncryptorApi | null
+  setApi: (api: HyperwareEncryptorApi) => void
 
   // zustand's generic set function
   set: (partial: FileTransferStore | Partial<FileTransferStore>) => void
@@ -322,7 +322,7 @@ We'll want to show the files on your node, the files on other nodes, and a way t
 import { useEffect, useState } from 'react'
 import './App.css'
 import MyFiles from './components/MyFiles'
-import KinodeEncryptorApi from '@uqbar/client-encryptor-api'
+import HyperwareEncryptorApi from '@uqbar/client-encryptor-api'
 import useFileTransferStore from './store/fileTransferStore';
 import SearchFiles from './components/SearchFiles';
 
@@ -359,7 +359,7 @@ function App() {
       inited = true
 
       // Connect to your node's websocket for this process.
-      const api = new KinodeEncryptorApi({
+      const api = new HyperwareEncryptorApi({
         uri: WEBSOCKET_URL,
         nodeId: window.our.node,
         processId: window.our.process,

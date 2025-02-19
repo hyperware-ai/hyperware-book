@@ -19,16 +19,16 @@ To try it out, boot up another node, execute the `kit start-package` command, an
 Presto!
 
 This concludes the main Chess tutorial.
-If you're interested in learning more about how to write Kinode processes, there are several great options to extend the app:
+If you're interested in learning more about how to write Hyperware processes, there are several great options to extend the app:
 
 - Consider how to handle network errors and surface those to the user
 - Add game tracking to the processes state, such that players can see their history
 - Consider what another app might look like that uses the chess engine as a library.
 Alter the process to serve this use case, or add another process that can be spawned to do such a thing.
 
-There are also extensions to this tutorial which dive into specific use cases which make the most of Kinode:
+There are also extensions to this tutorial which dive into specific use cases which make the most of Hyperware:
 
 - [Chat](./chat.md)
 - [more coming soon](#)
 
-The full code is available [here](https://github.com/kinode-dao/kinode/tree/main/kinode/packages/chess).
+The full code is available [here (backend))](https://github.com/hyperware-ai/kit/tree/master/src/new/templates/rust/ui/chess) and [here (frontend)](https://github.com/hyperware-ai/kit/tree/master/src/new/templates/ui/chess/ui).

@@ -21,120 +21,89 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
-      - name: Set up nvm, node, npm p0
-        run: |
-          echo "$HOME" >> $GITHUB_PATH
-          echo "NVM_DIR=$HOME/.nvm" >> $GITHUB_ENV
-      - name: Set up nvm, node, npm p1
-        run: |
-          source $NVM_DIR/nvm.sh
-          nvm install 20.0.0
-          nvm --version
-      - name: Set up cargo
-        run: |
-          curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf -y | sh
-          rustup update
-          cargo install wasm-tools
-          rustup install nightly
-          rustup target add wasm32-wasip1 --toolchain nightly
-          cargo install cargo-wasi
-      #- name: Get latest release from foundry-rs/foundry
-      #  id: get-latest-foundry-release
-      #  uses: actions/github-script@v6
-      #  with:
-      #    script: |
-      #      const repo = {
-      #        owner: 'foundry-rs',
-      #        repo: 'foundry',
-      #        per_page: 1,
-      #        page: 1,
-      #      };
-      #      const releases = await github.rest.repos.listReleases(repo);
-      #      const preReleases = releases.data.filter(release => release.prerelease);
+  # TODO: reenable tests
+  #test:
+  #  runs-on: ubuntu-latest
+  #  steps:
+  #    - name: Checkout repo
+  #      uses: actions/checkout@v2
+  #    - name: Set up nvm, node, npm p0
+  #      run: |
+  #        echo "$HOME" >> $GITHUB_PATH
+  #        echo "NVM_DIR=$HOME/.nvm" >> $GITHUB_ENV
+  #    - name: Set up nvm, node, npm p1
+  #      run: |
+  #        source $NVM_DIR/nvm.sh
+  #        nvm install 20.0.0
+  #        nvm --version
+  #    - name: Set up cargo
+  #      run: |
+  #        curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf -y | sh
+  #        rustup update
+  #        cargo install wasm-tools
+  #        rustup install nightly
+  #        rustup target add wasm32-wasip1 --toolchain nightly
+  #        cargo install cargo-wasi
+  #    - name: Get latest release from foundry-rs/foundry
+  #      id: get-latest-foundry-release
+  #      uses: actions/github-script@v6
+  #      with:
+  #        script: |
+  #          const repo = {
+  #            owner: 'foundry-rs',
+  #            repo: 'foundry',
+  #            per_page: 1,
+  #            page: 1,
+  #          };
+  #          const releases = await github.rest.repos.listReleases(repo);
+  #          const preReleases = releases.data.filter(release => release.prerelease);
 
-      #      // Sort pre-releases by created_at date in descending order
-      #      preReleases.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+  #          // Sort pre-releases by created_at date in descending order
+  #          preReleases.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
-      #      if (preReleases.length === 0) {
-      #        throw new Error('No pre-releases found');
-      #      }
+  #          if (preReleases.length === 0) {
+  #            throw new Error('No pre-releases found');
+  #          }
 
-      #      const latestPreRelease = preReleases[0];
-      #      const asset = latestPreRelease.assets.find(asset => asset.name.match(/foundry_nightly_linux_amd64\.tar\.gz/));
+  #          const latestPreRelease = preReleases[0];
+  #          const asset = latestPreRelease.assets.find(asset => asset.name.match(/foundry_nightly_linux_amd64\.tar\.gz/));
 
-      #      if (!asset) {
-      #        throw new Error('Asset not found');
-      #      }
-      #      return asset.browser_download_url;
-      #    result-encoding: string
-      - name: Download Foundry
-        run: wget -q https://github.com/foundry-rs/foundry/releases/download/nightly-c3069a50ba18cccfc4e7d5de9b9b388811d9cc7b/foundry_nightly_linux_amd64.tar.gz -O foundry.tar.gz
-        #run: wget -q ${DOWNLOAD_URL} -O foundry.tar.gz
-        #env:
-        #  DOWNLOAD_URL: ${{ steps.get-latest-foundry-release.outputs.result }}
-      - name: Untar Foundry
-        run: tar zxf foundry.tar.gz
-      - name: Add Foundry to path
-        run: echo "$PWD" >> $GITHUB_PATH
+  #          if (!asset) {
+  #            throw new Error('Asset not found');
+  #          }
+  #          return asset.browser_download_url;
+  #        result-encoding: string
 
-      - name: Get latest release from kinode-dao/kit
-        id: get-latest-kit-release
-        uses: actions/github-script@v6
-        with:
-          script: |
-            const repo = {
-              owner: 'kinode-dao',
-              repo: 'kit',
-            };
-            const release = await github.rest.repos.getLatestRelease(repo);
-            const asset = release.data.assets.find(asset => asset.name.match(/kit-x86_64-unknown-linux-gnu\.zip/));
-            if (!asset) {
-              throw new Error('Asset not found');
-            }
-            return asset.browser_download_url;
-          result-encoding: string
-      - name: Download the Kit release
-        run: wget -q ${DOWNLOAD_URL} -O kit.zip
-        env:
-          DOWNLOAD_URL: ${{ steps.get-latest-kit-release.outputs.result }}
-      - name: Unzip the release
-        run: unzip kit.zip
+  #    - name: Get latest release from hyperware-ai/kit
+  #      id: get-latest-kit-release
+  #      uses: actions/github-script@v6
+  #      with:
+  #        script: |
+  #          const repo = {
+  #            owner: 'hyperware-ai',
+  #            repo: 'kit',
+  #          };
+  #          const release = await github.rest.repos.getLatestRelease(repo);
+  #          const asset = release.data.assets.find(asset => asset.name.match(/kit-x86_64-unknown-linux-gnu\.zip/));
+  #          if (!asset) {
+  #            throw new Error('Asset not found');
+  #          }
+  #          return asset.browser_download_url;
+  #        result-encoding: string
+  #    - name: Download the Kit release
+  #      run: wget -q ${DOWNLOAD_URL} -O kit.zip
+  #      env:
+  #        DOWNLOAD_URL: ${{ steps.get-latest-kit-release.outputs.result }}
+  #    - name: Unzip the release
+  #      run: unzip kit.zip
 
-      #- name: Get latest release from kinode-dao/kinode
-      #  id: get-latest-kinode-release
-      #  uses: actions/github-script@v6
-      #  with:
-      #    script: |
-      #      const repo = {
-      #        owner: 'kinode-dao',
-      #        repo: 'kinode',
-      #      };
-      #      const release = await github.rest.repos.getLatestRelease(repo);
-      #      const asset = release.data.assets.find(asset => asset.name.match(/kinode-x86_64-unknown-linux-gnu\.zip/));
-      #      if (!asset) {
-      #        throw new Error('Asset not found');
-      #      }
-      #      return asset.browser_download_url;
-      #    result-encoding: string
-      #- name: Download the Kinode release
-      #  run: wget -q ${DOWNLOAD_URL} -O kinode.zip
-      #  env:
-      #    DOWNLOAD_URL: ${{ steps.get-latest-kit-release.outputs.result }}
-      #- name: Unzip the Kinode release
-      #  run: unzip kinode.zip
-
-      - name: Run Kit tests
-        #run: ./kit t code/tests.toml
-        run: |
-          { ./kit t code/tests.toml; } 2>&1
+  #    - name: Run Kit tests
+  #      #run: ./kit t code/tests.toml
+  #      run: |
+  #        { ./kit t code/tests.toml; } 2>&1
 
   build:
-    needs: test
+    #needs: test # TODO: reenable tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

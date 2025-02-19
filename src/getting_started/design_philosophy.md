@@ -1,6 +1,6 @@
 # Design Philosophy
 
-The following is a high-level overview of Kinode's design philosophy, along with the rationale for fundamental design choices.
+The following is a high-level overview of Hyperware's design philosophy, along with the rationale for fundamental design choices.
 
 ### Decentralized Software Requires a Shared Computing Environment
 
@@ -12,13 +12,13 @@ This environment must integrate with existing protocols, blockchains, and servic
 
 A wide array of companies and services benefit from some amount of decentralized infrastructure, even those operating in a largely centralized context.
 Additionally, central authority and centralized data are often essential to the proper function of a particular service, including those with decentralized properties.
-The Kinode environment must be flexible enough to serve the vast majority of the decentralization spectrum.
+The Hyperware stack must be flexible enough to serve the vast majority of the decentralization spectrum.
 
 ### Blockchains are not Databases
 
 To use blockchains as mere databases would negate their unique value.
 Blockchains are consensus tools, and exist in a spectrum alongside other consensus strategies such as Raft, lockstep protocols, CRDTs, and simple gossip.
-All of these are valid consensus schemes, and peer-to-peer software, such as that built on Kinode, must choose the correct strategy for a particular task, program, or application.
+All of these are valid consensus schemes, and peer-to-peer software, such as that built on Hyperware, must choose the correct strategy for a particular task, program, or application.
 
 ### Decentralized Software Outcompetes Centralized Software through Permissionlessness and Composability
 
@@ -33,14 +33,14 @@ Those features include:
 ### Decentralized Software Requires Decentralized Governance
 
 The above properties are achieved by governance.
-Successful protocols launched on Kinode will be ones that decentralize their governance in order to maintain these properties.
-Kinode believes that systems that don't proactively specify their point of control will eventually centralize, even if unintentionally.
-The governance of Kinode itself must be designed to encourage decentralization, playing a role in the publication and distribution of userspace software protocols.
+Successful protocols launched on Hyperware will be ones that decentralize their governance in order to maintain these properties.
+Hyperware believes that systems that don't proactively specify their point of control will eventually centralize, even if unintentionally.
+The governance of Hyperware itself must be designed to encourage decentralization, playing a role in the publication and distribution of userspace software protocols.
 In practice, this looks like an on-chain permissionless App Store.
 
 ### Good Products Use Existing Tools
 
-Kinode is a novel combination of existing technologies, protocols, and ideas.
+Hyperware is a novel combination of existing technologies, protocols, and ideas.
 Our goal is not to create a new programming language or consensus algorithm, but to build a new execution environment that integrates the best of existing tools.
 Our current architecture relies on the following systems:
 
@@ -49,5 +49,5 @@ Our current architecture relies on the following systems:
 - Wasm: a portable, powerful binary format for executable programs
 - Wasmtime: a standalone Wasm runtime
 
-In addition, Kinode is inspired by the [Bytecode Alliance](https://bytecodealliance.org/) and their vision for secure, efficient, and modular software.
-Kinode makes extensive use of their tools and standards.
+In addition, Hyperware is inspired by the [Bytecode Alliance](https://bytecodealliance.org/) and their vision for secure, efficient, and modular software.
+Hyperware makes extensive use of their tools and standards.

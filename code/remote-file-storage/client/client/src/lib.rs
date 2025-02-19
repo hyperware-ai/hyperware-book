@@ -1,7 +1,7 @@
 use clap::{Parser, Subcommand};
 
-use crate::kinode::process::server::{get_file, list_files, put_file};
-use kinode_process_lib::{await_next_message_body, call_init, get_blob, println, Address};
+use crate::hyperware::process::server::{get_file, list_files, put_file};
+use hyperware_process_lib::{await_next_message_body, call_init, get_blob, println, Address};
 
 wit_bindgen::generate!({
     path: "target/wit",

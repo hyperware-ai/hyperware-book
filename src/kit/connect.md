@@ -4,7 +4,7 @@
 
 ## Example Usage
 
-Without any configuration, get your SSH Address from Valet, as discussed [here](../hosted-nodes.md#accessing-your-kinodes-terminal).
+Without any configuration, get your SSH Address from Valet, as discussed [here](../hosted-nodes.md#accessing-your-nodes-terminal).
 Then use
 ```
 kit connect --host <SSH Address>
@@ -40,7 +40,7 @@ You can find instructions for doing so [here](../hosted-nodes.md#using-ssh-keys)
 
 ```
 $ kit connect --help
-Connect (or disconnect) an SSH tunnel to a remote server
+Connect (or disconnect) a ssh tunnel to a remote server
 
 Usage: kit connect [OPTIONS] [LOCAL_PORT]
 
@@ -48,9 +48,9 @@ Arguments:
   [LOCAL_PORT]  Local port to bind [default: 9090]
 
 Options:
-  -d, --disconnect        If set, disconnect an existing tunnel (default: connect a new tunnel)
-  -o, --host <HOST>       Host URL/IP Kinode is running on (not required for disconnect)
-  -p, --port <HOST_PORT>  Remote (host) port Kinode is running on
+  -d, --disconnect        If set, disconnect an existing tunnel [default: connect a new tunnel]
+  -o, --host <HOST>       Host URL/IP node is running on (not required for disconnect)
+  -p, --port <HOST_PORT>  Remote (host) port node is running on
   -h, --help              Print help
 ```
 

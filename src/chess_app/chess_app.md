@@ -1,4 +1,12 @@
 # In-Depth Guide: Chess App
 
-This guide will walk you through building a very simple chess app on Kinode.
-The final result will look like [this](https://github.com/kinode-dao/kinode/tree/main/kinode/packages/chess): chess is in the basic runtime distribution so you can try it yourself.
+This guide will walk you through building a very simple chess app on Hyperware.
+The final result will look like the template you can create using:
+```
+kit b chess -t chess
+```
+You can try it yourself by installing it on your node:
+```
+kit s chess
+```
+See [`kit` usage examples](../my_first_app/chapter_1.md) for more context.

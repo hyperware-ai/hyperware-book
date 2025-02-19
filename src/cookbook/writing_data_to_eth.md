@@ -1,6 +1,6 @@
 # Writing Data to ETH
 
-For this cookbook entry, you'll create and deploy a simple `Counter` contract onto a fake local chain, and write a kinode app to interact with it.
+For this cookbook entry, you'll create and deploy a simple `Counter` contract onto a fake local chain, and write a Hyperware app to interact with it.
 
 Using `kit`, create a new project with the `echo` template:
 
@@ -76,12 +76,12 @@ You'll see a printout that looks something like this:
 ```
 
 Great!
-Now you'll write the kinode app to interact with it.
+Now you'll write the Hyperware app to interact with it.
 
-You're going to use some functions from the `eth` library in `kinode_process_lib`:
+You're going to use some functions from the `eth` library in `hyperware_process_lib`:
 
 ```rust
-use kinode_process_lib::eth;
+use hyperware_process_lib::eth;
 ```
 
 Also you'll need to request the capability to message `eth:distro:sys`, so you can add it to the `request_capabilities` field in `pkg/manifest.json`.
@@ -127,7 +127,7 @@ let contract_call = setNumberCall { newNumber: U256::from(58)};
 Start with a simple setup to read the current count, and print it out!
 
 ```rust
-use kinode_process_lib::{await_message, call_init, eth::{Address as EthAddress, Provider, TransactionInput, TransactionRequest, U256}, println, Address, Response};
+use hyperware_process_lib::{await_message, call_init, eth::{Address as EthAddress, Provider, TransactionInput, TransactionRequest, U256}, println, Address, Response};
 use alloy_sol_types::{sol, SolCall, SolValue};
 use std::str::FromStr;
 
@@ -232,7 +232,7 @@ use alloy::{
 };
 use alloy_rlp::Encodable;
 use alloy_sol_types::{sol, SolCall, SolValue};
-use kinode_process_lib::{
+use hyperware_process_lib::{
     await_message, call_init,
     eth::{Address as EthAddress, Provider, U256},
     println, Address, Response,

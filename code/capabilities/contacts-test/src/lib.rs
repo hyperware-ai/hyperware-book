@@ -1,5 +1,5 @@
-use crate::kinode::process::contacts;
-use kinode_process_lib::{call_init, kiprintln, Address, Capability, Request};
+use crate::hyperware::process::contacts;
+use hyperware_process_lib::{call_init, kiprintln, Address, Capability, Request};
 
 wit_bindgen::generate!({
     path: "target/wit",

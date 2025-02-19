@@ -3,10 +3,10 @@ authors = ["Sybil Technologies AG"]
 language = "en"
 multilingual = false
 src = "src"
-title = "Kinode"
+title = "Hyperware"
 
 [output.html]
-edit-url-template = "https://github.com/kinode-dao/kinode-book/edit/main/{path}"
+edit-url-template = "https://github.com/hyperware-ai/hyperware-book/edit/main/{path}"
 
 [output.html.fold]
 enable = true

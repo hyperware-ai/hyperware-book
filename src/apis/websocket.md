@@ -8,21 +8,21 @@ The process receives the `channel_id` for pushing data into the WebSocket, and a
 
 To open a WebSocket channel, connect to the main route on the node `/` and send a `WsRegister` message as either text or bytes.
 
-The simplest way to connect from a browser is to use the `@kinode/client-api` like so:
+The simplest way to connect from a browser is to use the `@hyperware/client-api` like so:
 
 ```rs
-const api = new KinodeEncryptorApi({
+const api = new HyperwareEncryptorApi({
   nodeId: window.our.node, // this is set if the /our.js script is present in index.html
   processId: "my-package:my-package:template.os",
   onOpen: (_event, api) => {
-    console.log('Connected to Kinode')
+    console.log('Connected to Hyperware')
     // Send a message to the node via WebSocket
     api.send({ data: 'Hello World' })
   },
 })
 ```
 
-`@kinode/client-api` is available here: [https://www.npmjs.com/package/@kinode/client-api](https://www.npmjs.com/package/@kinode/client-api)
+`@hyperware/client-api` is available here: [https://www.npmjs.com/package/@hyperware/client-api](https://www.npmjs.com/package/@hyperware/client-api)
 
 Simple JavaScript/JSON example:
 
@@ -40,7 +40,7 @@ function getCookie(name) {
 const websocket = new WebSocket("http://localhost:8080/");
 
 const message = JSON.stringify({
-    "auth_token": getCookie(`kinode-auth_${nodeId}`),
+    "auth_token": getCookie(`hyperware-auth_${nodeId}`),
     "target_process": "my-package:my-package:template.os",
     "encrypted": false,
 });

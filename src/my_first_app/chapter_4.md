@@ -10,7 +10,7 @@ If you're the type of person that prefers to learn by looking at a complete exam
 Using the built-in HTTP server will require handling a new type of Request in our main loop, and serving a Response to it.
 The [`process_lib`](../process_stdlib/overview.md) contains types and functions for doing so.
 
-At the top of your process, import [`get_blob`](https://docs.rs/kinode_process_lib/latest/kinode_process_lib/kinode/process/standard/fn.get_blob.html), [`homepage`](https://docs.rs/kinode_process_lib/latest/kinode_process_lib/homepage/index.html), and [`http`](https://docs.rs/kinode_process_lib/latest/kinode_process_lib/http/index.html) from [`kinode_process_lib`](../process_stdlib/overview.md) along with the rest of the imports.
+At the top of your process, import [`get_blob`](https://docs.rs/hyperware_process_lib/latest/hyperware_process_lib/hyperware/process/standard/fn.get_blob.html), [`homepage`](https://docs.rs/hyperware_process_lib/latest/hyperware_process_lib/homepage/index.html), and [`http`](https://docs.rs/hyperware_process_lib/latest/hyperware_process_lib/http/index.html) from [`hyperware_process_lib`](../process_stdlib/overview.md) along with the rest of the imports.
 You'll use `get_blob()` to grab the `body` bytes of an incoming HTTP request.
 ```rust
 {{#include ../../code/mfa-fe-demo/mfa-fe-demo/src/lib.rs:4:7}}
@@ -18,7 +18,7 @@ You'll use `get_blob()` to grab the `body` bytes of an incoming HTTP request.
 
 Keep the custom WIT-defined `MfaRequest` the same, and keep using that for terminal input.
 
-At the beginning of the `init()` function, in order to receive HTTP requests, use the [`kinode_process_lib::http`](https://docs.rs/kinode_process_lib/latest/kinode_process_lib/http/index.html) library to bind a new path.
+At the beginning of the `init()` function, in order to receive HTTP requests, use the [`hyperware_process_lib::http`](https://docs.rs/hyperware_process_lib/latest/hyperware_process_lib/http/index.html) library to bind a new path.
 Binding a path will cause the process to receive all HTTP requests that match that path.
 You can also bind static content to a path using another function in the library.
 
@@ -29,10 +29,10 @@ You can also bind static content to a path using another function in the library
 ...
 ```
 
-[`http::HttpServer::bind_http_path("/", server_config)`](https://docs.rs/kinode_process_lib/latest/kinode_process_lib/http/server/struct.HttpServer.html#method.bind_http_path) arguments mean the following:
+[`http::HttpServer::bind_http_path("/", server_config)`](https://docs.rs/hyperware_process_lib/latest/hyperware_process_lib/http/server/struct.HttpServer.html#method.bind_http_path) arguments mean the following:
 1. The first argument is the path to bind.
    Note that requests will be namespaced under the process name, so this will be accessible at e.g. `/my-process-name/`.
-2. The second argument [configures the binding](https://docs.rs/kinode_process_lib/latest/kinode_process_lib/http/server/struct.HttpBindingConfig.html).
+2. The second argument [configures the binding](https://docs.rs/hyperware_process_lib/latest/hyperware_process_lib/http/server/struct.HttpBindingConfig.html).
    A default setting here serves the page only to the owner of the node, suitable for private app access.
    Here, setting `authenticated(false)` serves the page to anyone with the URL.
 
@@ -56,7 +56,7 @@ Here, the [logic that was previously](./chapter_3.md#handling-messages) in `hand
 ```
 
 As a side-note, different apps will want to discriminate between incoming messages differently.
-For example, to restrict what senders are accepted (say to your own node or to some set of allowed nodes), your process can branch on the [`source().node`](https://docs.rs/kinode_process_lib/latest/kinode_process_lib/enum.Message.html#method.source).
+For example, to restrict what senders are accepted (say to your own node or to some set of allowed nodes), your process can branch on the [`source().node`](https://docs.rs/hyperware_process_lib/latest/hyperware_process_lib/enum.Message.html#method.source).
 
 ### Handling an HTTP Message
 
@@ -83,7 +83,7 @@ Finally, grab the `blob` from the request, send a `200 OK` response to the clien
 ```rust
 {{#include ../../code/mfa-fe-demo/mfa-fe-demo/src/lib.rs:56:62}}
 ```
-This could be done in a different way, but this simple pattern is useful for letting HTTP requests masquerade as in-Kinode requests.
+This could be done in a different way, but this simple pattern is useful for letting HTTP requests masquerade as in-Hyperware requests.
 
 Putting it all together, you get a process that you can build and start, then use cURL to send `Hello` and `Goodbye` requests via HTTP PUTs!
 
@@ -113,7 +113,7 @@ This is saved in your browser automatically on login.
 curl -X PUT -d '{"Hello": "greetings"}' http://localhost:8080/mfa_fe_demo:mfa_fe_demo:template.os/api
 ```
 
-You can find the full code [here](https://github.com/kinode-dao/kinode-book/tree/main/code/mfa-fe-demo).
+You can find the full code [here](https://github.com/hyperware-ai/hyperware-book/tree/main/code/mfa-fe-demo).
 
 There are a few lines we haven't covered yet: learn more about [serving a static frontend](#serving-a-static-frontend) and [adding a homepage icon and widget](#adding-a-homepage-icon-and-widget) below.
 
@@ -130,7 +130,7 @@ To do this, edit the bind commands in `my_init_fn` to look like this:
 {{#include ../../code/mfa-fe-demo/mfa-fe-demo/src/lib.rs:95:104}}
 ```
 
-Here you are setting `authenticated` to `false` in the [`bind_http_path()`](https://docs.rs/kinode_process_lib/latest/kinode_process_lib/http/server/struct.HttpServer.html#method.bind_http_path) call, but to `true` in the [`serve_file`](https://docs.rs/kinode_process_lib/latest/kinode_process_lib/http/server/struct.HttpServer.html#method.serve_file) call.
+Here you are setting `authenticated` to `false` in the [`bind_http_path()`](https://docs.rs/hyperware_process_lib/latest/hyperware_process_lib/http/server/struct.HttpServer.html#method.bind_http_path) call, but to `true` in the [`serve_file`](https://docs.rs/hyperware_process_lib/latest/hyperware_process_lib/http/server/struct.HttpServer.html#method.serve_file) call.
 This means the API is public; if instead you want the webpage to be served exclusively by the browser, change `authenticated` to `true` in `bind_http_path()` as well.
 
 You must also add a static `index.html` file to the package.
@@ -160,7 +160,7 @@ The user will navigate to `/` to see the webpage, and when they make a PUT reque
 This frontend is now fully packaged with the process — there are no more steps!
 Of course, this can be made arbitrarily complex with various frontend frameworks that produce a static build.
 
-In the next and final section, learn about the package metadata and how to share this app across the Kinode network.
+In the next and final section, learn about the package metadata and how to share this app across the Hyperware network.
 
 
 ## Adding a Homepage Icon and Widget
@@ -191,7 +191,7 @@ Finally, include the icon data in your `lib.rs` file just after the imports:
 
 #### Clicking the Button
 
-The Kinode process lib exposes an [`add_to_homepage()`](https://docs.rs/kinode_process_lib/latest/kinode_process_lib/homepage/fn.add_to_homepage.html) function that you can use to add your app to the homepage.
+The Hyperware process lib exposes an [`add_to_homepage()`](https://docs.rs/hyperware_process_lib/latest/hyperware_process_lib/homepage/fn.add_to_homepage.html) function that you can use to add your app to the homepage.
 
 In your `init()`, add the following line:
 This line in the `init()` function adds your process, with the given icon, to the homepage:
@@ -203,7 +203,7 @@ This line in the `init()` function adds your process, with the given icon, to th
 ### Writing a Widget
 
 A widget is an HTML iframe.
-Kinode apps can send widgets to the `homepage` process, which will display them on the user's homepage.
+Hyperware apps can send widgets to the `homepage` process, which will display them on the user's homepage.
 They are quite simple to configure.
 In `add_to_homepage()`, the final field optionally sets the widget:
 
@@ -223,11 +223,11 @@ For an example of a more complex widget, see the source code of our [app store w
 
 #### Widget Case Study: App Store
 
-The app store's [widget](https://github.com/kinode-dao/kinode/blob/3719ab38e19143a7bcd501fd245c7a10b2239ee7/kinode/packages/app-store/app-store/src/http_api.rs#L59C1-L133C2) makes a single request to the node, to determine the apps that are listed in the app store.
+The app store's [widget](https://github.com/hyperware-ai/hyperdrive/blob/3719ab38e19143a7bcd501fd245c7a10b2239ee7/hyperware/packages/app-store/app-store/src/http_api.rs#L59C1-L133C2) makes a single request to the node, to determine the apps that are listed in the app store.
 It then creates some HTML to display the apps in a nice little list.
 
 ```html
 <html>
-{{#webinclude https://raw.githubusercontent.com/kinode-dao/kinode/3719ab38e19143a7bcd501fd245c7a10b2239ee7/kinode/packages/app-store/app-store/src/http_api.rs 62:130}}
+{{#webinclude https://raw.githubusercontent.com/hyperware-ai/hyperdrive/3719ab38e19143a7bcd501fd245c7a10b2239ee7/hyperware/packages/app-store/app-store/src/http_api.rs 62:130}}
 </html>
 ```

@@ -1,7 +1,7 @@
 // same boilerplate as above
 #[cfg(feature = "test")]
-use kinode_process_lib::{await_message, Response};
-use kinode_process_lib::{call_init, println, Address};
+use hyperware_process_lib::{await_message, Response};
+use hyperware_process_lib::{call_init, println, Address};
 
 wit_bindgen::generate!({
     path: "target/wit",

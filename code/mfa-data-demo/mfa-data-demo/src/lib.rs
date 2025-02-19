@@ -1,5 +1,5 @@
-use crate::kinode::process::mfa_data_demo::{Request as MfaRequest, Response as MfaResponse};
-use kinode_process_lib::{await_message, call_init, println, Address, Message, Request, Response};
+use crate::hyperware::process::mfa_data_demo::{Request as MfaRequest, Response as MfaResponse};
+use hyperware_process_lib::{await_message, call_init, println, Address, Message, Request, Response};
 
 wit_bindgen::generate!({
     path: "target/wit",

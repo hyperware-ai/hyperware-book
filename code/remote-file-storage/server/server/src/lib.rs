@@ -1,7 +1,7 @@
 use std::collections::{HashMap, HashSet};
 
-use crate::kinode::process::server::{ClientRequest, ClientResponse};
-use kinode_process_lib::{
+use crate::hyperware::process::server::{ClientRequest, ClientResponse};
+use hyperware_process_lib::{
     await_message, call_init, get_blob, println, vfs, Address, Message, PackageId, Request,
     Response,
 };

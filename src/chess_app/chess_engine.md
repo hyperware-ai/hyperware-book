@@ -1,10 +1,10 @@
 # Chess Engine
 
-Chess is a good example for a Kinode application walk-through because:
+Chess is a good example for a Hyperware application walk-through because:
 1. The basic game logic is already readily available.
-   There are dozens of high-quality chess libraries across many languages that can be imported into a Wasm app that runs on Kinode.
+   There are dozens of high-quality chess libraries across many languages that can be imported into a Wasm app that runs on Hyperware.
    We'll be using [pleco](https://github.com/pleco-rs/Pleco).
-2. It's a multiplayer game, showing Kinode's p2p communications and ability to serve frontends
+2. It's a multiplayer game, showing Hyperware's p2p communications and ability to serve frontends
 3. It's fun!
 
 In `my-chess/Cargo.toml`, which should be in the `my-chess/` process directory inside the `my-chess/` package directory, add `pleco = "0.5"` to your dependencies.
@@ -12,7 +12,7 @@ In your `my-chess/src/lib.rs`, replace the existing code with:
 
 ```rust
 use pleco::Board;
-use kinode_process_lib::{await_message, call_init, println, Address};
+use hyperware_process_lib::{await_message, call_init, println, Address};
 
 wit_bindgen::generate!({
     path: "target/wit",
@@ -115,7 +115,7 @@ If you get a response, you can do the same but with `ChessResponse`.
 And every request and response that you send can be serialized in kind.
 More advanced apps can take on different structures, but a top-level `enum` to serialize/deserialize and match on is usually a good idea.
 
-The `ChessState` `struct` shown above can also be persisted using the `set_state` and `get_state` commands exposed by Kinode's runtime.
+The `ChessState` `struct` shown above can also be persisted using the `set_state` and `get_state` commands exposed by Hyperdrive.
 Note that the `Game` `struct` here has `board` as a `String`.
 This is because the `Board` type from pleco doesn't implement `Serialize` or `Deserialize`.
 We'll have to convert it to a string using `fen()` before persisting it.
@@ -165,7 +165,7 @@ lto = true
 [dependencies]
 anyhow = "1.0"
 bincode = "1.3.3"
-kinode_process_lib = "0.9.0"
+hyperware_process_lib = "0.9.0"
 pleco = "0.5"
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
@@ -175,12 +175,12 @@ wit-bindgen = "0.24.0"
 crate-type = ["cdylib"]
 
 [package.metadata.component]
-package = "kinode:process"
+package = "hyperware:process"
 ```
 
 `my-chess/src/lib.rs`:
 ```rust
-use kinode_process_lib::{
+use hyperware_process_lib::{
     await_message, call_init, get_typed_state, println, set_state, Address, Message, NodeId,
     Request, Response,
 };
@@ -188,7 +188,7 @@ use pleco::Board;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
-// Boilerplate: generate the Wasm bindings for a Kinode app
+// Boilerplate: generate the Wasm bindings for a Hyperware app
 wit_bindgen::generate!({
     path: "target/wit",
     world: "process-v0",
@@ -517,6 +517,7 @@ fn handle_local_request(
 }
 ```
 
-That's it! You now have a fully peer-to-peer chess game that can be played (awkwardly) through your Kinode terminal.
+That's it!
+You now have a fully peer-to-peer chess game that can be played (awkwardly) through your Hyperware terminal.
 
 In the [next chapter](./frontend.md), we'll add a frontend to this app so you can play it more easily.

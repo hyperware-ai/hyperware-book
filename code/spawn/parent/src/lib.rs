@@ -1,5 +1,5 @@
 // imports
-use kinode_process_lib::{call_init, println, spawn, Address, Capability, OnExit, ProcessId};
+use hyperware_process_lib::{call_init, println, spawn, Address, Capability, OnExit, ProcessId};
 
 // boilerplate to generate types
 wit_bindgen::generate!({

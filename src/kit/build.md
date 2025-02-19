@@ -19,7 +19,7 @@ It automatically detects what language each process is, and builds it appropriat
 
 ## Discussion
 
-`kit build` builds a Kinode package directory.
+`kit build` builds a Hyperware package directory.
 Specifically, it iterates through all directories within the given package directory and looks for `src/lib.??`, where the `??` is the file extension.
 Currently, `rs` is supported, corresponding to processes written in `rust`.
 Note that a package may have more than one process and those processes need not be written in the same language.
@@ -62,12 +62,12 @@ To both `build` and `start-package` in one command, use `kit build-start-package
 
 ```
 $ kit build --help
-Build a Kinode package
+Build a Hyperware package
 
 Usage: kit build [OPTIONS] [DIR]
 
 Arguments:
-  [DIR]  The package directory to build [default: /home/nick/git/kinode-book/src]
+  [DIR]  The package directory to build [default: /home/nick]
 
 Options:
       --no-ui
@@ -83,7 +83,7 @@ Options:
       --features <FEATURES>
           Pass these comma-delimited feature flags to Rust cargo builds
   -p, --port <NODE_PORT>
-          localhost node port; for remote see https://book.kinode.org/hosted-nodes.html#using-kit-with-your-hosted-node [default: 8080]
+          localhost node port; for remote see https://book.hyperware.ai/hosted-nodes.html#using-kit-with-your-hosted-node [default: 8080]
   -d, --download-from <NODE>
           Download API from this node if not found
   -w, --world <WORLD>
@@ -92,6 +92,8 @@ Options:
           Path to local dependency package (can specify multiple times)
   -a, --add-to-api <PATH>
           Path to file to add to api.zip (can specify multiple times)
+      --rewrite
+          Rewrite the package (disables `Spawn!()`) [default: don't rewrite]
   -r, --reproducible
           Make a reproducible build using Docker
   -f, --force
@@ -100,6 +102,7 @@ Options:
           If set, output stdout and stderr
   -h, --help
           Print help
+
 ```
 
 ### Optional positional arg: `DIR`

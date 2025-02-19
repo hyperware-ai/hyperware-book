@@ -1,33 +1,33 @@
 # Environment Setup
 
-In this section, you'll walk through setting up a Kinode development environment.
-By the end, you will have created a Kinode application, or package, composed of one or more processes that run on a live Kinode.
+In this section, you'll walk through setting up a Hyperware development environment.
+By the end, you will have created a Hyperware application, or package, composed of one or more processes that run on a live Hyperware.
 The application will be a simple chat interface: `my-chat-app`.
 
 The following assumes a Unix environment — macOS or Linux.
 If on Windows, [get WSL](https://learn.microsoft.com/en-us/windows/wsl/install) first.
-In general, Kinode does not support Windows.
+In general, Hyperware does not support development on Windows.
 
-## Acquiring Rust and the Kinode Development Tools (`kit`)
+## Acquiring Rust and the Hyperware Development Tools (`kit`)
 
-Install Rust and the Kinode Development Tools, or `kit`:
+Install Rust and the Hyperware Development Tools, or `kit`:
 
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-cargo install --git https://github.com/kinode-dao/kit --locked
+cargo install --git https://github.com/hyperware-ai/kit --locked
 ```
 
 You can find a video guide that walks through setting up `kit` [here](https://www.youtube.com/watch?v=N8B_s_cm61k).
 
-## Creating a New Kinode Package Template
+## Creating a New Hyperware Package Template
 
 The `kit` toolkit has a [variety of features](../kit/kit-dev-toolkit.md).
-One of those tools is `new`, which creates a template for a Kinode package.
+One of those tools is `new`, which creates a template for a Hyperware package.
 The `new` tool takes two arguments: a path to create the template directory and a name for the package:
 
 ```
 $ kit new --help
-Create a Kinode template package
+Create a Hyperware template package
 
 Usage: kit new [OPTIONS] <DIR>
 
@@ -43,7 +43,7 @@ Options:
   -h, --help                   Print help
 ```
 
-Create a package `my-chat-app` (you can name it anything "Kimap-safe", i.e. containing only a-z, 0-9, `-`; but we'll assume you're working with `my-chat-app` in this document):
+Create a package `my-chat-app` (you can name it anything "Hypermap-safe", i.e. containing only a-z, 0-9, `-`; but we'll assume you're working with `my-chat-app` in this document):
 
 ```bash
 kit new my-chat-app
@@ -51,8 +51,8 @@ kit new my-chat-app
 
 ## Exploring the Package
 
-Kinode packages are sets of one or more Kinode [processes](../system/process/processes.md).
-A Kinode package is represented in Unix as a directory that has a `pkg/` directory within.
+Hyperware packages are sets of one or more Hyperware [processes](../system/process/processes.md).
+A Hyperware package is represented in Unix as a directory that has a `pkg/` directory within.
 Each process within the package is its own directory.
 By default, the `kit new` command creates a simple, one-process package, a chat app.
 Other templates, including a Python template and a UI-enabled template can be used by passing [different flags to `kit new`](../kit/new.html#discussion).
@@ -104,13 +104,13 @@ Another standard Rust `Cargo.toml` file, a [virtual manifest](https://doc.rust-l
 
 Also within the package directory is a `pkg/` directory.
 The `pkg/` dirctory contains two files:
-- `manifest.json` — required: specifes information Kinode needs to run the package, and
+- `manifest.json` — required: specifes information Hyperware needs to run the package, and
 - `scripts.json` — optional: specifies details needed to run [scripts](../cookbook/writing_scripts.html).
 
 The `pkg/` directory is also where `.wasm` binaries (and, optionally, built UI files) will be deposited by [`kit build`](#building-the-package).
-The files in the `pkg/` directory are injected into the Kinode with [`kit start-package`](#starting-the-package).
+The files in the `pkg/` directory are injected into the Hyperware node with [`kit start-package`](#starting-the-package).
 
-The `metadata.json` is a required file that contains app metadata which is used in the Kinode [App Store](./chapter_5.html).
+The `metadata.json` is a required file that contains app metadata which is used in the Hyperware [App Store](./chapter_5.html).
 
 The `api/` directory contains the [WIT API](../system/process/wit_apis.md) for the `my-chat-app` package, see more discussion [below](#api).
 
@@ -130,7 +130,7 @@ More details about templates can be found [here](../kit/new.html#existshas-ui-en
 
 ### `pkg/manifest.json`
 
-The `manifest.json` file contains information the Kinode needs in order to run the package:
+The `manifest.json` file contains information the node needs in order to run the package:
 
 ```bash
 $ cat my-chat-app/pkg/manifest.json
@@ -193,18 +193,16 @@ $ cat my-chat-app/metadata.json
     "animation_url": ""
 }
 ```
-Here, the `publisher` is the default value (`"template.os"`), but for a real package, this field should contain the KNS ID of the publishing node.
+Here, the `publisher` is the default value (`"template.os"`), but for a real package, this field should contain the HNS ID of the publishing node.
 The `publisher` can also be set with a `kit new --publisher` flag.
 The `wit_version` is an optional field:
 
-`wit_version` value | Resulting `kinode.wit` version
+`wit_version` value | Resulting `hyperware.wit` version
 ------------------- | ------------------------------
-elided              | [`kinode.wit` `0.7.0`](https://github.com/kinode-dao/kinode-wit/blob/aa2c8b11c9171b949d1991c32f58591c0e881f85/kinode.wit)
-`0`                 | [`kinode.wit` `0.8.0`](https://github.com/kinode-dao/kinode-wit/blob/758fac1fb144f89c2a486778c62cbea2fb5840ac/kinode.wit)
-`1`                 | [`kinode.wit` `1.0.0`](https://github.com/kinode-dao/kinode-wit/blob/v1.0.0/kinode.wit)
+`1`                 | [`hyperware.wit` `1.0.0`](https://github.com/hyperware-ai/hyperware-wit/blob/v1.0.0/hyperware.wit)
 
 The `dependencies` field is also optional; see discussion in [WIT APIs](../system/process/wit_apis.md).
-The rest of these fields are not required for development, but become important when publishing a package with the [`app-store`](https://github.com/kinode-dao/kinode/tree/main/kinode/packages/app-store).
+The rest of these fields are not required for development, but become important when publishing a package with the [`app-store`](https://github.com/hyperware-ai/hyperdrive/tree/main/hyperware/packages/app-store).
 
 As an aside: each process has a unique `ProcessId`, used to address messages to that process, that looks like
 
@@ -212,7 +210,7 @@ As an aside: each process has a unique `ProcessId`, used to address messages to 
 <process-name>:<package-name>:<publisher-node>
 ```
 
-Each field separated by `:`s must be "Kimap safe", i.e. can only contain a-z, 0-9, `-` (and, for publisher node, `.`).
+Each field separated by `:`s must be "Hypermap safe", i.e. can only contain a-z, 0-9, `-` (and, for publisher node, `.`).
 
 You can read more about `ProcessId`s [here](../system/process/processes.md#overview).
 
@@ -242,13 +240,13 @@ cd my-chat-app
 kit build
 ```
 
-## Booting a Fake Kinode
+## Booting a Fake Node
 
 Often, it is optimal to develop on a fake node.
 Fake nodes are simple to set up, easy to restart if broken, and mocked networking makes development testing very straightforward.
-To boot a fake Kinode for development purposes, use the [`kit boot-fake-node` tool](../kit/boot-fake-node.md).
+To boot a fake node for development purposes, use the [`kit boot-fake-node` tool](../kit/boot-fake-node.md).
 
-`kit boot-fake-node` downloads the OS- and architecture-appropriate Kinode core binary and runs it without connecting to the live network.
+`kit boot-fake-node` downloads the OS- and architecture-appropriate Hyperdrive binary and runs it without connecting to the live network.
 Instead, it connects to a mocked local network, allowing different fake nodes on the same machine to communicate with each other.
 `kit boot-fake-node` has many optional configuration flags, but the defaults should work fine:
 
@@ -263,28 +261,28 @@ By default, the fake node will bind to port `8080`.
 Note the port number in the output for [later](#starting-the-package); it will look something like:
 
 ```
-Serving Kinode at http://localhost:8080
+Serving Hyperdrive at http://localhost:8080
 ```
 
 `kit boot-fake-node` also accepts a `--runtime-path` argument.
-When supplied, if it is a path to the Kinode core repo, it will compile and use that binary to start the node.
-Or, if it is a path to a Kinode binary, it will use that binary to start the node.
+When supplied, if it is a path to the Hyperdrive repo, it will compile and use that binary to start the node.
+Or, if it is a path to a Hyperdrive, it will use that binary to start the node.
 For example:
 
 ```bash
-kit boot-fake-node --runtime-path ~/path/to/kinode
+kit boot-fake-node --runtime-path ~/path/to/hyperdrive
 ```
 
-where `~/path/to/kinode` must be replaced with a path to the Kinode core repo.
+where `~/path/to/hyperdrive` must be replaced with a path to the Hyperdrive repo.
 
 Note that your node will be named `fake.dev`, as opposed to `fake.os`.
 The `.dev` suffix is used for development nodes.
 
-## Optional: Starting a Real Kinode
+## Optional: Starting a Real Node
 
-Alternatively, development sometimes calls for a real node, which has access to the actual Kinode network and its providers.
+Alternatively, development sometimes calls for a real node, which has access to the actual Hyperware network and its providers.
 
-To develop on a real Kinode, connect to the network and follow the instructions to [setup a Kinode](../getting_started/install.md).
+To develop on a real Node, connect to the network and follow the instructions to [setup a node](../getting_started/install.md).
 
 ## Starting the Package
 
@@ -311,7 +309,7 @@ or, if you are already in the correct package directory:
 kit start-package -p 8080
 ```
 
-where here the port provided following `-p` must match the port bound by the node or fake node (see discussion [above](#booting-a-fake-kinode)).
+where here the port provided following `-p` must match the port bound by the node or fake node (see discussion [above](#booting-a-fake-node)).
 
 The node's terminal should display something like
 
@@ -319,14 +317,14 @@ The node's terminal should display something like
 Thu 22:51 app-store:sys: successfully installed my-chat-app:template.os
 ```
 
-Congratulations: you've now built and installed your first application on Kinode!
+Congratulations: you've now built and installed your first application on Hyperware!
 
 ## Using the Package
 
 To test out the functionality of `my-chat-app`, spin up another fake node to chat with in a new terminal:
 
 ```bash
-kit boot-fake-node -o /tmp/kinode-fake-node-2 -p 8081 -f fake2.dev
+kit boot-fake-node -o /tmp/hyperware-fake-node-2 -p 8081 -f fake2.dev
 ```
 
 The fake nodes communicate over a mocked local network.

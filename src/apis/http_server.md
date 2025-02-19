@@ -1,6 +1,6 @@
 # HTTP Server API
 
-See also: [docs.rs for HTTP Server part of `process_lib`](https://docs.rs/kinode_process_lib/latest/kinode_process_lib/http/index.html).
+See also: [docs.rs for HTTP Server part of `process_lib`](https://docs.rs/hyperware_process_lib/latest/hyperware_process_lib/http/index.html).
 
 **Note: Most processes will not use this API directly. Instead, they will use the [`process_lib`](../process_stdlib/overview.md) library, which papers over this API and provides a set of types and functions which are much easier to natively use. This is mostly useful for re-implementing this module in a different client or performing niche actions unsupported by the library.**
 
@@ -69,14 +69,14 @@ pub enum HttpServerAction {
     },
     /// When sent, expects a `lazy_load_blob` containing the WebSocket message bytes to send.
     /// Modifies the `lazy_load_blob` by placing into `WebSocketExtPushData` with id taken from
-    /// this `KernelMessage` and `kinode_message_type` set to `desired_reply_type`.
+    /// this `KernelMessage` and `hyperware_message_type` set to `desired_reply_type`.
     WebSocketExtPushOutgoing {
         channel_id: u32,
         message_type: WsMessageType,
         desired_reply_type: MessageType,
     },
     /// For communicating with the ext.
-    /// Kinode's http-server sends this to the ext after receiving `WebSocketExtPushOutgoing`.
+    /// Hyperware's http-server sends this to the ext after receiving `WebSocketExtPushOutgoing`.
     /// Upon receiving reply with this type from ext, http-server parses, setting:
     /// * id as given,
     /// * message type as given (Request or Response),
@@ -84,7 +84,7 @@ pub enum HttpServerAction {
     /// * blob as given.
     WebSocketExtPushData {
         id: u64,
-        kinode_message_type: MessageType,
+        hyperware_message_type: MessageType,
         blob: Vec<u8>,
     },
     /// Sending will close a socket the process controls.

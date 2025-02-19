@@ -2,12 +2,12 @@
 
 ### 1. Protocol Overview and Motivation
 
-The Kinode networking protocol is designed to be performant, reliable, private, and peer-to-peer, while still enabling access for nodes without a static public IP address.
+The Hyperware networking protocol is designed to be performant, reliable, private, and peer-to-peer, while still enabling access for nodes without a static public IP address.
 
-The networking protocol is NOT designed to be all-encompassing, that is, the only way that two Kinodes will ever communicate.
-Many Kinode runtimes will provide userspace access to HTTP server/client capabilities, TCP sockets, and much more.
+The networking protocol is NOT designed to be all-encompassing, that is, the only way that two nodes will ever communicate.
+Many Hyperware runtimes (including Hyperdrive) will provide userspace access to HTTP server/client capabilities, TCP sockets, and much more.
 Some applications will choose to use such facilities to communicate.
-This networking protocol is merely a common language that every Kinode is guaranteed to speak.
+This networking protocol is merely a common language that every Hyperware node is guaranteed to speak.
 For this reason, it is the protocol on which system processes will communicate, and it will be a reasonable default for most applications.
 
 In order for nodes to attest to their identity without any central authority, all networking information is made available onchain.
@@ -16,7 +16,7 @@ The former allows for completely direct peer-to-peer connections, and the latter
 
 The networking protocol can and will be implemented in multiple underlying protocols.
 Since the protocol is encrypted, a secure underlying connection with TLS or HTTPS is never necessary.
-WebSockets are prioritized since to make purely in-browser Kinodes a possibility.
+WebSockets are prioritized to make purely in-browser nodes a possibility.
 The other transport protocols with slots in the onchain identity data structure are: TCP, UDP, and WebTransport.
 
 Currently, only WebSockets and TCP are implemented in the runtime.
@@ -33,7 +33,7 @@ Therefore, all nodes must have robust access to the onchain PKI, meaning: multip
 Because it may take time for a new networking key to proliferate to all nodes, (anywhere from seconds to days depending on chain indexing access) a node that changes its networking key should expect downtime immediately after doing so.
 
 Nodes that wish to make direct connections must post an IP and port onchain.
-This is done by publishing `note` keys in [kimap](../getting_started/kimap.md).
+This is done by publishing `note` keys in [Hypermap](../getting_started/hypermap.md).
 In particular, the networking protocol expects the following pattern of data available:
 
 1. A `~net-key` note AND
@@ -59,7 +59,7 @@ If it does, that route is used.
 If not, the node will use the information available about the other node to try and establish a route.
 
 If the target node is direct, the route may be direct, using one of the available transport methods.
-If a direct node presents multiple ports using notes in kimap, the priority is currently:
+If a direct node presents multiple ports using notes in Hypermap, the priority is currently:
 
 1. TCP
 2. WS
@@ -163,7 +163,7 @@ struct KernelMessage {
 }
 ```
 
-See [`Address`](https://docs.rs/kinode_process_lib/latest/kinode_process_lib/kinode/process/standard/struct.Address.html), [`Rsvp`](https://github.com/kinode-dao/kinode/blob/5504f2a6c1b28eb5102aee9a56d2a278f1e5a2dd/lib/src/core.rs#L891-L894), [`Message`](https://docs.rs/kinode_process_lib/latest/kinode_process_lib/kinode/process/standard/enum.Message.html),and [`LazyLoadBlob`](https://docs.rs/kinode_process_lib/latest/kinode_process_lib/kinode/process/standard/struct.LazyLoadBlob.html) data types.
+See [`Address`](https://docs.rs/hyperware_process_lib/latest/hyperware_process_lib/hyperware/process/standard/struct.Address.html), [`Rsvp`](https://github.com/hyperware-ai/hyperdrive/blob/5504f2a6c1b28eb5102aee9a56d2a278f1e5a2dd/lib/src/core.rs#L891-L894), [`Message`](https://docs.rs/hyperware_process_lib/latest/hyperware_process_lib/hyperware/process/standard/enum.Message.html),and [`LazyLoadBlob`](https://docs.rs/hyperware_process_lib/latest/hyperware_process_lib/hyperware/process/standard/struct.LazyLoadBlob.html) data types.
 
 #### 4.3. Receiving Messages
 
@@ -193,9 +193,9 @@ Connections may be closed due to inactivity or load-balancing. This behavior is 
 
 ### 5. TCP Protocol
 
-The TCP protocol is largely the same as the WebSockets protocol but without the use of Binary frames. `KernelMessage`s are instead streamed.
-More documentation to come -- for now, read source here:
-[https://github.com/kinode-dao/kinode/blob/main/kinode/src/net/tcp/utils.rs](https://gist.github.com/nick1udwig/d3d2d8ef588258162bdad1d1bbcabf43)
+The TCP protocol is largely the same as the WebSockets protocol but without the use of Binary frames.
+`KernelMessage`s are instead streamed.
+More documentation to come — for now, read [source here](https://github.com/hyperware-ai/hyperdrive/blob/main/hyperware/src/net/tcp/utils.rs).
 
 ### 6. Connection Maintenance and Errors
 

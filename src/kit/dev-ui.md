@@ -26,7 +26,7 @@ Arguments:
   [DIR]  The package directory to build (must contain a `ui` directory) [default: CWD]
 
 Options:
-  -p, --port <NODE_PORT>  localhost node port; for remote see https://book.kinode.org/hosted-nodes.html#using-kit-with-your-hosted-node [default: 8080]
+  -p, --port <NODE_PORT>  localhost node port; for remote see https://book.hyperware.ai/hosted-nodes.html#using-kit-with-your-hosted-node [default: 8080]
       --release           If set, create a production build
   -s, --skip-deps-check   If set, do not check for dependencies
   -h, --help              Print help

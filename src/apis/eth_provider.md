@@ -24,7 +24,7 @@ pub enum EthAction {
     },
     /// Kill a SubscribeLogs subscription of a given ID, to stop getting updates.
     UnsubscribeLogs(u64),
-    /// Raw request. Used by kinode_process_lib.
+    /// Raw request. Used by hyperware_process_lib.
     Request {
         chain_id: u64,
         method: String,
@@ -195,7 +195,7 @@ pub struct ProviderConfig {
 #[derive(Clone, Debug, Deserialize, Serialize, Hash, Eq, PartialEq)]
 pub enum NodeOrRpcUrl {
     Node {
-        kns_update: crate::core::KnsUpdate,
+        hns_update: crate::core::HnsUpdate,
         use_as_provider: bool, // false for just-routers inside saved config
     },
     RpcUrl(String),
@@ -209,7 +209,7 @@ pub enum NodeOrRpcUrl {
 pub enum EthConfigResponse {
     Ok,
     /// Response from a GetProviders request.
-    /// Note the [`crate::core::KnsUpdate`] will only have the correct `name` field.
+    /// Note the [`crate::core::HnsUpdate`] will only have the correct `name` field.
     /// The rest of the Update is not saved in this module.
     Providers(SavedConfigs),
     /// Response from a GetAccessSettings request.
@@ -236,4 +236,4 @@ A successful `GetProviders` request will receive a response of `EthConfigRespons
 The other requests will receive a response of `EthConfigResponse::Ok` if they were successful, or `EthConfigResponse::PermissionDenied` if they were not.
 
 All of these types are serialized to a JSON string via `serde_json` and stored as bytes in the request/response body.
-[The source code for this API can be found in the `eth` section of the Kinode runtime library.](https://github.com/kinode-dao/kinode/blob/main/lib/src/eth.rs)
+[The source code for this API can be found in the `eth` section of the Hyperdrive library.](https://github.com/hyperware-ai/hyperdrive/blob/main/lib/src/eth.rs)

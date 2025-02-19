@@ -1,14 +1,14 @@
 use std::collections::HashMap;
 
-use crate::kinode::process::chat_with_file_transfer::{
+use crate::hyperware::process::chat_with_file_transfer::{
     ChatMessage, Request as ChatRequest, Response as ChatResponse, SendRequest,
 };
-use crate::kinode::process::file_transfer_worker::{
+use crate::hyperware::process::file_transfer_worker::{
     start_download, DownloadRequest, ProgressRequest, Request as WorkerRequest,
     Response as WorkerResponse,
 };
-use crate::kinode::process::standard::{Address as WitAddress, ProcessId as WitProcessId};
-use kinode_process_lib::{
+use crate::hyperware::process::standard::{Address as WitAddress, ProcessId as WitProcessId};
+use hyperware_process_lib::{
     await_message, call_init, get_capability, println,
     vfs::{create_drive, open_file},
     Address, Message, ProcessId, Request, Response,

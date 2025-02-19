@@ -1,12 +1,12 @@
 ### SQLite API
 
-Useful helper functions can be found in the [`kinode_process_lib`](../process_stdlib/overview.md).
-More discussion of databases in Kinode can be found [here](../system/databases.md).
+Useful helper functions can be found in the [`hyperware_process_lib`](../process_stdlib/overview.md).
+More discussion of databases in Hyperware can be found [here](../system/databases.md).
 
 #### Creating/Opening a database
 
 ```rust
-use kinode_process_lib::sqlite;
+use hyperware_process_lib::sqlite;
 
 let db = sqlite::open(our.package_id(), "users")?;
 // You can now pass this SQLite struct as a reference to other functions
