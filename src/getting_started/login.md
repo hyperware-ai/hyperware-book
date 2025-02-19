@@ -1,19 +1,16 @@
 # Join the Network
 
-This page discusses joining the network with a locally-run Kinode.
-To instead join with a hosted node, see [Valet](https://valet.uncentered.systems).
+This page discusses joining the network with a locally-run node using Hyperdrive (a Hyperware runtime).
+To instead join with a hosted node, see [Valet](https://valet.hyperware.ai).
 
-These directions are particular to the Kinode beta release.
-Kinode is in active development on Optimism.
+## Starting Hyperdrive
 
-## Starting the Kinode
-
-Start a Kinode using the binary acquired in the [previous section](./install.md).
-Locate the binary on your system (e.g., if you built source yourself, the binary will be in the repository at `./kinode/target/debug/kinode` or `./kinode/target/release/kinode`).
+Start a Hyperware node using the Hyperdrive binary acquired in the [previous section](./install.md).
+Locate the binary on your system (e.g., if you built source yourself, the binary will be in the repository at `./target/debug/hyperdrive` or `./target/release/hyperdrive`).
 Print out the arguments expected by the binary:
 
 ```
-$ ./kinode --help
+$ ./hyperdrive --help
 A General Purpose Sovereign Cloud Computing Platform
 
 Usage: kinode [OPTIONS] <home>
@@ -59,10 +56,10 @@ Options:
 ```
 
 A home directory must be supplied — where the node will store its files.
-The `--rpc` flag is an optional `wss://` WebSocket link to an Ethereum RPC, allowing the Kinode to send and receive Ethereum transactions — used in the [identity system](../getting_started/kimap.md#kns-kinode-name-system) as mentioned [above](#creating-an-alchemy-account).
+The `--rpc` flag is an optional `wss://` WebSocket link to an Ethereum RPC, allowing Hyperdrive to send and receive Ethereum transactions — used in the [identity system](../getting_started/Hypermap.md#hns-hyperware-name-system) as mentioned [above](#creating-an-alchemy-account).
 If this is not supplied, the node will use a set of default RPC providers served by other nodes on the network.
-If the `--port` flag is supplied, Kinode will attempt to bind that port for serving HTTP and will exit if that port is already taken.
-If no `--port` flag is supplied, Kinode will bind to `8080` if it is available, or the first port above `8080` if not.
+If the `--port` flag is supplied, Hyperdrive will attempt to bind that port for serving HTTP and will exit if that port is already taken.
+If no `--port` flag is supplied, Hyperdrive will bind to `8080` if it is available, or the first port above `8080` if not.
 
 <details><summary>OPTIONAL: Acquiring an RPC API Key</summary>
 
@@ -97,7 +94,7 @@ On the "Active Endpoints" tab, there are tabs for "HTTPS" and "WebSockets". Sele
 In a terminal window, run:
 
 ```bash
-./kinode path/to/home
+./hyperdrive path/to/home
 ```
 
 where `path/to/home` is the directory where you want your new node's files to be placed, or, if booting an existing node, is that node's existing home directory.
@@ -122,7 +119,7 @@ Otherwise, you're going to need to [Acquire a Wallet](#aside-acquiring-a-wallet)
 
 ### Aside: Acquiring a Wallet
 
-To register an identity, Kinode must send an Ethereum transaction, which requires ETH and a cryptocurrency wallet.
+To register an identity, Hyperdrive must send an Ethereum transaction, which requires ETH and a cryptocurrency wallet.
 While many wallets will work, the examples below use Metamask.
 Install Metamask [here](https://metamask.io/download/) if you don't already have it.
 
@@ -139,7 +136,7 @@ Many exchanges also allow sending ETH directly to Optimism wallets.
 
 ### Setting Up Networking (Direct vs. Routed Nodes)
 
-When registering on Kinode, you may choose between running a direct or indirect (routed) node.
+When registering a Hyperware node, you may choose between running a direct or indirect (routed) node.
 Most users should use an indirect node.
 To do this, simply leave the box below name registration unchecked.
 
@@ -190,4 +187,4 @@ After setting the node password, you will be greeted with the homepage.
 ![Homepage](../assets/register-homepage.png)
 
 Try downloading, installing, and using some apps on the App Store.
-Come ask for recommendations in the [Kinode Discord](https://discord.gg/mYDj74NkfP)!
+Come ask for recommendations in the [Hyperware Discord](https://discord.gg/6vAPYDQg)!

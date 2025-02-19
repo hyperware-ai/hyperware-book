@@ -9,7 +9,7 @@ kit boot-fake-node
 ```
 
 By default, `boot-fake-node` fetches a prebuilt binary and launches the node using it.
-Alternatively, `boot-fake-node` can build a local Kinode core repo and use the resulting binary.
+Alternatively, `boot-fake-node` can build a local Hyperdrive repo and use the resulting binary.
 
 It also boots a fake chain with [`anvil`](https://book.getfoundry.sh/anvil/) in the background (see [`kit chain`](../kit/chain.md)).
 The fake chain comes preseeded with two contracts: KNS, which nodes use to index networking info of other nodes; and `app-store`, which nodes use to index published packages.
@@ -24,7 +24,7 @@ For example, to start two fake nodes, `fake.dev` and `fake2.dev`:
 kit boot-fake-node
 
 # In a new terminal
-kit boot-fake-node -f fake2.dev -p 8081 -o /tmp/kinode-fake-node-2
+kit boot-fake-node -f fake2.dev -p 8081 -o /tmp/hyperware-fake-node-2
 
 # Send a message from fake2.dev to fake.dev
 # In the terminal of fake2.dev:
@@ -43,8 +43,8 @@ If you wish to persist the state of a fake node between boots, you can do so wit
 Thus, fake nodes are an excellent testing ground during development for fast iteration.
 
 There are some cases where fake nodes are not appropriate.
-The weakness of fake nodes is also their strength: they are not connected to the live Kinode network.
-Though this lack of connectivity makes them easy to spin up and throw away, the downside is no access to services on the network which live Kinodes may provide.
+The weakness of fake nodes is also their strength: they are not connected to the live Hyperware network.
+Though this lack of connectivity makes them easy to spin up and throw away, the downside is no access to services on the network which live nodes may provide.
 
 ## Arguments
 
@@ -56,13 +56,13 @@ Usage: kit boot-fake-node [OPTIONS]
 
 Options:
   -r, --runtime-path <PATH>
-          Path to Kinode core repo (overrides --version)
+          Path to Hyperdrive repo (overrides --version)
   -v, --version <VERSION>
-          Version of Kinode binary to use (overridden by --runtime-path) [default: latest] [possible values: latest, v0.8.7, v0.8.6, v0.8.5]
+          Version of Hyperdrive binary to use (overridden by --runtime-path) [default: latest] [possible values: latest]
   -p, --port <NODE_PORT>
           The port to run the fake node on [default: 8080]
   -o, --home <HOME>
-          Path to home directory for fake node [default: /tmp/kinode-fake-node]
+          Path to home directory for fake node [default: /tmp/hyperdrive-fake-node]
   -f, --fake-node-name <NODE_NAME>
           Name for fake node [default: fake.dev]
   -c, --fakechain-port <FAKECHAIN_PORT>
@@ -85,13 +85,13 @@ Options:
 
 short: `-r`
 
-Pass to build a local Kinode core repo and use the resulting binary to boot a fake node, e.g.
+Pass to build a local Hyperdrive repo and use the resulting binary to boot a fake node, e.g.
 
 ```
-kit boot-fake-node --runtime-path ~/git/kinode
+kit boot-fake-node --runtime-path ~/git/hyperware
 ```
 
-for a system with the Kinode core repo living at `~/git/kinode`.
+for a system with the Hyperdrive repo living at `~/git/hyperware`.
 
 Overrides `--version`.
 
@@ -112,7 +112,7 @@ Run the fake node on this port; defaults to `8080`.
 
 short: `-o`
 
-Path to home directory for fake node; defaults to `/tmp/kinode-fake-node`.
+Path to home directory for fake node; defaults to `/tmp/hyperware-fake-node`.
 
 ### `--fake-node-name`
 

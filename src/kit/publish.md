@@ -2,9 +2,9 @@
 
 short: `kit p`
 
-`kit publish` creates entries in the Kimap, publishing the given package according to the `app-store`s protocol.
+`kit publish` creates entries in the Hypermap, publishing the given package according to the `app-store`s protocol.
 It can also be used to update or unpublish previously-published packages.
-`kit publish` directly writes to the Kimap: it does not interact with a Kinode.
+`kit publish` writes directly to the Hypermap: it does not interact with a Hyperware node.
 
 ## Example Usage
 
@@ -24,10 +24,10 @@ See [Sharing with the World](../my_first_app/chapter_5.md) for a tutorial on how
 $ kit publish --help
 Publish or update a package
 
-Usage: kit publish [OPTIONS] --metadata-uri <URI> --keystore-path <PATH> --rpc <RPC_URI> [DIR]
+Usage: kit publish [OPTIONS] --metadata-uri <URI> --rpc <RPC_URI> [DIR]
 
 Arguments:
-  [DIR]  The package directory to publish [default: CWD]
+  [DIR]  The package directory to publish [default: /home/nick]
 
 Options:
   -k, --keystore-path <PATH>
@@ -50,6 +50,8 @@ Options:
           The ETH transaction max priority fee per gas [default: estimated from network conditions]
   -f, --fee-per-gas <MAX_FEE_PER_GAS>
           The ETH transaction max fee per gas [default: estimated from network conditions]
+  -m, --mock
+          If set, don't actually publish: just dry-run
   -h, --help
           Print help
 ```
@@ -63,7 +65,7 @@ Publish the metadata for the package in this directory.
 short: `-u`
 
 The URI hosting the `metadata.json`.
-You must place the `metadata.json` somewhere public before publishing your package on Kimap.
+You must place the `metadata.json` somewhere public before publishing your package on Hypermap.
 A common place to host `metadata.json` is on your package's GitHub repo.
 If you use GitHub, make sure to use the static link to the specific commit, not a branch-specific URL (e.g. `main`) that will change with new commits.
 For example, `https://raw.githubusercontent.com/nick1udwig/chat/master/metadata.json` is not the correct link to use, because it will change when new commits are added.
@@ -106,8 +108,8 @@ For fakenodes this runs by default at `ws://localhost:8545`.
 
 short: `-e`
 
-Manipulate the real (live) Kimap.
-Default is to manipulate the fakenode Kimap.
+Manipulate the real (live) Hypermap.
+Default is to manipulate the fakenode Hypermap.
 
 ### `--unpublish`
 

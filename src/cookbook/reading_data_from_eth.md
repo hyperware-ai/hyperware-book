@@ -7,9 +7,9 @@ If a node does not have a provider for the given chain ID, calls and subscriptio
 To fix this, add some code on either the frontend or backend of your app that handles these failures by prompting the user to add a provider for the desired chain.
 </div>
 
-Using the provider system starts in a process by importing the `eth` library from `kinode_process_lib`:
+Using the provider system starts in a process by importing the `eth` library from `hyperware_process_lib`:
 ```rust
-use kinode_process_lib::eth;
+use hyperware_process_lib::eth;
 ```
 
 Then, create a new `Provider` object with the desired chain ID and timeout:
@@ -18,7 +18,7 @@ let provider = eth::Provider::new(chain_id, 30);
 ```
 The timeout set here will apply to all requests sent through the provider.
 If a request takes longer than the timeout, the request will fail with a timeout error.
-Generally, ETH calls can take longer than other requests in Kinode, because the call must be sent to an external RPC that may or may not be fast.
+Generally, ETH calls can take longer than other Hyperware requests, because the call must be sent to an external RPC that may or may not be fast.
 Note also that an RPC endpoint will generally take longer to respond to larger calls.
 If you need to adjust the timeout or chain ID, simply create another provider object with the new desired parameters.
 
@@ -82,4 +82,4 @@ There are a few important things to note when subscribing to contract events and
 
 4. If a subscription fails, it makes sense to try resubscribing, but keep in mind that events might occur between the failure and the resubscribe. A good strategy is to fetch logs for this time period.
 
-For a full example of an app that uses the ETH Provider in a critical use-case, check out the [kns-indexer](https://github.com/kinode-dao/kinode/blob/main/kinode/packages/kns-indexer/kns-indexer/src/lib.rs) in the Kinode repo.
+For a full example of an app that uses the ETH Provider in a critical use-case, check out the [kns-indexer](https://github.com/hyperware-ai/hyperdrive/blob/main/hyperdrive/packages/kns-indexer/kns-indexer/src/lib.rs) in the Kinode repo.

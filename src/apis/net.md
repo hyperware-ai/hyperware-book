@@ -66,7 +66,7 @@ This type must be parsed from a request body using MessagePack.
 `ConnectionRequest` is sent by remote nodes as part of the WebSockets networking protocol in order to ask a router to connect them to a node that they can't connect to directly.
 This is responded to with either an `Accepted` or `Rejected` variant of `NetResponses`.
 
-`KnsUpdate` and `KnsBatchUpdate` both are used as entry point by which the `net` module becomes aware of the Kinode PKI, or KNS.
+`HnsUpdate` and `HnsBatchUpdate` both are used as entry point by which the `net` module becomes aware of the Hyperware PKI, or HNS.
 In the current distro these are only accepted from the local node, and specifically the `kns-indexer` distro package.
 
 `GetPeers` is used to request a list of peers that the `net` module is connected to. It can only be received from the local node.

@@ -2,14 +2,14 @@
 
 short: `kit e`
 
-`kit boot-real-node` starts a Kinode connected to the live network, e.g.,
+`kit boot-real-node` starts a Hyperware node connected to the live network, e.g.,
 
 ```
 kit boot-real-node
 ```
 
 By default, `boot-real-node` fetches a prebuilt binary and launches the node using it.
-Alternatively, `boot-real-node` can build a local Kinode core repo and use the resulting binary.
+Alternatively, `boot-real-node` can build a local Hyperdrive repo and use the resulting binary.
 
 ## Example Usage
 
@@ -27,8 +27,8 @@ kit boot-real-node --home ~/<my-old-node-name>.os
 
 ## Discussion
 
-`kit boot-real-node` makes it easier to run a node by reducing the number of steps to download the Kinode core binary and launch a node.
-Be cautious using `boot-real-node` before Kinode core `1.0.0` launch without specifying the `--version` flag: the default `--version latest` may use a new major version of Kinode core!
+`kit boot-real-node` makes it easier to run a node by reducing the number of steps to download the Hyperdrive binary and launch a node.
+Be cautious using `boot-real-node` before Hyperdrive `1.0.0` launch without specifying the `--version` flag: the default `--version latest` may use a new major version of Hyperdrive!
 
 ## Arguments
 
@@ -39,8 +39,8 @@ Boot a real node
 Usage: kit boot-real-node [OPTIONS] --home <HOME>
 
 Options:
-  -r, --runtime-path <PATH>    Path to Kinode core repo (overrides --version)
-  -v, --version <VERSION>      Version of Kinode binary to use (overridden by --runtime-path) [default: latest] [possible values: latest, v0.8.7, v0.8.6, v0.8.5]
+  -r, --runtime-path <PATH>    Path to Hyperdrive repo (overrides --version)
+  -v, --version <VERSION>      Version of Hyperdrive to use (overridden by --runtime-path) [default: latest] [possible values: latest, v0.8.7, v0.8.6, v0.8.5]
   -p, --port <NODE_PORT>       The port to run the real node on [default: 8080]
   -o, --home <HOME>            Path to home directory for real node
       --rpc <RPC_ENDPOINT>     Ethereum Optimism mainnet RPC endpoint (wss://)
@@ -53,13 +53,13 @@ Options:
 
 short: `-r`
 
-Pass to build a local Kinode core repo and use the resulting binary to boot a real node, e.g.
+Pass to build a local Hyperdrive repo and use the resulting binary to boot a real node, e.g.
 
 ```
-kit boot-real-node --runtime-path ~/git/kinode
+kit boot-real-node --runtime-path ~/git/hyperdrive
 ```
 
-for a system with the Kinode core repo living at `~/git/kinode`.
+for a system with the Hyperdrive repo living at `~/git/hyperdrive`.
 
 Overrides `--version`.
 

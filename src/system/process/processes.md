@@ -2,8 +2,8 @@
 
 ## Overview
 
-On Kinode, processes are the building blocks for peer-to-peer applications.
-The Kinode runtime handles message-passing between processes, plus the startup and teardown of said processes.
+Hyperware processes are the building blocks for peer-to-peer applications.
+The Hyperware runtime (e.g. Hyperdrive) handles message-passing between processes, plus the startup and teardown of said processes.
 This section describes the message design as it relates to processes.
 
 Each process instance has a globally unique identifier, or `Address`, composed of four elements.
@@ -17,20 +17,20 @@ A package is a set of one or more processes and optionally GUIs: a package is sy
 
 The way these elements compose is the following:
 
-[`PackageId`s](https://docs.rs/kinode_process_lib/latest/kinode_process_lib/kinode/process/standard/struct.PackageId.html) look like:
+[`PackageId`s](https://docs.rs/hyperware_process_lib/latest/hyperware_process_lib/hyperware/process/standard/struct.PackageId.html) look like:
 ```
 [package-name]:[publisher-node]
 my-cool-software:publisher-node.os
 ```
 
-[`ProcessId`s](https://docs.rs/kinode_process_lib/latest/kinode_process_lib/kinode/process/standard/struct.ProcessId.html) look like:
+[`ProcessId`s](https://docs.rs/hyperware_process_lib/latest/hyperware_process_lib/hyperware/process/standard/struct.ProcessId.html) look like:
 ```
 [process-name]:[package-name]:[publisher-node]
 process-one:my-cool-software:publisher-node.os
 8513024814:my-cool-software:publisher-node.os
 ```
 
-Finally, [`Address`es](https://docs.rs/kinode_process_lib/latest/kinode_process_lib/kinode/process/standard/struct.Address.html) look like:
+Finally, [`Address`es](https://docs.rs/hyperware_process_lib/latest/hyperware_process_lib/hyperware/process/standard/struct.Address.html) look like:
 
 ```
 [node]@[process-name]:[package-name]:[publisher-node]
@@ -45,7 +45,7 @@ They can spawn other processes, and coordinate in arbitrarily complex ways by pa
 
 ## Process State
 
-Kinode processes can be stateless or stateful.
+Hyperware processes can be stateless or stateful.
 In this case, state refers to data that is persisted between process instantiations.
 Nodes get turned off, intentionally or otherwise.
 The kernel handles rebooting processes that were running previously, but their state is not persisted by default.
@@ -189,15 +189,15 @@ There is more discussion of child processes [here](../../cookbook/manage_child_p
 This is a high-level overview of process semantics.
 In practice, processes are combined and shared in **packages**, which are generally synonymous with **apps**.
 
-#### Wasm and Kinode
+#### Wasm and Hyperware
 
 It's briefly discussed here that processes are compiled to Wasm.
-The details of this are not covered in the Kinode Book, but can be found in the documentation for the [Kinode runtime](https://github.com/kinode-dao/kinode), which uses [Wasmtime](https://wasmtime.dev/), a WebAssembly runtime, to load, execute, and provide an interface for the subset of Wasm components that are valid Kinode processes.
+The details of this are not covered in the Hyperware Book, but can be found in the documentation for [Hyperdrive](https://github.com/hyperware-ai/hyperdrive), which uses [Wasmtime](https://wasmtime.dev/), a WebAssembly runtime, to load, execute, and provide an interface for the subset of Wasm components that are valid Hyperware processes.
 
 Wasm runs modules by default, or components, as described [here](https://component-model.bytecodealliance.org/design/why-component-model.html): components are just modules that follow some specific format.
-Kinode processes are Wasm components that have certain imports and exports so they can be run by Kinode.
-Pragmatically, processes can be compiled using the [`kit` tools](https://github.com/kinode-dao/kit).
+Hyperware processes are Wasm components that have certain imports and exports so they can be run by Hyperware.
+Pragmatically, processes can be compiled using the [`kit`](https://github.com/hyperware-ai/kit) developer toolkit, see documentation [here](../../kit/kit-dev-toolkit.md).
 
 
-The long term goal of Kinode is, using [WASI](https://wasi.dev/), to provide a secure, sandboxed environment for Wasm components to make use of the kernel features described in this document.
-Further, Kinode has a Virtual File System ([VFS](../files.md)) which processes can interact with to access files on a user's machine, and in the future WASI could also expose access to the filesystem for Wasm components directly.
+The long term goal of Hyperware is, using [WASI](https://wasi.dev/), to provide a secure, sandboxed environment for Wasm components to make use of the kernel features described in this document.
+Further, Hyperware has a Virtual File System ([VFS](../files.md)) which processes can interact with to access files on a user's machine, and in the future WASI could also expose access to the filesystem for Wasm components directly.

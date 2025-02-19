@@ -5,7 +5,7 @@
 
 Zero-knowledge proofs are an exciting new tool for decentralize applications.
 Thanks to [SP1](https://github.com/succinctlabs/sp1), you can prove a Rust program with an extremely easy to use open-source library.
-There are a number of other ZK proving systems both in production and under development, which can also be used inside the Kinode environment, but this tutorial will focus on SP1.
+There are a number of other ZK proving systems both in production and under development, which can also be used inside the Hyperware stack, but this tutorial will focus on SP1.
 
 ### Start
 
@@ -38,7 +38,7 @@ my-zk-app: fibonacci(10) = 55; 375ns
 
 ### Cross-network computation
 
-From the template, you have a program that can be used across the Kinode network to perform a certain computation.
+From the template, you have a program that can be used across the Hyperware network to perform a certain computation.
 If the template app here has the correct capabilities, other nodes will be able to message it and receive a response.
 This can be seen in action by booting another fake node (while keeping the first one open) and sending the fibonacci program a message:
 ```
@@ -50,7 +50,7 @@ m fake.os@my-zk-app:my-zk-app:template.os -a 5 '{"Number": 10}'
 (Replace the target node ID with the first fake node, which by default is `fake.os`)
 
 You should see `{"Number":55}` in the terminal of `fake2.os`!
-This reveals a fascinating possibility: with Kinode, one can build p2p services accessible to any node on the network.
+This reveals a fascinating possibility: with Hyperware, one can build p2p services accessible to any node on the network.
 However, the current implementation of the fibonacci program is not provably correct.
 The node running the program could make up a number -- without doing the work locally, there's no way to verify the result.
 ZK proofs can solve this problem.
@@ -74,7 +74,7 @@ cargo prove new fibonacci
 ```
 and navigate to a project, which conveniently contains a fibonacci function example.
 Modify it slightly to match what our fibonacci program does.
-You can more or less copy-and-paste the fibonacci function from your Kinode app to the `program/src/main.rs` file in the SP1 project.
+You can more or less copy-and-paste the fibonacci function from your Hyperware app to the `program/src/main.rs` file in the SP1 project.
 It'll look like this:
 ```rust
 #![no_main]
@@ -104,8 +104,8 @@ Run this inside the `program` dir of the SP1 project you created:
 cargo prove build
 ```
 
-Next, take the generated ELF file from `program/elf/riscv32im-succinct-zkvm-elf` and copy it into the `pkg` dir of your *Kinode* app.
-Go back to your Kinode app code and include this file as bytes so the process can execute it in the SP1 zkVM:
+Next, take the generated ELF file from `program/elf/riscv32im-succinct-zkvm-elf` and copy it into the `pkg` dir of your *Hyperware* app.
+Go back to your Hyperware app code and include this file as bytes so the process can execute it in the SP1 zkVM:
 ```rust
 const FIB_ELF: &[u8] = include_bytes!("../../pkg/riscv32im-succinct-zkvm-elf");
 ```
@@ -119,7 +119,7 @@ Take a moment to imagine the possibilities, then take a look at the full code ex
 Some of the code from the original fibonacci program is omitted for clarity, and functionality for verifying proofs our program receives from others has been added.
 
 ```rust
-use kinode_process_lib::{println, *};
+use hyperware_process_lib::{println, *};
 use serde::{Deserialize, Serialize};
 use sp1_core::{utils::BabyBearBlake3, SP1ProofWithIO, SP1Prover, SP1Stdin, SP1Verifier};
 

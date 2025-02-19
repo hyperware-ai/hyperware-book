@@ -25,7 +25,7 @@ To instead "fire and forget" a message and exit immediately, use the [`--non-blo
 
 ```
 $ kit inject-message --help
-Inject a message to a running Kinode
+Inject a message to a running node
 
 Usage: kit inject-message [OPTIONS] <PROCESS> <BODY_JSON>
 
@@ -34,7 +34,7 @@ Arguments:
   <BODY_JSON>  Body in JSON format
 
 Options:
-  -p, --port <NODE_PORT>  localhost node port; for remote see https://book.kinode.org/hosted-nodes.html#using-kit-with-your-hosted-node [default: 8080]
+  -p, --port <NODE_PORT>  localhost node port; for remote see https://book.hyperware.ai/hosted-nodes.html#using-kit-with-your-hosted-node [default: 8080]
   -n, --node <NODE_NAME>  Node ID (default: our)
   -b, --blob <PATH>       Send file at Unix path as bytes blob
   -l, --non-block         If set, don't block on the full node response

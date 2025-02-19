@@ -1,10 +1,10 @@
 # Exporting & Importing Package APIs
 
-Kinode packages can export APIs, as discussed [here](../system/process/wit_apis.md).
+Hyperware packages can export APIs, as discussed [here](../system/process/wit_apis.md).
 Processes can also import APIs.
 These APIs can consist of types as well as functions.
 This recipe focuses on:
-1. Simple examples of exporting and importing APIs (find the full code [here](https://github.com/kinode-dao/kinode-book/tree/main/code/remote-file-storage)).
+1. Simple examples of exporting and importing APIs (find the full code [here](https://github.com/hyperware-ai/hyperware-book/tree/main/code/remote-file-storage)).
 2. Demonstrations of `kit` tooling to help build and export or import APIs.
 
 ## Exporting an API
@@ -12,7 +12,7 @@ This recipe focuses on:
 APIs are defined in a WIT file.
 A brief summary of more [thorough discussion](../system/process/wit_apis.md#high-level-overview) is provided here:
 1. [WIT (Wasm Interface Type)](https://component-model.bytecodealliance.org/design/wit.html) is a language to define APIs.
-   Kinode packages may define a WIT API by placing a WIT file in the top-level `api/` directory.
+   Hyperware packages may define a WIT API by placing a WIT file in the top-level `api/` directory.
 2. Processes define a [WIT `interface`](https://component-model.bytecodealliance.org/design/wit.html#interfaces).
 3. Packages define a [WIT `world`](https://component-model.bytecodealliance.org/design/wit.html#worlds).
 4. APIs define their own WIT `world` that `export`s at least one processes WIT `interface`.
@@ -45,7 +45,7 @@ cat my-chat/test/my-chat-test/api/my-chat-test\:template.os-v0.wit
 ```
 
 Functions must be defined if exported in an interface, as they are here.
-Functions are defined by creating a directory just like a process directory, but with a slightly different `lib.rs` (see [directory structure](https://github.com/kinode-dao/kinode-book/tree/main/code/remote-file-storage/server/server-api)).
+Functions are defined by creating a directory just like a process directory, but with a slightly different `lib.rs` (see [directory structure](https://github.com/hyperware-ai/hyperware-book/tree/main/code/remote-file-storage/server/server-api)).
 Note the definition of `struct Api`, the `impl Guest for Api`, and the `export!(Api)`:
 ```rust
 {{#include ../../code/remote-file-storage/server/server-api/src/lib.rs:93:94}}
@@ -59,7 +59,7 @@ Note the function signatures match those defined in the WIT API.
 
 #### Process
 
-A normal process: the [`server`](https://github.com/kinode-dao/kinode-book/tree/main/code/remote-file-storage/server/server/src/lib.rs) handles Requests from consumers of the API.
+A normal process: the [`server`](https://github.com/hyperware-ai/hyperware-book/tree/main/code/remote-file-storage/server/server/src/lib.rs) handles Requests from consumers of the API.
 
 ```rust
 {{#includehidetest ../../code/remote-file-storage/server/server/src/lib.rs}}
@@ -71,9 +71,9 @@ A normal process: the [`server`](https://github.com/kinode-dao/kinode-book/tree/
 
 #### `metadata.json`
 
-The [`metadata.json`](https://github.com/kinode-dao/kinode-book/blob/main/src/code/remote-file-storage/client/metadata.json#L14-L16) file has a `properties.dependencies` field.
+The [`metadata.json`](https://github.com/hyperware-ai/hyperware-book/blob/main/src/code/remote-file-storage/client/metadata.json#L14-L16) file has a `properties.dependencies` field.
 When the `dependencies` field is populated, [`kit build`](../kit/build.md) will fetch that dependency from either:
-1. [A livenet Kinode hosting it](#../kit/build.md#--port).
+1. [A livenet Hyperware hosting it](#../kit/build.md#--port).
 2. [A local path](#../kit/build.#--local-dependency).
 3. An HTTP endpoint (coming soon).
 
@@ -81,11 +81,11 @@ When the `dependencies` field is populated, [`kit build`](../kit/build.md) will 
 
 `kit build` resolves dependencies in a few ways.
 
-The first is from a livenet Kinode hosting the depenency.
+The first is from a livenet Hyperware node hosting the depenency.
 This method requires a [`--port`](#../kit/build.md#--port) (or `-p` for short) flag when building a package that has a non-empty `dependencies` field.
-That `--port` corresponds to the Kinode hosting the API dependency.
+That `--port` corresponds to the node hosting the API dependency.
 
-To host an API, your Kinode must either:
+To host an API, your node must either:
 1. Have that package downloaded by the `app-store`.
 2. Be a live node, in which case it will attempt to contact the publisher of the package, and download the package.
 Thus, when developing on a fake node, you must first build and start any dependencies on your fake node before building packages that depend upon them: see [usage example below](#remote-file-storage-usage-example).
@@ -119,11 +119,11 @@ The `Args` and `Command` `struct`s set up command-line parsing and are unrelated
 kit f
 
 # Start fake node to host client.
-kit f -o /tmp/kinode-fake-node-2 -p 8081 -f fake2.dev
+kit f -o /tmp/hyperware-fake-node-2 -p 8081 -f fake2.dev
 
 # Build & start server.
 ## Note starting is required because we need a deployed copy of server's API in order to build client.
-## Below is it assumed that `kinode-book` is the CWD.
+## Below is it assumed that `hyperware-book` is the CWD.
 kit bs src/../code/remote-file-storage/server
 
 # Build & start client.

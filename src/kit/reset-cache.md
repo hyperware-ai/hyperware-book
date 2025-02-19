@@ -1,6 +1,6 @@
 # `kit reset-cache`
 
-The `kit reset-cache` command clears the cache where `kit` stores Kinode core binaries, logs, etc.
+The `kit reset-cache` command clears the cache where `kit` stores Hyperdrive binaries, logs, etc.
 
 ## Discussion
 
@@ -12,7 +12,7 @@ If seeing confusing and difficult to explain behavior from `kit`, a `kit reset-c
 
 ```
 $ kit reset-cache --help
-Reset kit cache (Kinode core binaries, logs, etc.)
+Reset kit cache (Hyperdrive binaries, logs, etc.)
 
 Usage: kit reset-cache
 

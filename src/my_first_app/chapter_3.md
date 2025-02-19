@@ -6,7 +6,7 @@ Additionally, you will learn how to handle processes completing or crashing.
 ## (De)Serialization With Serde
 
 In the last section, you created a simple request-response pattern that uses strings as a `body` field type.
-This is fine for certain limited cases, but in practice, most Kinode processes written in Rust use a `body` type that is serialized and deserialized to bytes using [Serde](https://serde.rs/).
+This is fine for certain limited cases, but in practice, most Hyperware processes written in Rust use a `body` type that is serialized and deserialized to bytes using [Serde](https://serde.rs/).
 There are a multitude of libraries that implement Serde's `Serialize` and `Deserialize` traits, and the process developer is responsible for selecting a strategy that is appropriate for their use case.
 
 Some popular options are [`bincode`](https://docs.rs/bincode/latest/bincode/), [`rmp_serde`](https://docs.rs/rmp-serde/latest/rmp_serde/) ([MessagePack](https://msgpack.org/index.html)), and [`serde_json`](https://docs.rs/serde_json/latest/serde_json/).
@@ -27,10 +27,10 @@ You can define your types in Rust, but then:
 3. Every package might place the types in a different place.
 
 Instead, use the WIT language to define your API, discussed further [here](../system/process/wit_apis.md).
-Briefly, WIT is a language-independent way to define types and functions for [Wasm components](https://component-model.bytecodealliance.org/design/why-component-model.html) like Kinode processes.
-Kinode packages can define their API using a WIT file.
+Briefly, WIT is a language-independent way to define types and functions for [Wasm components](https://component-model.bytecodealliance.org/design/why-component-model.html) like Hyperware processes.
+Hyperware packages can define their API using a WIT file.
 That WIT file is used to generate code in the given language during compile-time.
-Kinode also defines a conventional place for these WIT APIs and provides infrastructure for viewing and importing the APIs of other packages.
+Hyperware also defines a conventional place for these WIT APIs and provides infrastructure for viewing and importing the APIs of other packages.
 
 ```wit
 {{#includehidetest ../../code/mfa-data-demo/api/mfa-data-demo:template.os-v0.wit}}
@@ -56,7 +56,7 @@ This comes with a number of benefits:
 
 Defining `body` types is just one step towards writing interoperable code.
 It's also critical to document the overall structure of the program along with message `blob`s and `metadata` used, if any.
-Writing interoperable code is necessary for enabling permissionless composability, and Kinode aims to make this the default kind of program, unlike the centralized web.
+Writing interoperable code is necessary for enabling permissionless composability, and Hyperware aims to make this the default kind of program, unlike the centralized web.
 
 ### Handling Messages
 
@@ -96,7 +96,7 @@ After all this, your code should look like:
 You should be able to build and start your package, then see that initial `Hello` message.
 At this point, you can use the terminal to test your message types!
 
-You can find the full code [here](https://github.com/kinode-dao/kinode-book/tree/main/code/mfa-data-demo).
+You can find the full code [here](https://github.com/hyperware-ai/hyperware-book/tree/main/code/mfa-data-demo).
 
 First, try sending a `Hello` using the [`m` terminal script](../system/terminal.md#m---message-a-process).
 Get the address of your process by looking at the "started" printout that came from it in the terminal.
@@ -138,4 +138,4 @@ If it has `"Restart"`, it will repeat in an infinite loop.
 
 A process intended to run over a period of time and serve requests and responses will often have `"Restart"` `on_exit` so that, in case of crash, it will start again.
 Alternatively, a JSON object `on_exit` can be used to inform another process of its untimely demise.
-In this way, Kinode processes become quite similar to Erlang processes in that crashing can be [designed into your process to increase reliability](https://ferd.ca/the-zen-of-erlang.html).
+In this way, Hyperware processes become quite similar to Erlang processes in that crashing can be [designed into your process to increase reliability](https://ferd.ca/the-zen-of-erlang.html).

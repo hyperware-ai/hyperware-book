@@ -1,14 +1,14 @@
 # Terminal
 
-The [terminal syntax](https://github.com/kinode-dao/kinode?tab=readme-ov-file#terminal-syntax) is specified in the main Kinode repository.
+The [terminal syntax](https://github.com/hyperware-ai/hyperdrive?tab=readme-ov-file#terminal-syntax) is specified in the main Hyperdrive repository.
 
 ## Commands
 
-All commands in the [terminal](https://github.com/kinode-dao/kinode/tree/main/kinode/packages/terminal) are calling scripts — a special kind of process.
-Kinode comes pre-loaded with a number of scripts useful for debugging and everyday use.
+All commands in the [terminal](https://github.com/hyperware-ai/hyperdrive/tree/main/hyperdrive/packages/terminal) are calling scripts — a special kind of process.
+Hyperdrive comes pre-loaded with a number of scripts useful for debugging and everyday use.
 These scripts are fully named `<SCRIPT>:terminal:sys` e.g `hi:terminal:sys`, but the distro [aliases](#alias---alias-a-script-name) these to short names, in this case just `hi`, for convenience.
 
-### `hi` - ping another kinode
+### `hi` - ping another node
 
 ```
 Usage: hi <KNS_ID> <MESSAGE>
@@ -88,7 +88,7 @@ For more information on writing your own scripts, see the [cookbook](../cookbook
 
 ## Packaging Scripts with `scripts.json`
 
-For your scripts to be usable by the terminal, you must include a `pkg/scripts.json` file, like [this one](https://github.com/kinode-dao/kinode/blob/main/kinode/packages/terminal/pkg/scripts.json).
+For your scripts to be usable by the terminal, you must include a `pkg/scripts.json` file, like [this one](https://github.com/hyperware-ai/hyperdrive/blob/main/hyperdrive/packages/terminal/pkg/scripts.json).
 Note that this is a core package and this file should not be edited, but rather you should create one in your own package.
 For more discussion on package folder structure, look [here](../my_first_app/chapter_1.md#exploring-the-package).
 

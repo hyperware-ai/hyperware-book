@@ -2,7 +2,7 @@
 
 short: `kit s`
 
-`kit start-package` installs and starts the indicated package directory (or current working directory) on the given Kinode (at `localhost:8080` by default), e.g.,
+`kit start-package` installs and starts the indicated package directory (or current working directory) on the given Hyperware node (at `localhost:8080` by default), e.g.,
 
 ```
 kit start-package foo
@@ -28,15 +28,15 @@ To both `build` and `start-package` in one command, use `kit build-start-package
 
 ```
 $ kit start-package --help
-Start a built Kinode package
+Start a built Hyprware package
 
 Usage: kit start-package [OPTIONS] [DIR]
 
 Arguments:
-  [DIR]  The package directory to start [default: CWD]
+  [DIR]  The package directory to start [default: /home/nick]
 
 Options:
-  -p, --port <NODE_PORT>  localhost node port; for remote see https://book.kinode.org/hosted-nodes.html#using-kit-with-your-hosted-node [default: 8080]
+  -p, --port <NODE_PORT>  localhost node port; for remote see https://book.hyperware.ai/hosted-nodes.html#using-kit-with-your-hosted-node [default: 8080]
   -h, --help              Print help
 ```
 

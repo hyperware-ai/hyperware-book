@@ -1,11 +1,11 @@
 # Read+Write to Chain
 
-Kinode comes with a built-in provider module for Ethereum and other EVM chains/rollups.
-This runtime module lives in [`eth:distro:sys`](https://github.com/kinode-dao/kinode/tree/main/kinode/src/eth) and is usable by any package that acquires the messaging capability for it.
-In addition to allowing read/write connections directly to WebSocket RPC endpoints, the provider module can also connect via the Kinode networking protocol to other Kinodes and use their provider modules as a relay to an RPC endpoint (or to another Kinode, forming a relay chain).
+Hyperware comes with a built-in provider module for Ethereum and other EVM chains/rollups.
+This runtime module lives in [`eth:distro:sys`](https://github.com/hyperware-ai/hyperdrive/tree/main/hyperdrive/src/eth) and is usable by any package that acquires the messaging capability for it.
+In addition to allowing read/write connections directly to WebSocket RPC endpoints, the provider module can also connect via the Hyperware networking protocol to other nodes and use their provider modules as a relay to an RPC endpoint (or to another Hyperware node, forming a relay chain).
 The node must be configured to allow relay connections, which can be done with a public/private flag or explicit allow/deny list.
 
-As with other runtime modules, processes should generally use the [`kinode_process_lib`](https://docs.rs/kinode_process_lib/latest/kinode_process_lib/eth/index.html) to interact with the RPC provider.
+As with other runtime modules, processes should generally use the [`hyperware_process_lib`](https://docs.rs/hyperware_process_lib/latest/hyperware_process_lib/eth/index.html) to interact with the RPC provider.
 See [Reading Data from ETH](../cookbook/reading_data_from_eth.md) for an example of doing this in a process.
 For more advanced or direct usage, such as configuring the provider module, see the [API Reference](../apis/eth_provider.md).
 
@@ -13,12 +13,12 @@ For more advanced or direct usage, such as configuring the provider module, see 
 
 The provider module is capable of using any RPC endpoint that follows the [JSON-RPC API](https://ethereum.org/developers/docs/apis/json-rpc) that is used by Ethereum and most other EVM chains and rollups.
 The runtime uses the [Alloy](https://github.com/alloy-rs) family of libraries to connect to WS RPC endpoints.
-It does not currently support HTTP endpoints, as subscriptions are vastly preferable for many of the features that Kinode uses.
+It does not currently support HTTP endpoints, as subscriptions are vastly preferable for many of the features that Hyperware uses.
 
 ### Configuration
 
 The [API Reference](../apis/eth_provider.md) demonstrates how to format requests to `eth:distro:sys` that adjust its config during runtime.
-This includes adding and removing providers (whether other Kinodes or chain RPCs) and adjusting the permissions for other nodes to use this node as a relay.
+This includes adding and removing providers (whether other nodes or chain RPCs) and adjusting the permissions for other nodes to use this node as a relay.
 However, most configuration is done in an optional file named `.eth-providers` inside the home folder of a node.
 If this file is not present, a node will boot using the default providers hardcoded for testnet or mainnet, depending on where the node lives.
 If it is present, the node will load in those providers and use them.
@@ -54,7 +54,7 @@ The file is a JSON object: a list of providers, with the following shape (exampl
 ]
 ```
 
-One can see that the provider list includes both node-providers (other Kinodes that are permissioned for use as a relay) and url-providers (traditional RPC endpoints).
+One can see that the provider list includes both node-providers (other nodes that are permissioned for use as a relay) and url-providers (traditional RPC endpoints).
 Nodes that wish to maximize their connectivity should supply themselves with url-providers, ideally trusted ones — they can even be running locally, with a light client for Ethereum such as [Helios](https://github.com/a16z/helios).
 In fact, a future update to the provider module will likely integrate Helios, which will allow nodes to convert untrusted endpoints to trusted ones. This is the reason for the `trusted` flag in the provider object.
 

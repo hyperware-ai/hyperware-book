@@ -35,7 +35,7 @@ Arguments:
 Options:
   -a, --package <PACKAGE>      Name of the package (Overrides DIR)
   -u, --publisher <PUBLISHER>  Name of the publisher (Overrides DIR)
-  -p, --port <NODE_PORT>       localhost node port; for remote see https://book.kinode.org/hosted-nodes.html#using-kit-with-your-hosted-node [default: 8080]
+  -p, --port <NODE_PORT>       localhost node port; for remote see https://book.hyperware.ai/hosted-nodes.html#using-kit-with-your-hosted-node [default: 8080]
   -h, --help                   Print help
 ```
 

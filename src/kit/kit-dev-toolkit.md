@@ -1,6 +1,6 @@
 # kit
 
-[`kit`](https://github.com/kinode-dao/kit) is a CLI tool**kit** to make development on Kinode ergonomic.
+[`kit`](https://github.com/hyperware-ai/kit) is a CLI tool**kit** to make development on Hyperware ergonomic.
 
 ## Table of Contents
 

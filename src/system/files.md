@@ -4,9 +4,9 @@
 
 The primary way to access files within your node is through the [VFS API](../apis/vfs.md).
 The VFS API follows [`std::fs`](https://doc.rust-lang.org/std/fs/index.html) closely, while also adding some capabilities checks on paths.
-Use the [`kinode_process_lib`](https://docs.rs/kinode_process_lib/latest/kinode_process_lib/vfs/index.html) to interact with the VFS.
+Use the [`hyperware_process_lib`](https://docs.rs/hyperware_process_lib/latest/hyperware_process_lib/vfs/index.html) to interact with the VFS.
 
-VFS files exist in the `vfs/` directory within your home node, and files are grouped by [`PackageId`](https://docs.rs/kinode_process_lib/latest/kinode_process_lib/kinode/process/standard/struct.PackageId.html).
+VFS files exist in the `vfs/` directory within your home node, and files are grouped by [`PackageId`](https://docs.rs/hyperware_process_lib/latest/hyperware_process_lib/hyperware/process/standard/struct.PackageId.html).
 For example, part of the VFS might look like:
 
 ```text
@@ -54,12 +54,12 @@ These new drives are permissioned at the process-level: other processes will nee
 
 ### `pkg/` drive
 
-The `pkg/` drive contains metadata about the package that Kinode requires to run that package, `.wasm` binaries, and optionally the API of the package and the UI.
-When creating packages, the `pkg/` drive is populated by [`kit build`](../kit/build.md) and loaded into the Kinode using [`kit start-package`](../kit/start-package.md).
+The `pkg/` drive contains metadata about the package that Hyperware requires to run that package, `.wasm` binaries, and optionally the API of the package and the UI.
+When creating packages, the `pkg/` drive is populated by [`kit build`](../kit/build.md) and loaded into the node using [`kit start-package`](../kit/start-package.md).
 
 ### `tmp/` drive
 
-The `tmp/` drive can be written to directly by the owning package using standard filesystem functionality (i.e. `std::fs` in Rust) via WASI in addition to the Kinode VFS.
+The `tmp/` drive can be written to directly by the owning package using standard filesystem functionality (i.e. `std::fs` in Rust) via WASI in addition to the Hyperware VFS.
 
 ## Usage
 

@@ -1,6 +1,6 @@
 # Saving State
 
-Every Kinode process has access to two system calls that save and load persistent state: `set_state` and `get_state`.
+Every Hyperware process has access to two system calls that save and load persistent state: `set_state` and `get_state`.
 `set_state` takes a byte-vector and saves it in the kernel's disk storage.
 `get_state` takes no arguments and returns an optional byte-vector.
 If the byte-vector is present, it was previously saved by `set_state`.

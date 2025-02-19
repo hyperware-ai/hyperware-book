@@ -3,7 +3,7 @@
 Capabilities are a security paradigm in which an ability that is usually handled as a *permission* (i.e. certain processes are allowed to perform an action if they are saved on an "access control list") are instead handled as a *token* (i.e. the process that possesses token can perform a certain action).
 These unforgeable tokens (as enforced by the kernel) can be passed to other owners, held by a given process, and checked for.
 
-On Kinode, each process has an associated set of capabilities, which are each represented internally as an arbitrary JSON object with a source process:
+Each Hyperware process has an associated set of capabilities, which are each represented internally as an arbitrary JSON object with a source process:
 
 ```rust
 pub struct Capability {
@@ -52,7 +52,7 @@ By setting `request_networking: true`, the kernel will give it the `"networking"
 Finally, in the `grant_capabilities` field, it is giving `http-server:distro:sys` the ability to message `chess`.
 
 When booting the `chess` app, all of these capabilities will be granted throughout your node.
-If you were to print out `chess`' capabilities using `kinode_process_lib::our_capabilities() -> Vec<Capability>`, you would see something like this:
+If you were to print out `chess`' capabilities using `hyperware_process_lib::our_capabilities() -> Vec<Capability>`, you would see something like this:
 
 ```rust
 [
@@ -71,7 +71,7 @@ While the manifest fields are useful for getting a process started, it is not su
 To create your own capabilities, simply declare a new one and attach it to a `Request` or `Response` like so:
 
 ```rust
-let my_new_cap = kinode_process_lib::Capability::new(our, "\"my-new-capability\"");
+let my_new_cap = hyperware_process_lib::Capability::new(our, "\"my-new-capability\"");
 
 Request::new()
     .to(a_different_process)
@@ -82,7 +82,7 @@ Request::new()
 On the other end, if a process wants to save and reuse that capability, they can do something like this:
 
 ```rust
-kinode_process_lib::save_capabilities(req.capabilities);
+hyperware_process_lib::save_capabilities(req.capabilities);
 ```
 This call will automatically save the caps for later use.
 Next time you attach this capability to a message, whether that is for authentication with the `issuer`, or to share it with another process, it will reach the other side just fine, and they can check it using the exact same flow.

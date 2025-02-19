@@ -10,7 +10,7 @@ Every path that you bind will be automatically prepended with the current proces
 For example, bind the route `/messages` within a process called `main:my-package:myname.os` like so:
 
 ```rust
-use kinode_process_lib::{http::bind_http_path};
+use hyperware_process_lib::{http::bind_http_path};
 
 bind_http_path("/messages", true, false).unwrap();
 ```

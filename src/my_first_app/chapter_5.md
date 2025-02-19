@@ -47,7 +47,7 @@ The keystore is an encrypted wallet private key: the key that owns your publishi
 To use a hardware wallet, simply input the appropriate flag to `kit publish` (`-l` for Ledger or `-t` for Trezor).
 
 In addition, you'll need an ETH RPC endpoint.
-See the [`OPTIONAL: Acquiring an RPC API Key` section](../getting_started/login.md#starting-the-kinode) for a walkthrough of how to get an Alchemy API key.
+See the [`OPTIONAL: Acquiring an RPC API Key` section](../getting_started/login.md#starting-hyperdrive) for a walkthrough of how to get an Alchemy API key.
 
 ### Making a Keystore
 

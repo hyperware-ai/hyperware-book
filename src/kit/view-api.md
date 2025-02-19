@@ -9,7 +9,7 @@ short: `kit v`
 kit view-api --port 8080
 ```
 
-lists all the APIs of packages downloaded by the Kinode running at port 8080.
+lists all the APIs of packages downloaded by the Hyperware node running at port 8080.
 
 ## Example Usage
 
@@ -36,7 +36,7 @@ Arguments:
   [PACKAGE_ID]  Get API of this package (default: list all APIs)
 
 Options:
-  -p, --port <NODE_PORT>      localhost node port; for remote see https://book.kinode.org/hosted-nodes.html#using-kit-with-your-hosted-node [default: 8080]
+  -p, --port <NODE_PORT>      localhost node port; for remote see https://book.hyperware.ai/hosted-nodes.html#using-kit-with-your-hosted-node [default: 8080]
   -d, --download-from <NODE>  Download API from this node if not found
   -h, --help                  Print help
 ```

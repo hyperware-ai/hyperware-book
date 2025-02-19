@@ -18,7 +18,7 @@ my-package
 
 ## Serving Static Assets
 
-The simplest way to serve a UI is using the [`http::HttpServer::serve_ui()`](https://docs.rs/kinode_process_lib/latest/kinode_process_lib/http/server/struct.HttpServer.html#method.serve_ui) method from `process_lib`:
+The simplest way to serve a UI is using the [`http::HttpServer::serve_ui()`](https://docs.rs/hyperware_process_lib/latest/hyperware_process_lib/http/server/struct.HttpServer.html#method.serve_ui) method from `process_lib`:
 
 ```rs
 let mut server = http::server::HttpServer::new(5);
@@ -33,7 +33,7 @@ server
 ```
 
 This will serve the `index.html` in the specified folder at the home path of your process.
-If your process is called `main:my-package:myusername.os` and your Kinode is running locally on port 8080, then the UI will be served at `http://localhost:8080/main:my-package:myusername.os`.
+If your process is called `main:my-package:myusername.os` and your Hyperware node is running locally on port 8080, then the UI will be served at `http://localhost:8080/main:my-package:myusername.os`.
 
 `serve_ui` takes four arguments:
 1. The process' `&Address`
@@ -47,7 +47,7 @@ If your process is called `main:my-package:myusername.os` and your Kinode is run
    - Whether the content is static (not relevant here)
    - Whether to serve as a secure subdomain
 
-Under the hood, `serve_ui` uses [`bind_http_static_path`](https://docs.rs/kinode_process_lib/latest/kinode_process_lib/http/server/struct.HttpServer.html#method.bind_http_static_path) which caches files in memory with `http-server` to respond to HTTP requests more quickly.
+Under the hood, `serve_ui` uses [`bind_http_static_path`](https://docs.rs/hyperware_process_lib/latest/hyperware_process_lib/http/server/struct.HttpServer.html#method.bind_http_static_path) which caches files in memory with `http-server` to respond to HTTP requests more quickly.
 The two additional parameters are the `content_type` (an optional String) and the `content` (bytes).
 The content will be served at the named route with the `Content-Type` header set appropriately.
 

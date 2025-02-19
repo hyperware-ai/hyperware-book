@@ -1,12 +1,12 @@
 # Frontend/UI Development
 
-Kinode can easily serve any webpage or web app developed with normal libraries and frameworks.
+Hyperware can easily serve any webpage or web app developed with normal libraries and frameworks.
 
 There are some specific endpoints, JS libraries, and `process_lib` functions that are helpful for doing frontend development.
 
 There are also some important considerations and "gotchas" that can happen when trying to do frontend development.
 
-Kinode can serve a website or web app just like any HTTP webserver.
+Hyperware can serve a website or web app just like any HTTP webserver.
 The preferred method is to upload your static assets on install by placing them in the `pkg` folder.
 By convention, `kit` bundles these assets into a directory inside `pkg` called `ui`, but you can call it anything.
 You **must** place your `index.html` in the top-level folder.
@@ -37,7 +37,7 @@ serve_ui(&our, "ui", true, false, vec!["/"]).unwrap();
 ```
 
 This will serve the `index.html` in the specified folder (here, `"ui"`) at the home path of your process.
-If your process is called `my-process:my-package:template.os` and your Kinode is running locally on port 8080,
+If your process is called `my-process:my-package:template.os` and your Hyperware node is running locally on port 8080,
 then the UI will be served at `http://localhost:8080/my-process:my-package:template.os`.
 
 `serve_ui` takes five arguments: our `&Address`, the name of the folder that contains your frontend, whether the UI requires authentication, whether the UI is local-only, and the path(s) on which to serve the UI (usually `["/"]`).
@@ -50,7 +50,7 @@ To make development easy, your setup should support a base URL and http proxying
 
 ### Base URL
 
-All processes on Kinode are namespaced by process name in the standard format of `process:package:publisher`.
+All processes on Hyperware are namespaced by process name in the standard format of `process:package:publisher`.
 So if your process is called `my-process:my-package:template.os`, then your process can only bind HTTP paths that start with `/my-process:my-package:template.os`.
 Your UI should be developed and compiled with the base URL set to the appropriate process path.
 
@@ -70,16 +70,16 @@ homepage: '/my-process:my-package:template.os'
 
 ### Proxying HTTP Requests
 
-In UI development, it is very useful to proxy HTTP requests from the in-dev UI to your Kinode.
+In UI development, it is very useful to proxy HTTP requests from the in-dev UI to your Hyperware node.
 Below are some examples.
 
 #### Vite
 
-Follow the `server` entry in the [kit template](https://github.com/kinode-dao/kit/blob/master/src/new/templates/ui/chat/ui/vite.config.ts#L31-L47) in your own `vite.config.ts`.
+Follow the `server` entry in the [kit template](https://github.com/hyperware-ai/kit/blob/master/src/new/templates/ui/chat/ui/vite.config.ts#L31-L47) in your own `vite.config.ts`.
 
 #### Create React App
 
-In `package.json` set `proxy` to your Kinode's URL, i.e.
+In `package.json` set `proxy` to your nodes URL, i.e.
 ```
 proxy: 'http://localhost:8080'
 ```

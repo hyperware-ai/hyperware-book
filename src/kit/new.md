@@ -2,7 +2,7 @@
 
 short: `kit n`
 
-`kit new` creates a Kinode package template at the specified path, e.g.,
+`kit new` creates a Hyperware package template at the specified path, e.g.,
 
 ```
 kit new foo
@@ -10,7 +10,7 @@ kit new foo
 
 creates the default template (a Rust chat app with no UI) in the `foo/` directory.
 
-The package name must be "Kimap-safe": contain only a-z, 0-9, and `-`.
+The package name must be "Hypermap-safe": contain only a-z, 0-9, and `-`.
 
 ## Example Usage
 
@@ -49,7 +49,7 @@ Brief description of each template:
 
 ```
 $ kit new --help
-Create a Kinode template package
+Create a Hyperware template package
 
 Usage: kit new [OPTIONS] <DIR>
 
@@ -75,14 +75,14 @@ By default the package name is set to the name specified here, if not supplied b
 short: `-a`
 
 Name of the package; defaults to `DIR`.
-Must be Kimap-safe: contain only a-z, 0-9, and `-`.
+Must be Hypermap-safe: contain only a-z, 0-9, and `-`.
 
 ### `--publisher`
 
 short: `-u`
 
 Name of the publisher; defaults to `template.os`.
-Must be Kimap-safe (plus `.`): contain only a-z, 0-9, `-`, and `.`.
+Must be Hypermap-safe (plus `.`): contain only a-z, 0-9, `-`, and `.`.
 
 ### `--language`
 

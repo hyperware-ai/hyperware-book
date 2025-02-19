@@ -1,6 +1,6 @@
 # VFS API
 
-Useful helper functions can be found in the [`kinode_process_lib`](https://github.com/kinode-dao/process_lib)
+Useful helper functions can be found in the [`hyperware_process_lib`](https://github.com/hyperware-ai/process_lib)
 
 The VFS API tries to map over the [`std::fs`](https://doc.rust-lang.org/std/fs/index.html) calls as directly as possible.
 
@@ -17,17 +17,17 @@ Processes can also create additional drives.
 
 ### `pkg/` drive
 
-The `pkg/` drive contains metadata about the package that Kinode requires to run that package, `.wasm` binaries, and optionally the API of the package and the UI.
-When creating packages, the `pkg/` drive is populated by [`kit build`](../kit/build.md) and loaded into the Kinode using [`kit start-package`](../kit/start-package.md).
+The `pkg/` drive contains metadata about the package that Hyperware requires to run that package, `.wasm` binaries, and optionally the API of the package and the UI.
+When creating packages, the `pkg/` drive is populated by [`kit build`](../kit/build.md) and loaded into the Hyperware node using [`kit start-package`](../kit/start-package.md).
 
 ### `tmp/` drive
 
-The `tmp/` drive can be written to directly by the owning package using standard filesystem functionality (i.e. `std::fs` in Rust) via WASI in addition to the Kinode VFS.
+The `tmp/` drive can be written to directly by the owning package using standard filesystem functionality (i.e. `std::fs` in Rust) via WASI in addition to the Hyperware VFS.
 
 ### Imports
 
 ```rust
-use kinode_process_lib::vfs::{
+use hyperware_process_lib::vfs::{
   create_drive, open_file, open_dir, create_file, metadata, File, Directory,
 };
 ```
