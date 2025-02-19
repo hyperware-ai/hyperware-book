@@ -13,7 +13,7 @@ If you're a non-technical user:
 - Learn about Hyperware at the [Hyperware blog](https://hyperware.ai/blog).
 - Spin up a hosted node at [Valet](https://valet.hyperware.ai).
 - [Follow us on X](https://x.com/intent/follow?screen_name=hyperware_ai).
-- Join the conversation on [our Discord](https://discord.gg/6vAPYDQg) or [Telegram](https://t.me/hyperware_ai).
+- Join the conversation on [Discord](https://discord.com/invite/KaPXX7SFTD) or [Telegram](https://t.me/hyperware_ai).
 
 If you're a developer:
 

@@ -90,7 +90,7 @@ short: `-l`
 
 Template language; defaults to `rust`.
 Currently supports `rust`.
-Ask us in the [Discord](https://discord.gg/mYDj74NkfP) about `python`, and `javascript` templates.
+Ask us in the [Discord](https://discord.com/invite/KaPXX7SFTD) about `python`, and `javascript` templates.
 
 ### `--template`
 

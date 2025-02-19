@@ -189,4 +189,4 @@ After setting the node password, you will be greeted with the homepage.
 ![Homepage](../assets/register-homepage.png)
 
 Try downloading, installing, and using some apps on the App Store.
-Come ask for recommendations in the [Hyperware Discord](https://discord.gg/6vAPYDQg)!
+Come ask for recommendations in the [Hyperware Discord](https://discord.com/invite/KaPXX7SFTD)!
