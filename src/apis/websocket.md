@@ -8,7 +8,7 @@ The process receives the `channel_id` for pushing data into the WebSocket, and a
 
 To open a WebSocket channel, connect to the main route on the node `/` and send a `WsRegister` message as either text or bytes.
 
-The simplest way to connect from a browser is to use the `@hyperware/client-api` like so:
+The simplest way to connect from a browser is to use the `@hyperware-ai/client-api` like so:
 
 ```rs
 const api = new HyperwareEncryptorApi({
@@ -22,7 +22,7 @@ const api = new HyperwareEncryptorApi({
 })
 ```
 
-`@hyperware/client-api` is available here: [https://www.npmjs.com/package/@hyperware/client-api](https://www.npmjs.com/package/@hyperware/client-api)
+`@hyperware-ai/client-api` is available here: [https://www.npmjs.com/package/@hyperware-ai/client-api](https://www.npmjs.com/package/@hyperware-ai/client-api)
 
 Simple JavaScript/JSON example:
 
