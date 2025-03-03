@@ -26,7 +26,7 @@ kit new my-rust-chat-with-ui --ui
 
 You can create a variety of templates using `kit new`.
 Currently, one language is supported: `rust`.
-Ask us in the [Discord](https://discord.gg/mYDj74NkfP) about `python`, and `javascript` templates.
+Ask us in the [Discord](https://discord.com/invite/KaPXX7SFTD) about `python`, and `javascript` templates.
 Four templates are currently supported, as described in the [following section](./new.html#existshas-ui-enabled-version).
 In addition, some subset of these templates also have a UI-enabled version.
 
