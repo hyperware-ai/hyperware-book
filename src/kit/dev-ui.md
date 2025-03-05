@@ -32,24 +32,3 @@ Options:
   -h, --help              Print help
 ```
 
-### Optional positional arg: `DIR`
-
-The UI-enabled package directory to serve; defaults to current working directory.
-
-### `--port`
-
-short: `-p`
-
-For nodes running on localhost, the port of the node; defaults to `8080`.
-`--port` is overridden by `--url` if both are supplied.
-
-### `--release`
-
-Create a production build.
-Defaults to dev build.
-
-### `--skip-deps-check`
-
-short: `-s`
-
-Don't check for dependencies.
