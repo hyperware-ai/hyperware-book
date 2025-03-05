@@ -77,7 +77,7 @@ The `app-store` Hyperware process reads the Hypermap, looking for these specific
 3. Confirming those mirrors gave the expected files.
 4. Fetching and installing updates, if desired, when made available.
 
-Read more [here](./getting_started/hypermap.md).
+Read more in the Hypermap documentation.
 
 ## Hypermap-safe
 
@@ -138,7 +138,7 @@ Packages have a unique [identity](https://docs.rs/hyperware_process_lib/latest/h
 ## Process
 
 Hyperware processes are the code bundles that make up userspace.
-Hyperware processes are [Wasm components](#wasm-component) that use either the [Hyperware process WIT file](https://github.com/hyperware-ai/hyperdrive-wit/blob/v1.0.0/hyperware.wit) or that define their own [WIT](#wit) file that [wraps the Hyperware process WIT file](./cookbook/package_apis.md).
+Hyperware processes are [Wasm components](#wasm-component) that use either the [Hyperware process WIT file](https://github.com/hyperware-ai/hyperdrive-wit/blob/v1.0.0/hyperware.wit) or that define their own [WIT](#wit) file that wraps the Hyperware process WIT file.
 
 Processes have a unique [identity](https://docs.rs/hyperware_process_lib/latest/hyperware_process_lib/hyperware/process/standard/struct.ProcessId.html) and a globally unique [address](#address).
 
@@ -180,4 +180,4 @@ Hyperware [processes](#process) are Wasm components.
 
 WIT is the [Wasm Interface Type](https://component-model.bytecodealliance.org/design/wit.html).
 WIT is used to define the interface for a [Wasm component](#wasm-component).
-Hyperware [processes](#process) must use either the [Hyperware process WIT file](https://github.com/hyperware-ai/hyperdrive-wit/blob/v1.0.0/hyperware.wit) or define their own WIT file that [wraps the Hyperware process WIT file](./cookbook/package_apis.md)
+Hyperware [processes](#process) must use either the [Hyperware process WIT file](https://github.com/hyperware-ai/hyperdrive-wit/blob/v1.0.0/hyperware.wit) or define their own WIT file that wraps the Hyperware process WIT file

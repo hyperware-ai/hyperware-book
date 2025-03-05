@@ -8,12 +8,12 @@ Note — the app you will build in Sections 2 through 5 is *not* `my-chat-app`; 
 ## Requirements
 
 This section assumes you've completed the steps outlined in [Environment Setup](./chapter_1.md) to setup your development environment or otherwise have a basic Hyperware app open in your code editor of choice.
-You should also be actively running a Hyperware node ([live](../getting_started/login.md) or [fake](./chapter_1.md#booting-a-fake-hyperware-node)) such that you can quickly compile and test your code!
+You should also be actively running a Hyperware node (live or [fake](./chapter_1.md#booting-a-fake-hyperware-node)) such that you can quickly compile and test your code!
 Tight feedback loops when building: very important.
 
 ## Starting from Scratch
 
-If you want to hit the ground running by yourself, you can take the template code or the [chess tutorial](../chess_app/chess_engine.md) and start hacking away.
+If you want to hit the ground running by yourself, you can take the template code or the chess tutorial and start hacking away.
 Here, you'll start from scratch and learn about every line of boilerplate.
 Open `src/lib.rs`, clear its contents so it's empty, and code along!
 
@@ -36,7 +36,7 @@ The component, however, internally defines how that `world` is implemented.
 This interface is defined via [WIT](https://component-model.bytecodealliance.org/design/wit.html).
 
 WIT bindings are the glue code that is necessary for the interaction between Wasm modules and their host environment.
-They may be written in any Wasm-compatible language — Hyperware offers the most support for Rust with [`kit`](../kit/kit-dev-toolkit.md) and [`process_lib`](../process_stdlib/overview.md).
+They may be written in any Wasm-compatible language — Hyperware offers the most support for Rust with `kit` and `process_lib`.
 The `world`, types, imports, and exports are all declared in a [WIT file](https://github.com/hyperware-ai/hyperdrive-wit/blob/v0.8/hyperware.wit), and using that file, [`wit_bindgen`](https://github.com/bytecodealliance/wit-bindgen) generates the code for the bindings.
 
 So, to bring it all together...
@@ -58,7 +58,7 @@ After generating the bindings, every process must define a `Component` struct wh
 The `Guest` trait should define a single function — `init()`.
 This is the entry point for the process, and the `init()` function is the first function called by the Hyperware runtime (such as Hyperdrive) when the process is started.
 
-The definition of the `Component` struct can be done manually, but it's easier to import the [`hyperware_process_lib`](../process_stdlib/overview.md) crate (a sort of standard library for Hyperware processes written in Rust) and use the `call_init!` macro.
+The definition of the `Component` struct can be done manually, but it's easier to import the `hyperware_process_lib` crate (a sort of standard library for Hyperware processes written in Rust) and use the `call_init!` macro.
 
 ```rust
 {{#include ../../code/mfa-message-demo/mfa-message-demo/src/lib.rs::9}}
@@ -66,9 +66,9 @@ The definition of the `Component` struct can be done manually, but it's easier t
 ```
 
 Every Hyperware process written in Rust will need code that does the same thing as the code above (i.e. use the `wit_bindgen::generate!()` and `call_init!()` macros).
-See [`hyperware.wit`](../apis/hyperware_wit.md) for more details on what is imported by the WIT bindgen macro.
+See `hyperware.wit` for more details on what is imported by the WIT bindgen macro.
 These imports are the necessary "system calls" for talking to other processes and runtime components on Hyperware.
-Note that there are a variety of imports from the [`process_lib`](../process_stdlib/overview.md) including a `println!` macro that replaces the standard Rust one.
+Note that there are a variety of imports from the `process_lib` including a `println!` macro that replaces the standard Rust one.
 
 The [`our` parameter](https://docs.rs/hyperware_process_lib/latest/hyperware_process_lib/hyperware/process/standard/struct.Address.html) tells the process what its globally-unique name is.
 
@@ -78,7 +78,7 @@ The second pattern is more usual for long-lived state machine processes that, e.
 
 ## Sending a Message
 
-The [`Request`](https://docs.rs/hyperware_process_lib/latest/hyperware_process_lib/struct.Request.html) type from the [`process_lib`](../process_stdlib/overview.md) provides all the necessary functionality to send a Message.
+The [`Request`](https://docs.rs/hyperware_process_lib/latest/hyperware_process_lib/struct.Request.html) type from the `process_lib` provides all the necessary functionality to send a Message.
 
 `Request` is a builder struct that abstracts over the raw interface presented in the WIT bindings.
 It's very simple to use:
@@ -88,7 +88,7 @@ It's very simple to use:
         .send();
 ```
 
-Because this process might not have [capabilities](../system/process/capabilities.md) to message any other (local or remote) processes, for the purposes of this tutorial, just send the message to itself.
+Because this process might not have capabilities to message any other (local or remote) processes, for the purposes of this tutorial, just send the message to itself.
 
 ```rust
     Request::to(&our)

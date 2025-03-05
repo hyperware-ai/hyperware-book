@@ -3,22 +3,19 @@
 After the last section, you should have a simple process that responds to two commands from the terminal.
 In this section, you'll add some basic HTTP logic to serve a frontend and accept an HTTP PUT request that contains a command.
 
-If you're the type of person that prefers to learn by looking at a complete example, check out the [chess frontend section](../chess_app/frontend.md) for a real example application and a link to some frontend code.
+
 
 ## Adding HTTP request handling
 
 Using the built-in HTTP server will require handling a new type of Request in our main loop, and serving a Response to it.
-The [`process_lib`](../process_stdlib/overview.md) contains types and functions for doing so.
+The `process_lib` contains types and functions for doing so.
 
-At the top of your process, import [`get_blob`](https://docs.rs/hyperware_process_lib/latest/hyperware_process_lib/hyperware/process/standard/fn.get_blob.html), [`homepage`](https://docs.rs/hyperware_process_lib/latest/hyperware_process_lib/homepage/index.html), and [`http`](https://docs.rs/hyperware_process_lib/latest/hyperware_process_lib/http/index.html) from [`hyperware_process_lib`](../process_stdlib/overview.md) along with the rest of the imports.
+At the top of your process, import [`get_blob`](https://docs.rs/hyperware_process_lib/latest/hyperware_process_lib/hyperware/process/standard/fn.get_blob.html), [`homepage`](https://docs.rs/hyperware_process_lib/latest/hyperware_process_lib/homepage/index.html), and [`http`](https://docs.rs/hyperware_process_lib/latest/hyperware_process_lib/http/index.html) from `hyperware_process_lib` along with the rest of the imports.
 You'll use `get_blob()` to grab the `body` bytes of an incoming HTTP request.
-```rust
-{{#include ../../code/mfa-fe-demo/mfa-fe-demo/src/lib.rs:4:7}}
-```
 
 Keep the custom WIT-defined `MfaRequest` the same, and keep using that for terminal input.
 
-At the beginning of the `init()` function, in order to receive HTTP requests, use the [`hyperware_process_lib::http`](https://docs.rs/hyperware_process_lib/latest/hyperware_process_lib/http/index.html) library to bind a new path.
+At the beginning of the `init()` function, in order to receive HTTP requests, use the `hyperware_process_lib::http` library to bind a new path.
 Binding a path will cause the process to receive all HTTP requests that match that path.
 You can also bind static content to a path using another function in the library.
 
@@ -143,9 +140,9 @@ Create a `ui/` directory in the package root, and then a new file in `ui/index.h
 ```
 
 This is a super barebones `index.html` that provides a form to make requests to the `/api` endpoint.
-Additional UI dev info can be found [here](../apis/frontend_development.md).
+Additional UI dev info can be found in the documentation.
 
-Next, add two more entries to `manifest.json`: messaging capabilities to the [VFS](../system/files.md) which is required to store and access the UI `index.html`, and the `homepage` capability which is required to add our app to the user's homepage (next section):
+Next, add two more entries to `manifest.json`: messaging capabilities to the VFS which is required to store and access the UI `index.html`, and the `homepage` capability which is required to add our app to the user's homepage (next section):
 ```json
 ...
 {{#include ../../code/mfa-fe-demo/pkg/manifest.json:7:11}}

@@ -58,9 +58,9 @@ This design allows for ephemeral state that lives in-memory, or truly permanent 
 
 Processes have access to multiple methods for persisting state:
 
-- Saving a state object with the system calls available to every process, seen [here](../../cookbook/save_state.md).
-- [Using the virtual filesystem to read and write from disk](../files.md), useful for persisting state that needs to be shared between processes.
-- Using the [SQLite](../../apis/sqlite.md) or [KV](../../apis/kv.md) APIs to persist state in a database.
+- Saving a state object with the system calls available to every process.
+- Using the virtual filesystem to read and write from disk, useful for persisting state that needs to be shared between processes.
+- Using the SQLite or KV APIs to persist state in a database.
 
 ## Requests and Responses
 
@@ -113,7 +113,7 @@ In contrast, if a `file-transfer` process can transfer more than one file at a t
 The constraint on awaiting is a primary reason why it is desirable to [spawn child processes](#spawning-child-processes).
 Continuing the `file-transfer` example, by spawning one child "worker" process per file to be transferred, each worker can use the await mechanic to simplify the code, while not limiting performance.
 
-There is more discussion of child processes [here](../../cookbook/manage_child_processes.md), and an example of them in action in the [`file-transfer` cookbook](../../cookbook/file_transfer.md).
+
 
 #### Message Structure
 
@@ -182,7 +182,7 @@ Child processes can be used to:
 3. Run IO-heavy code without blocking the parent
 4. Break out code that is more easily written with awaits to avoid blocking the parent
 
-There is more discussion of child processes [here](../../cookbook/manage_child_processes.md), and an example of them in action in the [`file-transfer` cookbook](../../cookbook/file_transfer.md).
+There is more discussion of child processes in the documentation, and examples of them in action in the file-transfer cookbook.
 
 ### Conclusion
 
@@ -196,8 +196,7 @@ The details of this are not covered in the Hyperware Book, but can be found in t
 
 Wasm runs modules by default, or components, as described [here](https://component-model.bytecodealliance.org/design/why-component-model.html): components are just modules that follow some specific format.
 Hyperware processes are Wasm components that have certain imports and exports so they can be run by Hyperware.
-Pragmatically, processes can be compiled using the [`kit`](https://github.com/hyperware-ai/kit) developer toolkit, see documentation [here](../../kit/kit-dev-toolkit.md).
-
+Pragmatically, processes can be compiled using the [`kit`](https://github.com/hyperware-ai/kit) developer toolkit.
 
 The long term goal of Hyperware is, using [WASI](https://wasi.dev/), to provide a secure, sandboxed environment for Wasm components to make use of the kernel features described in this document.
-Further, Hyperware has a Virtual File System ([VFS](../files.md)) which processes can interact with to access files on a user's machine, and in the future WASI could also expose access to the filesystem for Wasm components directly.
+Further, Hyperware has a Virtual File System which processes can interact with to access files on a user's machine, and in the future WASI could also expose access to the filesystem for Wasm components directly.

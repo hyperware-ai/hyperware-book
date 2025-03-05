@@ -55,7 +55,7 @@ There must exist a `ui/package.json` file with a `scripts` object containing the
 }
 ```
 
-Additional UI dev info can be found [here](../apis/frontend_development.md).
+Additional UI dev info can be found in the documentation.
 To both `build` and `start-package` in one command, use `kit build-start-package`.
 
 ## Arguments

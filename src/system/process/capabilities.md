@@ -87,4 +87,4 @@ hyperware_process_lib::save_capabilities(req.capabilities);
 This call will automatically save the caps for later use.
 Next time you attach this capability to a message, whether that is for authentication with the `issuer`, or to share it with another process, it will reach the other side just fine, and they can check it using the exact same flow.
 
-For a code example of creating and using capabilities in userspace, see [this cookbook recipe](../../cookbook/creating_and_using_capabilities.md).
+For a code example of creating and using capabilities in userspace, see the cookbook recipes.

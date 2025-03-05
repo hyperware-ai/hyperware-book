@@ -96,9 +96,7 @@ After all this, your code should look like:
 You should be able to build and start your package, then see that initial `Hello` message.
 At this point, you can use the terminal to test your message types!
 
-You can find the full code [here](https://github.com/hyperware-ai/hyperware-book/tree/main/code/mfa-data-demo).
-
-First, try sending a `Hello` using the [`m` terminal script](../system/terminal.md#m---message-a-process).
+First, try sending a `Hello` using the `m` terminal script.
 Get the address of your process by looking at the "started" printout that came from it in the terminal.
 As a reminder, these values (`<your_process>`, `<your_package>`, `<your_publisher>`) can be found in the `metadata.json` and `manifest.json` package files.
 
@@ -139,3 +137,5 @@ If it has `"Restart"`, it will repeat in an infinite loop.
 A process intended to run over a period of time and serve requests and responses will often have `"Restart"` `on_exit` so that, in case of crash, it will start again.
 Alternatively, a JSON object `on_exit` can be used to inform another process of its untimely demise.
 In this way, Hyperware processes become quite similar to Erlang processes in that crashing can be [designed into your process to increase reliability](https://ferd.ca/the-zen-of-erlang.html).
+
+You can find the full code [here](https://github.com/hyperware-ai/hyperware-book/tree/main/code/mfa-data-demo).

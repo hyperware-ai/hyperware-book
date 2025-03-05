@@ -21,7 +21,7 @@ You can find a video guide that walks through setting up `kit` [here](https://ww
 
 ## Creating a New Hyperware Package Template
 
-The `kit` toolkit has a [variety of features](../kit/kit-dev-toolkit.md).
+The `kit` toolkit has a variety of features.
 One of those tools is `new`, which creates a template for a Hyperware package.
 The `new` tool takes two arguments: a path to create the template directory and a name for the package:
 
@@ -94,7 +94,7 @@ my-chat-app
 
 The `my-chat-app/` package here contains two processes, each represented by a directory:
 - `my-chat-app/` — containing the main application code, and
-- `send/` — containing a [script](../cookbook/writing_scripts.html).
+- `send/` — containing a script.
 
 Rust process directories, like the ones here, contain:
 - `src/` — source files where the code for the process lives, and
@@ -105,7 +105,7 @@ Another standard Rust `Cargo.toml` file, a [virtual manifest](https://doc.rust-l
 Also within the package directory is a `pkg/` directory.
 The `pkg/` dirctory contains two files:
 - `manifest.json` — required: specifes information Hyperware needs to run the package, and
-- `scripts.json` — optional: specifies details needed to run [scripts](../cookbook/writing_scripts.html).
+- `scripts.json` — optional: specifies details needed to run scripts.
 
 The `pkg/` directory is also where `.wasm` binaries (and, optionally, built UI files) will be deposited by [`kit build`](#building-the-package).
 The files in the `pkg/` directory are injected into the Hyperware node with [`kit start-package`](#starting-the-package).
@@ -220,7 +220,7 @@ The `api/` directory is an optional directory where packages can declare their p
 Other packages can then mark a package as a dependency in their `metadata.json` to include those types and functions defined therein.
 The API is useful for composability and for LLM agents as definitions of "tools" for programatic access.
 
-For further reading, see discussion in [WIT APIs](../system/process/wit_apis.md), [the package APIs recipe](../cookbook/package_apis.md), [the package APIs (with workers) recipe](../cookbook/package_apis_workers.md), and [`kit view-api`](../kit/view-api.md).
+For further reading, see discussion in [WIT APIs](../system/process/wit_apis.md).
 
 ## Building the Package
 
@@ -282,7 +282,7 @@ The `.dev` suffix is used for development nodes.
 
 Alternatively, development sometimes calls for a real node, which has access to the actual Hyperware network and its providers.
 
-To develop on a real Node, connect to the network and follow the instructions to [setup a node](../getting_started/install.md).
+To develop on a real Node, connect to the network and follow the instructions to setup a node.
 
 ## Starting the Package
 
