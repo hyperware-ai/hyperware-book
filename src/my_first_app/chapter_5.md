@@ -19,7 +19,7 @@ You want to use a link like `https://raw.githubusercontent.com/nick1udwig/chat/1
 You'll need to populate the `code_hashes` field of `metadata.json`.
 The hash can be found by running `kit build` on your package: it will be output after a successful build.
 
-Next, review all the data in [`pkg/manifest.json`](./chapter_1.md#pkgmanifestjson) and [`metadata.json`](./chapter_1.md#pkgmetadatajson).
+Next, review all the data in [`pkg/manifest.json`](./chapter_1.md#pkgmanifestjson) and [`metadata.json`](./chapter_1.md#metadatajson).
 The `package_name` field in `metadata.json` determines the name of the package.
 The `publisher` field determines the name of the publisher (you!).
 
