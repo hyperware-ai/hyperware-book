@@ -71,7 +71,7 @@ A normal process: the [`server`](https://github.com/hyperware-ai/hyperware-book/
 
 #### `metadata.json`
 
-The [`metadata.json`](https://github.com/hyperware-ai/hyperware-book/blob/main/src/code/remote-file-storage/client/metadata.json#L14-L16) file has a `properties.dependencies` field.
+The [`metadata.json`](https://github.com/hyperware-ai/hyperware-book/blob/main/code/remote-file-storage/client/metadata.json#L14-L16) file has a `properties.dependencies` field.
 When the `dependencies` field is populated, [`kit build`](../kit/build.md) will fetch that dependency from either:
 1. [A livenet Hyperware hosting it](#../kit/build.md#--port).
 2. [A local path](#../kit/build.#--local-dependency).

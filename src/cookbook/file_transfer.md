@@ -21,14 +21,14 @@ Specifically, it provides a function, `start_download()`, which spins up a worke
 When called on the node serving the file, it spins up a worker to upload the requested file to the requestor.
 
 Downloading a file proceeds as follows:
-1. Requestor [calls](https://github.com/hyperware-ai/hyperware-book/blob/main/code/file-transfer/file-transfer/src/lib.rs#L94) [`start_download()`](https://github.com/hyperware-ai/hyperware-book/blob/main/src/code/file-transfer/file-transfer-worker-api/src/lib.rs#L14-L55), which:
+1. Requestor [calls](https://github.com/hyperware-ai/hyperware-book/blob/main/code/file-transfer/file-transfer/src/lib.rs#L94) [`start_download()`](https://github.com/hyperware-ai/hyperware-book/blob/main/code/file-transfer/file-transfer-worker-api/src/lib.rs#L14-L55), which:
    1. `spawn()`s a `file-transfer-worker`.
    2. Passes `file-transfer-worker` a `Download` Request variant.
-   3. `file-transfer-worker` [forwards a modified `Download` Request variant to the `target`](https://github.com/hyperware-ai/hyperware-book/blob/main/src/code/file-transfer/file-transfer-worker/src/lib.rs#L70-L79).
+   3. `file-transfer-worker` [forwards a modified `Download` Request variant to the `target`](https://github.com/hyperware-ai/hyperware-book/blob/main/code/file-transfer/file-transfer-worker/src/lib.rs#L70-L79).
 2. Provider receives `Download` Request variant, calls `start_download()`, which:
    1. `spawn()`s a `file-transfer-worker`.
    2. Passes `file-transfer-worker` the `Download` Request variant.
-   3. [Sends chunks of file to the requestor's `file-transfer-worker`](https://github.com/hyperware-ai/hyperware-book/blob/main/src/code/file-transfer/file-transfer-worker/src/lib.rs#L81-L110).
+   3. [Sends chunks of file to the requestor's `file-transfer-worker`](https://github.com/hyperware-ai/hyperware-book/blob/main/code/file-transfer/file-transfer-worker/src/lib.rs#L81-L110).
 
 Thus, a worker is responsible for downloading/uploading a single file, and then exits.
 All longer-term state and functionality is the responsibility of the main process, here, `file-transfer`.

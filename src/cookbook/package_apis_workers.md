@@ -54,7 +54,7 @@ The `file_transfer` process imports and uses the exported `start_download()`:
 
 #### `metadata.json`
 
-The [`metadata.json`](https://github.com/hyperware-ai/hyperware-book/blob/main/src/code/chat-with-file-transfer/metadata.json#L14-L16) file has a `properties.dependencies` field.
+The [`metadata.json`](https://github.com/hyperware-ai/hyperware-book/blob/main/code/chat-with-file-transfer/metadata.json#L14-L16) file has a `properties.dependencies` field.
 When the `dependencies` field is populated, [`kit build`](../kit/build.md) will fetch that dependency from a Hyperware node hosting it.
 
 See [previous recipe](./package_apis.md#dependencies) for more discussion of dependencies.
