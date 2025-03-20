@@ -1,8 +1,13 @@
 # The Hyperware Book
 
-Hyperware is a decentralized operating system, peer-to-peer app framework, and node network designed to simplify the development and deployment of decentralized applications.
-It is also a _sovereign cloud computer_, in that Hyperware can be deployed anywhere and act as a server controlled by anyone.
-Ultimately, Hyperware facilitates the writing and distribution of software that runs on privately-held, personal server nodes or node clusters.
+Hyperware is AI and Dapp development infrastructure for building at lightspeed.
+Hyperware aims to provide a comprehensive suite of tools and infrastructure to simplify the creation and deployment of decentralized applications, including those leveraging AI.
+
+At a technical level, Hyperware enables users to write, run, and distribute software from privately held personal nodes.
+It consists of a Rust kernel, Wasm processes, and an onchain namespace that collectively handle the four basic primitives of Dapp development: networking, identity, data persistence, and global state.
+
+It provides a "batteries included" builder framework that handles all the most frustrating roadblocks to crypto programming.
+Now, with AI and Hyperware, everyone is a coder.
 
 You are reading the Hyperware Book, which is a technical document targeted at developers.
 
