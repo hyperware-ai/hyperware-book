@@ -158,7 +158,7 @@ The interface is defined as:
 
 
 ```wit
-{{#webinclude https://raw.githubusercontent.com/hyperware-ai/hyperdrive/main/hyperware/packages/tester/api/tester%3Asys-v0.wit}}
+{{#webinclude https://raw.githubusercontent.com/hyperware-ai/hyperdrive/main/hyperdrive/packages/tester/api/tester%3Asys-v0.wit}}
 ```
 
 A `run` `request` starts the test.

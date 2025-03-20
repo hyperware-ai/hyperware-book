@@ -39,7 +39,7 @@ Userspace-level capabilities are defined within a process.
 They are issued by that process.
 Holders must explictly attach these capabilities to their messages to the issuing process.
 The issuer must define the logic that determines what happens if a sender has or does not have a capability.
-E.g., the system Contacts app defines capabilities [here](https://github.com/hyperware-ai/hyperdrive/blob/main/hyperware/packages/contacts/api/contacts%3Asys-v0.wit#L2-L7) and the logic that allows/disallows access given a sender's capabilities [here](https://github.com/hyperware-ai/hyperdrive/blob/main/hyperware/packages/contacts/contacts/src/lib.rs#L291-L314).
+E.g., the system Contacts app defines capabilities [here](https://github.com/hyperware-ai/hyperdrive/blob/main/hyperdrive/packages/contacts/api/contacts%3Asys-v0.wit#L2-L7) and the logic that allows/disallows access given a sender's capabilities [here](https://github.com/hyperware-ai/hyperdrive/blob/main/hyperdrive/packages/contacts/contacts/src/lib.rs#L291-L314).
 
 ## Inherit
 

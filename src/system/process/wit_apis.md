@@ -95,4 +95,4 @@ cat chat/api/*
 ```
 
 Here, `chat-template-dot-os-v0` is the `test/` package `world`.
-It `import`s types from `interface`s defined in two other WIT files: the top-level `chat` as well as [`tester`](https://github.com/hyperware-ai/hyperdrive/blob/main/hyperware/packages/tester/api/tester%3Asys-v0.wit).
+It `import`s types from `interface`s defined in two other WIT files: the top-level `chat` as well as [`tester`](https://github.com/hyperware-ai/hyperdrive/blob/main/hyperdrive/packages/tester/api/tester%3Asys-v0.wit).
