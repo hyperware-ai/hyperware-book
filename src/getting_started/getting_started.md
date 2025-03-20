@@ -1,10 +1,13 @@
 # The Hyperware Book
 
-Hyperware is AI and Dapp development infrastructure for building at lightspeed. We aim to provide a comprehensive suite of tools and infrastructure to simplify the creation and deployment of decentralized applications, including those leveraging AI.
+Hyperware is AI and Dapp development infrastructure for building at lightspeed.
+Hyperware aims to provide a comprehensive suite of tools and infrastructure to simplify the creation and deployment of decentralized applications, including those leveraging AI.
 
-At a technical level, Hyperware enables users to write, run, and distribute software from privately held personal nodes. It consists of a Rust kernel, WASM processes, and an on-chain namespace that collectively handle the four basic primitives of Dapp development: networking, identity, data persistence, and global state.
+At a technical level, Hyperware enables users to write, run, and distribute software from privately held personal nodes.
+It consists of a Rust kernel, Wasm processes, and an onchain namespace that collectively handle the four basic primitives of Dapp development: networking, identity, data persistence, and global state.
 
-It provides a ‘batteries included’ builder framework that handles all the most frustrating roadblocks to crypto programming. Now, with AI and Hyperware, everyone is a coder.
+It provides a "batteries included" builder framework that handles all the most frustrating roadblocks to crypto programming.
+Now, with AI and Hyperware, everyone is a coder.
 
 You are reading the Hyperware Book, which is a technical document targeted at developers.
 
