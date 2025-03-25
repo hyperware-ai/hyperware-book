@@ -67,7 +67,7 @@ If you use the `file-transfer-worker` or `file-transfer-worker-api` in your own 
 ```
 # Start fake nodes.
 kit f
-kit f -o /tmp/hyperware-fake-node-2 -p 8081 -f fake2.dev
+kit f -o /tmp/hyperware-fake-node-2 -p 8081 -f fake2.os
 
 # Create & build file-transfer.
 ## The `-a` adds the worker Wasm file to the API so it can be exported properly.
@@ -85,11 +85,11 @@ kit s file-transfer -p 8081
 # First, put a file into `/tmp/hyperware-fake-node-2/vfs/file-transfer:template.os/files/`, e.g.:
 echo 'hello world' > /tmp/hyperware-fake-node-2/vfs/file-transfer:template.os/files/my_file.txt
 
-# In fake.dev terminal, check if file exists.
-list-files:file-transfer:template.os fake2.dev
+# In fake.os terminal, check if file exists.
+list-files:file-transfer:template.os fake2.os
 
-# In fake.dev terminal, download the file.
-download:file-transfer:template.os my_file.txt fake2.dev
+# In fake.os terminal, download the file.
+download:file-transfer:template.os my_file.txt fake2.os
 
 # Confirm file was downloaded:
 cat /tmp/hyperware-fake-node/vfs/file-transfer:template.os/files/my_file.txt

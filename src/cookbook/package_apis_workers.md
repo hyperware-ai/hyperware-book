@@ -84,7 +84,7 @@ Compare the [process](#process-1) with the unmodified `kit n chat` process.
 ```
 # Start fake nodes.
 kit f
-kit f -o /tmp/hyperware-fake-node-2 -p 8081 -f fake2.dev
+kit f -o /tmp/hyperware-fake-node-2 -p 8081 -f fake2.os
 
 # Create & build file_transfer dependency.
 ## The `-a` adds the worker Wasm file to the API so it can be exported properly.
@@ -106,8 +106,8 @@ kit s src/../code/chat-with-file-transfer -p 8081
 # First, put a file into `/tmp/hyperware-fake-node-2/vfs/chat-with-file-transfer:template.os/files/`, e.g.:
 echo 'hello world' > /tmp/hyperware-fake-node-2/vfs/chat-with-file-transfer:template.os/files/my_file.txt
 
-# In fake.dev terminal, download the file.
-download:chat-with-file-transfer:template.os my_file.txt fake2.dev
+# In fake.os terminal, download the file.
+download:chat-with-file-transfer:template.os my_file.txt fake2.os
 
 # Confirm file was downloaded:
 cat /tmp/hyperware-fake-node/vfs/chat-with-file-transfer:template.os/files/my_file.txt

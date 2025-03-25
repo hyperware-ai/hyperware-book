@@ -275,8 +275,7 @@ kit boot-fake-node --runtime-path ~/path/to/hyperdrive
 
 where `~/path/to/hyperdrive` must be replaced with a path to the Hyperdrive repo.
 
-Note that your node will be named `fake.dev`, as opposed to `fake.os`.
-The `.dev` suffix is used for development nodes.
+Note that your node will be named `fake.os`.
 
 ## Optional: Starting a Real Node
 
@@ -324,7 +323,7 @@ Congratulations: you've now built and installed your first application on Hyperw
 To test out the functionality of `my-chat-app`, spin up another fake node to chat with in a new terminal:
 
 ```bash
-kit boot-fake-node -o /tmp/hyperware-fake-node-2 -p 8081 -f fake2.dev
+kit boot-fake-node -o /tmp/hyperware-fake-node-2 -p 8081 -f fake2.os
 ```
 
 The fake nodes communicate over a mocked local network.
@@ -344,22 +343,22 @@ kit start-package -p 8081
 To send a chat message from the first node, run the following in its terminal:
 
 ```
-m our@my-chat-app:my-chat-app:template.os '{"Send": {"target": "fake2.dev", "message": "hello world"}}'
+m our@my-chat-app:my-chat-app:template.os '{"Send": {"target": "fake2.os", "message": "hello world"}}'
 ```
 
 and replying, from the other terminal:
 
 ```
-m our@my-chat-app:my-chat-app:template.os '{"Send": {"target": "fake.dev", "message": "wow, it works!"}}'
+m our@my-chat-app:my-chat-app:template.os '{"Send": {"target": "fake.os", "message": "wow, it works!"}}'
 ```
 
 Messages can also be injected from the outside.
 From a bash terminal, use `kit inject-message`, like so:
 
 ```bash
-kit inject-message my-chat-app:my-chat-app:template.os '{"Send": {"target": "fake2.dev", "message": "hello from the outside world"}}'
-kit inject-message my-chat-app:my-chat-app:template.os '{"Send": {"target": "fake.dev", "message": "replying from fake2.dev using first method..."}}' --node fake2.dev
-kit inject-message my-chat-app:my-chat-app:template.os '{"Send": {"target": "fake.dev", "message": "and second!"}}' -p 8081
+kit inject-message my-chat-app:my-chat-app:template.os '{"Send": {"target": "fake2.os", "message": "hello from the outside world"}}'
+kit inject-message my-chat-app:my-chat-app:template.os '{"Send": {"target": "fake.os", "message": "replying from fake2.os using first method..."}}' --node fake2.os
+kit inject-message my-chat-app:my-chat-app:template.os '{"Send": {"target": "fake.os", "message": "and second!"}}' -p 8081
 ```
 
 ## Testing the Package

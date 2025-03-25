@@ -321,16 +321,16 @@ Nice!
 Putting it all together, you can build and start the package on a fake node (`kit f` if you don't have one running), `kit bs`.
 
 ```
-fake.dev > m our@counter:counter:template.os '{"SetNumber": 55}'
+fake.os > m our@counter:counter:template.os '{"SetNumber": 55}'
 counter:template.os: tx_hash: Ok(0x5dba574f2a9a2c095cee960868433e23c64b685966fba57568c4d6a0fd99ef6c)
 
-fake.dev > m our@counter:counter:template.os "Read"
+fake.os > m our@counter:counter:template.os "Read"
 counter:template.os: current count: 55
 
-fake.dev > m our@counter:counter:template.os "Increment"
+fake.os > m our@counter:counter:template.os "Increment"
 counter:template.os: tx_hash: Ok(0xc38ee230c2605c294a37794244334c0d20a5b5e090704b34f4a7998021418d7b)
 
-fake.dev > m our@counter:counter:template.os "Read"
+fake.os > m our@counter:counter:template.os "Read"
 counter:template.os: current count: 56
 ```
 
