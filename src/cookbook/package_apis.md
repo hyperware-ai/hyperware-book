@@ -119,7 +119,7 @@ The `Args` and `Command` `struct`s set up command-line parsing and are unrelated
 kit f
 
 # Start fake node to host client.
-kit f -o /tmp/hyperware-fake-node-2 -p 8081 -f fake2.dev
+kit f -o /tmp/hyperware-fake-node-2 -p 8081 -f fake2.os
 
 # Build & start server.
 ## Note starting is required because we need a deployed copy of server's API in order to build client.
@@ -140,19 +140,19 @@ kit b src/../code/remote-file-storage/client -l src/../code/remote-file-storage/
 ### Usage
 
 ```
-# In fake2.dev terminal:
-## Put a file onto fake.dev.
-client:client:template.os put-file fake.dev -p client:template.os/pkg/manifest.json -n manifest.json
+# In fake2.os terminal:
+## Put a file onto fake.os.
+client:client:template.os put-file fake.os -p client:template.os/pkg/manifest.json -n manifest.json
 
 ## Check the file was Put properly.
-client:client:template.os list-files fake.dev
+client:client:template.os list-files fake.os
 
 ## Put a different file.
-client:client:template.os put-file fake.dev -p client:template.os/pkg/scripts.json -n scripts.json
+client:client:template.os put-file fake.os -p client:template.os/pkg/scripts.json -n scripts.json
 
 ## Check the file was Put properly.
-client:client:template.os list-files fake.dev
+client:client:template.os list-files fake.os
 
 ## Read out a file.
-client:client:template.os get-file fake.dev -n scripts.json
+client:client:template.os get-file fake.os -n scripts.json
 ```

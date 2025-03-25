@@ -18,17 +18,17 @@ The fake chain comes preseeded with two contracts: HNS, which nodes use to index
 
 You can start a network of fake nodes that can communicate with each other (but not the live network).
 You'll need to start a new terminal for each fake node.
-For example, to start two fake nodes, `fake.dev` and `fake2.dev`:
+For example, to start two fake nodes, `fake.os` and `fake2.os`:
 
 ```bash
 kit boot-fake-node
 
 # In a new terminal
-kit boot-fake-node -f fake2.dev -p 8081 -o /tmp/hyperware-fake-node-2
+kit boot-fake-node -f fake2.os -p 8081 -o /tmp/hyperware-fake-node-2
 
-# Send a message from fake2.dev to fake.dev
-# In the terminal of fake2.dev:
-hi fake.dev hello!
+# Send a message from fake2.os to fake.os
+# In the terminal of fake2.os:
+hi fake.os hello!
 
 # You should see "hello!" in the first node's terminal
 ```
@@ -64,7 +64,7 @@ Options:
   -o, --home <HOME>
           Path to home directory for fake node [default: /tmp/hyperdrive-fake-node]
   -f, --fake-node-name <NODE_NAME>
-          Name for fake node [default: fake.dev]
+          Name for fake node [default: fake.os]
   -c, --fakechain-port <FAKECHAIN_PORT>
           The port to run the fakechain on (or to connect to) [default: 8545]
       --rpc <RPC_ENDPOINT>
