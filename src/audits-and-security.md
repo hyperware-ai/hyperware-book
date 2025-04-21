@@ -11,4 +11,4 @@ Hyperdrive remains a work in progress and will continue to be audited as it matu
 
 Hyperdrive uses a number of smart contracts to manage global state.
 Audits below:
-- [Hypermap audit](https://cantina.xyz/portfolio/c2cbcbe7-727c-47cf-99f1-4e82ea8e5c77) by [Spearbit](https://spearbit.com/) (under our previous brandname: Hypermap)
+- [Hypermap audit](https://cantina.xyz/portfolio/d9967b88-dde1-4383-a17a-f74bf11d4258) by [Spearbit](https://spearbit.com/)
