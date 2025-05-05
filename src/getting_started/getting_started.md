@@ -1,4 +1,4 @@
-# The Hyperware Book
+# Hyperware Book
 
 Hyperware is AI and Dapp development infrastructure for building at lightspeed.
 Hyperware aims to provide a comprehensive suite of tools and infrastructure to simplify the creation and deployment of decentralized applications, including those leveraging AI.

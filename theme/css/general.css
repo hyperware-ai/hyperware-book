@@ -9,7 +9,7 @@
 }
 
 html {
-    font-family: "Barlow", sans-serif;
+    font-family: "Clash Display", sans-serif;
     color: var(--fg);
     background-color: var(--bg-bg);
     text-size-adjust: none;
@@ -84,7 +84,8 @@ h5 {
 }
 
 .header {
-    font-family: "OpenSans", sans-serif;
+    /* font-family: "chaneyextended", sans-serif; */
+    font-weight: 600;
 }
 
 .header+.header h3,
@@ -112,7 +113,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "OpenSans", sans-serif;
+    /* font-family: "OpenSans", sans-serif; */
     font-weight: bold;
     margin-bottom: 0;
     line-height: 0.9;
@@ -240,6 +241,11 @@ h1::before {
     display: flex;
 }
 
+strong {
+    /*  Tone it down a bit. Chaney bold is super fat */
+    font-weight: 600;
+}
+
 table {
     margin: 0 auto;
     border-collapse: collapse;
@@ -349,7 +355,6 @@ kbd {
     padding: 5px 8px;
     margin: 5px;
     z-index: 1000;
-    font-family: "OpenSans", sans-serif;
     font-style: normal;
 }
 

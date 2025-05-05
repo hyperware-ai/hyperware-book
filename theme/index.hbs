@@ -20,8 +20,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="shortcut icon" href="{{ path_to_root }}favicon.svg">
-    <link rel="icon" href="{{ path_to_root }}favicon.svg">
     <link rel="stylesheet" href="{{ path_to_root }}css/variables.css?ver=9">
     <link rel="stylesheet" href="{{ path_to_root }}css/general.css?ver=9">
     <link rel="stylesheet" href="{{ path_to_root }}css/chrome.css?ver=9">
@@ -160,9 +158,11 @@
                         </label>
                     </div>
 
-                    <span class="secondary-title">HYPERWARE BOOK</span>
+                    <span class="secondary-title">Hyperware Book</span>
 
-                    <h1 class="menu-title">{{ book_title }}</h1>
+                    <h1 class="menu-title">
+                        <span>{{ book_title }}</span>
+                    </h1>
 
                     <div class="right-buttons">
                         <button id="theme-toggle" class="icon-button" type="button" title="Change theme"
