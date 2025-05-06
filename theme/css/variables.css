@@ -18,11 +18,133 @@
     --k-honey: #ffd4ae;
     --k-white: #fff5d9;
     --k-beige: #e2dac4;
+
+    /*
+      neon: '#dcff71',
+            iris: '#004fff',
+            stone: '#353534',
+            black: '#111111',
+            white: '#f6f6f6',
+    */
+    --h-black: #111111;
+    --h-blacktr: #111111aa;
+    --h-blackxtr: #11111111;
+    --h-darkgray: #353534;
+    --h-neon: #dcff71;
+    --h-neonlight: #e5f8ad;
+    --h-neonxlight: #f5ffd9;
+    --h-white: #f6f6f6;
+    --h-iris: #004fff;
+    --h-irislight: #3c7aff;
+    --h-irisxlight: #76a1ff;
+    --h-irisxxlight: #d5e3ff;
+    --h-stone: #353534;
+    --h-stonelight: #626260;
 }
 
 /* Themes */
 
 .light {
+    --bg: var(--h-neonxlight);
+    --page-bg: var(--h-white);
+    --bg-bg: var(--h-white);
+    --fg: var(--h-black);
+
+    --sidebar-bg: var(--h-neonxlight);
+    --sidebar-fg: var(--h-black);
+    --sidebar-non-existant: var(--h-stonelight);
+    --sidebar-active: var(--h-iris);
+    --sidebar-spacer: var(--h-irisxxlight);
+
+    --scrollbar: var(--bg);
+
+    --icons: var(--h-black);
+    --icons-hover: var(--h-iris);
+
+    --links: var(--h-iris);
+
+    --inline-code-color: var(--h-black);
+    --inline-code-bg: var(--h-blackxtr);
+
+    --code-box-bg: var(--h-irisxxlight);
+    --code-box-color: var(--h-black);
+
+    --theme-popup-bg: var(--h-neonxlight);
+    --theme-popup-border: var(--h-stonelight);
+    --theme-hover: var(--h-neonlight);
+
+    --quote-bg: var(--h-irisxlight);
+    --quote-border: var(--h-stonelight);
+
+    --warning-border: var(--h-iris);
+
+    --table-border-color: var(--h-stonelight);
+    --table-header-bg: var(--h-irisxxlight);
+    --table-alternate-bg: var(--h-irisxxlight);
+
+    --searchbar-border-color: var(--k-black);
+    --searchbar-bg: var(--h-neonxlight);
+    --searchbar-fg: var(--h-black);
+    --searchbar-shadow-color: transparent;
+    --searchresults-header-fg: var(--h-black);
+    --searchresults-border-color: var(--h-stonelight);
+    --searchresults-li-bg: var(--h-neonxlight);
+    --search-mark-bg: var(--h-iris);
+
+    --color-scheme: light;
+}
+
+.dark {
+    --bg: var(--h-stone);
+    --page-bg: var(--h-black);
+    --bg-bg: var(--h-black);
+    --fg: var(--h-white);
+
+    --sidebar-bg: var(--h-black);
+    --sidebar-fg: var(--h-white);
+    --sidebar-non-existant: var(--h-neon);
+    --sidebar-active: var(--h-neon);
+    --sidebar-spacer: var(--h-stonelight);
+
+    --scrollbar: var(--bg);
+
+    --icons: var(--h-white);
+    --icons-hover: var(--h-neon);
+
+    --links: var(--h-neon);
+
+    --inline-code-color: var(--h-white);
+    --inline-code-bg: var(--h-darkgray);
+
+    --code-box-color: var(--h-irisxxlight);
+    --code-box-bg: var(--h-darkgray);
+
+    --theme-popup-bg: var(--h-darkgray);
+    --theme-popup-border: var(--h-stonelight);
+    --theme-hover: var(--h-darkgray);
+
+    --quote-bg: var(--h-darkgray);
+    --quote-border: var(--h-stonelight);
+
+    --warning-border: var(--h-neon);
+
+    --table-border-color: var(--h-stonelight);
+    --table-header-bg: var(--h-darkgray);
+    --table-alternate-bg: var(--h-darkgray);
+
+    --searchbar-border-color: var(--k-beige);
+    --searchbar-bg: var(--h-darkgray);
+    --searchbar-fg: var(--h-white);
+    --searchbar-shadow-color: transparent;
+    --searchresults-header-fg: var(--h-white);
+    --searchresults-border-color: var(--h-stonelight);
+    --searchresults-li-bg: var(--h-darkgray);
+    --search-mark-bg: var(--h-neon);
+
+    --color-scheme: dark;
+}
+
+.light-original {
     --bg: var(--k-white);
     --page-bg: var(--k-beige);
     --bg-bg: var(--k-beige);
@@ -72,7 +194,7 @@
     --color-scheme: light;
 }
 
-.dark {
+.dark-original {
     --bg: var(--k-darkgray);
     --page-bg: var(--k-black);
     --bg-bg: var(--k-black);

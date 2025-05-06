@@ -11,3 +11,5 @@ code/**/*.wasm
 code/**/*.zip
 code/**/wasi_snapshot_preview1.wasm
 **/home
+
+**/.claude/settings.local.json

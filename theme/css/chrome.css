@@ -133,9 +133,9 @@ a>.hljs {
     overflow: hidden;
     text-overflow: ellipsis;
 
-    font-family: "Futura", sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 0.3em;
+    font-family: "chaneyextended", sans-serif;
+    /* text-transform: uppercase; */
+    letter-spacing: 1px;
 }
 
 .js .menu-title {
@@ -267,7 +267,7 @@ a>.hljs {
 }
 
 a code.hljs {
-    color: var(--links) !important; 
+    color: var(--links) !important;
 }
 
 a:hover>.hljs {
@@ -477,7 +477,7 @@ ul#searchresults span.teaser em {
     background-color: var(--sidebar-bg);
     color: var(--sidebar-fg);
     border-radius: 2em;
-    font-family: "OpenSans", sans-serif;
+    /* font-family: "OpenSans", sans-serif; */
 }
 
 [dir=rtl] .sidebar {

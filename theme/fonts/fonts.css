@@ -17,3 +17,14 @@
   font-family: "Iosevka";
   src: url("/fonts/Iosevka-Regular.ttf") format("truetype");
 }
+
+
+@font-face {
+  font-family: 'chaneyextended';
+  src: url('/fonts/chaneyextended.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Clash Display';
+  src: url('/fonts/ClashDisplay-Variable.woff2') format('woff2');
+}
