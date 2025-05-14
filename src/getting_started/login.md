@@ -67,7 +67,7 @@ If no `--port` flag is supplied, Hyperdrive will bind to `8080` if it is availab
 
 ### Acquiring an RPC API Key
 
-Create a new "app" on [Alchemy](https://dashboard.alchemy.com/apps) for Optimism Mainnet.
+Create a new "app" on [Alchemy](https://dashboard.alchemy.com/apps) for Base Mainnet.
 
 ![Alchemy Create App](../assets/alchemy-create-app.png)
 
@@ -81,7 +81,7 @@ As an alternative to using Alchemy's RPC API key, [Infura's](https://app.infura.
 
 ![Infura My First Key](../assets/my_first_key_infura.png)
 
-Next, check the box next to Optimism "MAINNET". After one is chosen, click "SAVE CHANGES". Then, at the top, click "Active Endpoints".
+Next, check the box next to Base "MAINNET". After one is chosen, click "SAVE CHANGES". Then, at the top, click "Active Endpoints".
 
 ![Create Endpoint Infura](../assets/create_endpoint_infura.png)
 
@@ -131,10 +131,10 @@ After clicking `Register .os Name`, follow the prompts in the `Connect a Wallet`
 
 ![Register connect wallet](../assets/register-connect-wallet.png)
 
-### Aside: Bridging ETH to Optimism
+### Aside: Bridging ETH to Base
 
-Bridge ETH to Optimism using the [official bridge](https://app.optimism.io/bridge).
-Many exchanges also allow sending ETH directly to Optimism wallets.
+Bridge ETH to Base using the [official bridge](https://bridge.base.org/).
+Many exchanges also allow sending ETH directly to Base wallets.
 
 ### Setting Up Networking (Direct vs. Routed Nodes)
 

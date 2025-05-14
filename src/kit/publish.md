@@ -9,7 +9,7 @@ It can also be used to update or unpublish previously-published packages.
 ## Example Usage
 
 ```bash
-# Publish a package on the real network (Optimism mainnet).
+# Publish a package on the real network (Base mainnet).
 kit publish --metadata-uri https://raw.githubusercontent.com/path/to/metadata.json --keystore-path ~/.foundry/keystores/dev --rpc wss://opt-mainnet.g.alchemy.com/v2/<ALCHEMY_API_KEY> --real
 
 # Unublish a package.
@@ -39,7 +39,7 @@ Options:
   -u, --metadata-uri <URI>
           URI where metadata lives
   -r, --rpc <RPC_URI>
-          Ethereum Optimism mainnet RPC endpoint (wss://)
+          Ethereum Base mainnet RPC endpoint (wss://)
   -e, --real
           If set, deploy to real network [default: fake node]
       --unpublish

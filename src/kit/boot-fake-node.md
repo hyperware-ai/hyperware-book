@@ -68,7 +68,7 @@ Options:
   -c, --fakechain-port <FAKECHAIN_PORT>
           The port to run the fakechain on (or to connect to) [default: 8545]
       --rpc <RPC_ENDPOINT>
-          Ethereum Optimism mainnet RPC endpoint (wss://)
+          Ethereum Base mainnet RPC endpoint (wss://)
       --persist
           If set, do not delete node home after exit
       --password <PASSWORD>
