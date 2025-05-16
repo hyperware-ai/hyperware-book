@@ -47,8 +47,8 @@ OnExit is an enum with three potential values:
 - `request_capabilities: Vec<Capability>`: This argument is for passing immediate capabilities to the child process.
    As illustrated in the provided example, the parent's `http-client` messaging capability was shared with the child.
 
-- `grant_capabilities: Vec<ProcessId>`: This argument is for granting capabilities to other processes on start.
-  However, for security reasons, you limit it just to the `"messaging"` cap for messaging this process back, hence why it is a `Vec<ProcessId>` instead of vector of arbitrary capabilities.
+- `grant_capabilities: Vec<(ProcessId, String)>`: This argument is for granting capabilities to other processes on start.
+  The first element of the tuple is the process to grant the capability to; the second element is the capability to grant (e.g. `"messaging"`).
 
 - `public: bool`: This boolean value determines whether the process can receive messages from other processes by default.
 
