@@ -9,7 +9,7 @@
 }
 
 html {
-    font-family: "Clash Display", sans-serif;
+    font-family: "Neue Haas Grotesk", sans-serif;
     color: var(--fg);
     background-color: var(--bg-bg);
     text-size-adjust: none;
@@ -113,7 +113,7 @@ h3,
 h4,
 h5,
 h6 {
-    /* font-family: "OpenSans", sans-serif; */
+    font-family: "Clash Display", sans-serif;
     font-weight: bold;
     margin-bottom: 0;
     line-height: 0.9;

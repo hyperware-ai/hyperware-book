@@ -28,3 +28,8 @@
   font-family: 'Clash Display';
   src: url('/fonts/ClashDisplay-Variable.woff2') format('woff2');
 }
+
+@font-face {
+  font-family: 'Neue Haas Grotesk';
+  src: url('/fonts/NHaasGroteskTXPro-55Rg.woff') format('woff');
+}
