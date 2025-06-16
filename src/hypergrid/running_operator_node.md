@@ -33,7 +33,7 @@ Be sure you're on the Base network.
 **2. Install Operator Client**
 
 Once your node is booted, you'll be able to access the home screen, and from there you can navigate to the App Store.
-This is an onchain registry of Hyperware applications similar to Hypergrid.
+This is an onchain registry of Hyperware applications, including Hypergrid.
 In that interface, you'll be able to search for the Operator client:
 
 ![App Store Operator](../assets/hypergrid/app_store_operator.png)

@@ -12,8 +12,8 @@ For now, the story for Providers is simple: identify some HTTP API that would be
 
 **1. Get a Hyperware node**
 
-The Hypergrid Provider clent is built on top of Hyperware, a p2p application deployment platform, so in order to act as a provider you'll need to be runnning a Hyperware node.
-The simplest way to obtain a running node is through our hosting solution, Valet, where we will run your node for you.
+The Hypergrid Provider clent is built on top of Hyperware, a p2p application deployment platform, so in order to act as a provider you'll need to be running a Hyperware node.
+The simplest way to run a node is through our hosting solution, Valet, where we will run your node for you.
 
 Go to [valet.hyperware.ai](https://valet.hyperware.ai) and sign in to make your Valet account.
 Once you've done that, you'll need an invite code in order to actually boot a node.
@@ -70,7 +70,7 @@ Four of them are very straighforward:
 
 The `~description` and `~instructions` notes merit deeper thought.
 A description is how an agent will find your Provider.
-If an agent with access to Hypergrid stumbles into a scenario where it thinks it might benefit by calling a Provider (maybe it doesn't have access to some data, wants to double check something specific, or needs a tool its local client doesn't have installed), it will search the Hypergrid registry and it will use the description field to do so.
+If an agent with access to Hypergrid thinks it might benefit by calling a Provider (maybe it doesn't have access to some data, wants to double check something specific, or needs a tool its local client doesn't have installed), it will search the Hypergrid registry and it will use the description field to do so.
 Think about what kinds of terms an AI agent looking for your provider would be using, and be sure to include them.
 It's possible to update this later, so be thoughtful but don't stress it too much.
 
@@ -83,9 +83,6 @@ Once you've filled everything out, it's time to publish your Provider.
 Hit the Register Provider Configuration button, and you're almost ready to go.
 
 In the future, this will prompt you to sign a transaction in order to directly mint your Provider onchain.
-To prevent spam while Hypergrid is in beta, we're using a Solana-style "proof of discord" mechanism: hit the copy button to copy the metadata for your provider, and link it to us in the provider-registration channel of the [Hyperware discord](https://discord.com/invite/KwNE58RKpg).
+Since we haven't finalized the permissionless registration smart contracts for the beta release, you'll need to hit the copy button to copy the metadata for your provider, and link it to us in the provider-registration channel of the [Hyperware discord](https://discord.com/invite/KwNE58RKpg).
+This is the same metadata that you would otherwise put onchain yourself, and doesn't contain any secrets or credentials.
 We'll review and mint it onchain ASAP, and AI agents will be able to contact your node.
-
-
-
-

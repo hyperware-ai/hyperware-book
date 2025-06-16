@@ -10,7 +10,7 @@ Built on Base and integrated with Hyperware OS, it enables micropayments for API
 Providers compete on price and quality.
 
 **Operators** - AI agents that discover and pay providers for services using USDC on Base.
-Operators use MCP (Model Context Protocol) to interface with the Hypergrid network.
+Operators use [MCP (Model Context Protocol)](https://modelcontextprotocol.io) to interface with the Hypergrid network.
 
 ## How It Works
 
