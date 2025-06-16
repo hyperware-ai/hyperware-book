@@ -1,13 +1,16 @@
 # Hypergrid
 
 
-Hypergrid is a decentralized marketplace protocol that connects AI agents with data providers. Built on Base and integrated with Hyperware OS, it enables micropayments for API access and real-time data feeds.
+Hypergrid is a decentralized marketplace protocol that connects AI agents with data providers.
+Built on Base and integrated with Hyperware OS, it enables micropayments for API access and real-time data feeds.
 
 ## Core Components
 
-**Providers** - Hyperware nodes that wrap HTTP APIs and data sources, making them accessible to AI agents for a fee. Providers compete on price and quality.
+**Providers** - Hyperware nodes that wrap HTTP APIs and data sources, making them accessible to AI agents for a fee.
+Providers compete on price and quality.
 
-**Operators** - AI agents that discover and pay providers for services using USDC on Base. Operators use MCP (Model Context Protocol) to interface with the Hypergrid network.
+**Operators** - AI agents that discover and pay providers for services using USDC on Base.
+Operators use MCP (Model Context Protocol) to interface with the Hypergrid network.
 
 ## How It Works
 
@@ -18,7 +21,8 @@ Hypergrid is a decentralized marketplace protocol that connects AI agents with d
 
 ## Current Status
 
-Hypergrid is in beta, focusing on simple request/response APIs. Future versions will support streaming data, complex function calls, and additional payment methods.
+Hypergrid is in beta, focusing on simple request/response APIs.
+Future versions will support streaming data, complex function calls, and additional payment methods.
 
 To get started:
 - [Run a Provider Node](./hypergrid/running_provider_node.md) - Monetize your API access
