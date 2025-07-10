@@ -1,4 +1,4 @@
-# Kino Files (File Transfer + UI)
+# File Transfer UI
 
 **Warning: This document is known to be out-of-date as of November 14, 2024.
   Proceed with caution.**
@@ -14,7 +14,7 @@ It's also strongly recommended that you read and understand the [file transfer a
 - [File Transfer](#file-transfer)
 - [UI](#ui)
 - [Next Steps](#next-steps)
-- [GitHub Repo](https://github.com/bitful-pannul/file_transfer)
+- [GitHub Repo](https://github.com/barraguda/file_transfer)
 
 ## Start
 
