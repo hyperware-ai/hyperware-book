@@ -334,4 +334,4 @@ fake.os > m our@counter:counter:template.os "Read"
 counter:template.os: current count: 56
 ```
 
-You can find these steps outlined by commit in the counter [example repo!](https://github.com/bitful-pannul/counterexample)
+You can find these steps outlined by commit in the counter [example repo!](https://github.com/barraguda/counterexample)

@@ -106,24 +106,24 @@ h6:target::before {
     width: 1em;
 }
 
-
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-    font-family: "Clash Display", sans-serif;
     font-weight: bold;
     margin-bottom: 0;
     line-height: 0.9;
-    letter-spacing: -0.04em;
 }
 
 h1 {
     font-size: 5em;
     margin-top: 0.25em;
     position: relative;
+    font-family: "Clash Display", sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.04em;
 }
 
 h1::before {
