@@ -127,8 +127,8 @@ use sp1_core::{utils::BabyBearBlake3, SP1ProofWithIO, SP1Prover, SP1Stdin, SP1Ve
 const FIB_ELF: &[u8] = include_bytes!("../../pkg/riscv32im-succinct-zkvm-elf");
 
 wit_bindgen::generate!({
-    path: "wit",
-    world: "process",
+    path: "../target/wit",
+    world: "process-v1",
 });
 
 #[derive(Debug, Serialize, Deserialize)]

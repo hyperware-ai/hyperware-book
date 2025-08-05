@@ -1,8 +1,10 @@
 use crate::hyperware::process::mfa_data_demo::{Request as MfaRequest, Response as MfaResponse};
-use hyperware_process_lib::{await_message, call_init, println, Address, Message, Request, Response};
+use hyperware_process_lib::{
+    await_message, call_init, println, Address, Message, Request, Response,
+};
 
 wit_bindgen::generate!({
-    path: "target/wit",
+    path: "../target/wit",
     world: "mfa-data-demo-template-dot-os-v0",
     generate_unused_types: true,
     additional_derives: [serde::Deserialize, serde::Serialize, process_macros::SerdeJsonInto],

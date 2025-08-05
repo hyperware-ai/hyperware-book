@@ -85,7 +85,7 @@ To use the contacts primitive to get a list of existing contacts, follow these s
 
 ```rust
 wit_bindgen::generate!({
-    path: "target/wit",
+    path: "../target/wit",
     world: "contacts-sys-v0",
     generate_unused_types: true,
     additional_derives: [PartialEq, serde::Deserialize, serde::Serialize],

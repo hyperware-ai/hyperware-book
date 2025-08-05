@@ -132,8 +132,8 @@ use alloy_sol_types::{sol, SolCall, SolValue};
 use std::str::FromStr;
 
 wit_bindgen::generate!({
-    path: "target/wit",
-    world: "process-v0",
+    path: "../target/wit",
+    world: "process-v1",
 });
 
 sol! {

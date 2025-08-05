@@ -15,7 +15,7 @@ use hyperware_process_lib::{
 mod tester_lib;
 
 wit_bindgen::generate!({
-    path: "target/wit",
+    path: "../target/wit",
     world: "chat-with-file-transfer-test-template-dot-os-v0",
     generate_unused_types: true,
     additional_derives: [PartialEq, serde::Deserialize, serde::Serialize, process_macros::SerdeJsonInto],

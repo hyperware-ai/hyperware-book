@@ -61,7 +61,7 @@ Rust `derive` macros can be applied to the WIT types in the `wit_bindgen::genera
 A typical macro invocation looks like
 ```rust
 wit_bindgen::generate!({
-    path: "target/wit",
+    path: "../target/wit",
     world: "chat-template-dot-os-v0",
     generate_unused_types: true,
     additional_derives: [serde::Deserialize, serde::Serialize, process_macros::SerdeJsonInto],

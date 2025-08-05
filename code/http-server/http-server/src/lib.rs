@@ -15,7 +15,7 @@ use anyhow::{anyhow, Result};
 use hyperware_process_lib::{await_message, call_init, get_blob, http, println, Address, Message};
 
 wit_bindgen::generate!({
-    path: "target/wit",
+    path: "../target/wit",
     world: "process-v1",
 });
 

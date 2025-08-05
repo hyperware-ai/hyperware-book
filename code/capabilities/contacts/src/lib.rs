@@ -67,7 +67,7 @@ impl ContactsState {
 }
 
 wit_bindgen::generate!({
-    path: "target/wit",
+    path: "../target/wit",
     world: "contacts-doria-dot-kino-v0",
     generate_unused_types: true,
     additional_derives: [PartialEq, serde::Deserialize, serde::Serialize],

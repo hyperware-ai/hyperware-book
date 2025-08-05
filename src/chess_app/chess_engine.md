@@ -15,8 +15,8 @@ use pleco::Board;
 use hyperware_process_lib::{await_message, call_init, println, Address};
 
 wit_bindgen::generate!({
-    path: "target/wit",
-    world: "process-v0",
+    path: "../target/wit",
+    world: "process-v1",
 });
 
 call_init!(init);
@@ -190,8 +190,8 @@ use std::collections::HashMap;
 
 // Boilerplate: generate the Wasm bindings for a Hyperware app
 wit_bindgen::generate!({
-    path: "target/wit",
-    world: "process-v0",
+    path: "../target/wit",
+    world: "process-v1",
 });
 
 //

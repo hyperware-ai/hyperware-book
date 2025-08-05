@@ -27,15 +27,17 @@ Publish or update a package
 Usage: kit publish [OPTIONS] --metadata-uri <URI> --rpc <RPC_URI> [DIR]
 
 Arguments:
-  [DIR]  The package directory to publish [default: /home/nick]
+  [DIR]  The package directory to publish [default: /home/nick/git/kit]
 
 Options:
   -k, --keystore-path <PATH>
-          Path to private key keystore (choose 1 of `k`, `l`, `t`)
+          Path to private key keystore (choose 1 of `k`, `l`, `t`, `s`)
   -l, --ledger
-          Use Ledger private key (choose 1 of `k`, `l`, `t`)
+          Use Ledger private key (choose 1 of `k`, `l`, `t`, `s`)
   -t, --trezor
-          Use Trezor private key (choose 1 of `k`, `l`, `t`)
+          Use Trezor private key (choose 1 of `k`, `l`, `t`, `s`)
+  -s, --safe <SAFE_CONTRACT_ADDRESS>
+          Create transaction for Safe (choose 1 of `k`, `l`, `t`, `s`)
   -u, --metadata-uri <URI>
           URI where metadata lives
   -r, --rpc <RPC_URI>
@@ -79,7 +81,7 @@ Use private key from keystore given by path.
 The keystore is a [Web3 Secret Storage file](https://ethereum.org/en/developers/docs/data-structures-and-encoding/web3-secret-storage/) that holds an encrypted copy of your private keys.
 See the [Sharing with the World](../my_first_app/chapter_5.md) usage example for one way to create a keystore.
 
-Must supply one and only one of `--keystore-path`, `--ledger`, or `--trezor`.
+Must supply one and only one of `--keystore-path`, `--ledger`, `--trezor`, or `--safe`.
 
 ### `--ledger`
 
@@ -87,7 +89,7 @@ short: `-l`
 
 Use private key from Ledger.
 
-Must supply one and only one of `--keystore-path`, `--ledger`, or `--trezor`.
+Must supply one and only one of `--keystore-path`, `--ledger`, `--trezor`, or `--safe`.
 
 ### `--trezor`
 
@@ -95,7 +97,15 @@ short: `-t`
 
 Use private key from Trezor.
 
-Must supply one and only one of `--keystore-path`, `--ledger`, or `--trezor`.
+Must supply one and only one of `--keystore-path`, `--ledger`, `--trezor`, or `--safe`.
+
+### `--safe`
+
+short: `-t`
+
+Print the calldata to create a [Safe](https://app.safe.global) transaction.
+
+Must supply one and only one of `--keystore-path`, `--ledger`, `--trezor`, or `--safe`.
 
 ### `--rpc`
 
@@ -132,3 +142,9 @@ Set the priority fee for the transaction.
 short: `-f`
 
 Set the price of gas for the transaction.
+
+### `--mock`
+
+short: `-m`
+
+Run a dry-run, but do not actually submit the transaction.

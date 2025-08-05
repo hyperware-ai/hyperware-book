@@ -2,7 +2,7 @@ use crate::exports::hyperware::process::server::{ClientRequest, ClientResponse, 
 use hyperware_process_lib::{vfs, Request, Response};
 
 wit_bindgen::generate!({
-    path: "target/wit",
+    path: "../target/wit",
     world: "server-template-dot-os-api-v0",
     generate_unused_types: true,
     additional_derives: [serde::Deserialize, serde::Serialize, process_macros::SerdeJsonInto],

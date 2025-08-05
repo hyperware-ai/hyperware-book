@@ -1,10 +1,12 @@
-use crate::hyperware::process::chat_with_file_transfer::{Request as ChatRequest, Response as ChatResponse, SendRequest};
+use crate::hyperware::process::chat_with_file_transfer::{
+    Request as ChatRequest, Response as ChatResponse, SendRequest,
+};
 use hyperware_process_lib::{
     await_next_message_body, call_init, println, Address, Message, Request,
 };
 
 wit_bindgen::generate!({
-    path: "target/wit",
+    path: "../target/wit",
     world: "chat-with-file-transfer-template-dot-os-v0",
     generate_unused_types: true,
     additional_derives: [serde::Deserialize, serde::Serialize],
@@ -24,17 +26,22 @@ fn init(our: Address) {
         return;
     };
 
-    let Ok(Ok(Message::Response { body, .. })) =
-        Request::to((our.node(), ("chat_with_file_transfer", "chat_with_file_transfer", "template.os")))
-            .body(
-                serde_json::to_vec(&ChatRequest::Send(SendRequest {
-                    target: target.into(),
-                    message: message.into(),
-                }))
-                .unwrap(),
-            )
-            .send_and_await_response(5)
-    else {
+    let Ok(Ok(Message::Response { body, .. })) = Request::to((
+        our.node(),
+        (
+            "chat_with_file_transfer",
+            "chat_with_file_transfer",
+            "template.os",
+        ),
+    ))
+    .body(
+        serde_json::to_vec(&ChatRequest::Send(SendRequest {
+            target: target.into(),
+            message: message.into(),
+        }))
+        .unwrap(),
+    )
+    .send_and_await_response(5) else {
         println!("did not receive expected Response from chat_with_file_transfer:chat_with_file_transfer:template.os");
         return;
     };

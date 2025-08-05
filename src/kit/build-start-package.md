@@ -21,6 +21,53 @@ kit build-start-package
 ## Arguments
 
 ```
+Build and start a Hyperware package
+
+Usage: kit build-start-package [OPTIONS] [DIR]
+
+Arguments:
+  [DIR]  The package directory to build [default: /home/nick/git/kit]
+
+Options:
+  -p, --port <NODE_PORT>
+          localhost node port; for remote see https://book.hyperware.ai/hosted-nodes.html#using-kit-with-your-hosted-node [default: 8080]
+  -d, --download-from <NODE>
+          Download API from this node if not found
+  -w, --world <WORLD>
+          Fallback WIT world name
+  -l, --local-dependency <DEPENDENCY_PACKAGE_PATH>
+          Path to local dependency package (can specify multiple times)
+  -a, --add-to-api <PATH>
+          Path to file to add to api.zip (can specify multiple times)
+      --no-ui
+          If set, do NOT build the web UI for the process; no-op if passed with UI_ONLY
+      --ui-only
+          If set, build ONLY the web UI for the process
+  -i, --include <INCLUDE>
+          Build only these processes/UIs (can specify multiple times) [default: build all]
+  -e, --exclude <EXCLUDE>
+          Build all but these processes/UIs (can specify multiple times) [default: build all]
+  -s, --skip-deps-check
+          If set, do not check for dependencies
+      --features <FEATURES>
+          Pass these comma-delimited feature flags to Rust cargo builds
+      --no-rewrite
+          Rewrite the package (disables `Spawn!()`) [default: don't rewrite]
+      --hyperapp
+          Build using the Hyperapp framework [default: don't use Hyperapp framework]
+  -r, --reproducible
+          Make a reproducible build using Docker
+  -f, --force
+          Force a rebuild
+  -v, --verbose
+          If set, output stdout and stderr
+  -h, --help
+          Print help
+
+```
+
+
+```
 $ kit build-start-package --help
 Build and start a Hyperware package
 
@@ -45,13 +92,17 @@ Options:
       --ui-only
           If set, build ONLY the web UI for the process
   -i, --include <INCLUDE>
-          Build only these processes/UIs (can specify multiple times) (default: build all)
+          Build only these processes/UIs (can specify multiple times) [default: build all]
   -e, --exclude <EXCLUDE>
-          Build all but these processes/UIs (can specify multiple times) (default: build all)
+          Build all but these processes/UIs (can specify multiple times) [default: build all]
   -s, --skip-deps-check
           If set, do not check for dependencies
       --features <FEATURES>
           Pass these comma-delimited feature flags to Rust cargo builds
+      --rewrite
+          Rewrite the package (enables `Spawn!()`) [default: don't rewrite]
+      --hyperapp
+          Build using the Hyperapp framework [default: don't use Hyperapp framework]
   -r, --reproducible
           Make a reproducible build using Docker
   -f, --force
@@ -140,6 +191,18 @@ Build the package with the given [cargo features](https://doc.rust-lang.org/carg
 
 Features can be used like shown [here](https://doc.rust-lang.org/cargo/reference/features.html#command-line-feature-options).
 Currently the only feature supported system-wide is `simulation-mode`.
+
+### `--rewrite`
+
+Rewrite the package, allowing use of the experimental `Spawn!()` macro.
+
+### `--hyperapp`
+
+Specify that the package is an experimental Hyperapp, not a vanilla package.
+
+Hyperapps are still a work-in-progress.
+They enable true async/await for sending messages and offer a more "event-based" programming model than vanilla packages.
+See [here](https://github.com/hyperware-ai/hyperprocess-macro) for more details.
 
 ### `--reproducible`
 
