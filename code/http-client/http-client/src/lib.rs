@@ -10,7 +10,7 @@
 use hyperware_process_lib::{call_init, http, println, Address};
 
 wit_bindgen::generate!({
-    path: "target/wit",
+    path: "../target/wit",
     world: "process-v1",
 });
 

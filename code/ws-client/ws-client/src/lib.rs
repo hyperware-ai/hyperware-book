@@ -19,7 +19,7 @@ use hyperware_process_lib::{
 use hyperware_process_lib::{OnExit, Request};
 
 wit_bindgen::generate!({
-    path: "target/wit",
+    path: "../target/wit",
     world: "process-v1",
 });
 

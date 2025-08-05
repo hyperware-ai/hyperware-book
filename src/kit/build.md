@@ -67,7 +67,7 @@ Build a Hyperware package
 Usage: kit build [OPTIONS] [DIR]
 
 Arguments:
-  [DIR]  The package directory to build [default: /home/nick]
+  [DIR]  The package directory to build [default: /home/nick/git/kit]
 
 Options:
       --no-ui
@@ -93,7 +93,9 @@ Options:
   -a, --add-to-api <PATH>
           Path to file to add to api.zip (can specify multiple times)
       --rewrite
-          Rewrite the package (disables `Spawn!()`) [default: don't rewrite]
+          Rewrite the package (enables `Spawn!()`) [default: don't rewrite]
+      --hyperapp
+          Build using the Hyperapp framework [default: don't use Hyperapp framework]
   -r, --reproducible
           Make a reproducible build using Docker
   -f, --force
@@ -102,7 +104,6 @@ Options:
           If set, output stdout and stderr
   -h, --help
           Print help
-
 ```
 
 ### Optional positional arg: `DIR`
@@ -185,6 +186,18 @@ short: `-a`
 
 A path to a file to include in the API published alongside the package.
 Can be specified multiple times.
+
+### `--rewrite`
+
+Rewrite the package, allowing use of the experimental `Spawn!()` macro.
+
+### `--hyperapp`
+
+Specify that the package is an experimental Hyperapp, not a vanilla package.
+
+Hyperapps are still a work-in-progress.
+They enable true async/await for sending messages and offer a more "event-based" programming model than vanilla packages.
+See [here](https://github.com/hyperware-ai/hyperprocess-macro) for more details.
 
 ### `--reproducible`
 
