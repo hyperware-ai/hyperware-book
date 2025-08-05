@@ -6,6 +6,9 @@ short: `kit p`
 It can also be used to update or unpublish previously-published packages.
 `kit publish` writes directly to the Hypermap: it does not interact with a Hyperware node.
 
+It is STRONGLY RECOMMENDED to use a static metadata URI.
+In particular, if using a GitHub link, make sure to link to a specific commit's `metadata.json`, not to, e.g., `master`/`main`s `metadata.json`.
+
 ## Example Usage
 
 ```bash
