@@ -58,11 +58,32 @@ Options:
 ```
 
 A home directory must be supplied — where the node will store its files.
-The `--rpc` flag is an optional `wss://` WebSocket link to an Ethereum RPC, allowing Hyperdrive to send and receive Ethereum transactions — used in the [identity system](../getting_started/hypermap.md#hns-hyperware-name-system) as mentioned [above](#creating-an-alchemy-account).
+The `--rpc` flag is an optional `wss://` WebSocket link to an Ethereum RPC, allowing Hyperdrive to send and receive Ethereum transactions — used in the [identity system](../getting_started/hypermap.md#hns-hyperware-name-system) as mentioned [below](#creating-an-alchemy-account).
 If this is not supplied, the node will use a set of default RPC providers served by other nodes on the network.
+Alternatively, use the `--rpc-config` flag to specify more than one `wss://` provider and/or to include authentication credentials -- see the description below.
 If the `--port` flag is supplied, Hyperdrive will attempt to bind that port for serving HTTP and will exit if that port is already taken.
 If no `--port` flag is supplied, Hyperdrive will bind to `8080` if it is available, or the first port above `8080` if not.
 
+<details><summary>OPTIONAL: The --rpc-config File Format</summary>
+
+If you wish to designate more than one Ethereum RPC providers, or if your provider requires authentication headers, you can replace the `--rpc <url>` flag with `--rpc-config <rpc_config_file_path>` instead, where `<rpc_config_file_path>` is a file structured as follows:
+```
+[
+  {
+    "url": "wss://mytoppriority.eth-provider.net",
+    "auth": {
+      "Bearer": "7f94d4799c13"
+    }
+  },
+  {
+    "url": "wss://wss://mysecondpriority.unauthenticated-eth.org"
+  }
+]
+```
+Your node will attempt to use the Ethereum RPC providers in the order you have listed them.  Possible "auth" types are Basic, Bearer, and Raw.
+Additionally, you may view, add, and remove RPC providers from a running node at the terminal prompt using the `get-providers`, `add-rpcurl-provider`, and `remove-provider` commands.
+
+</details>
 <details><summary>OPTIONAL: Acquiring an RPC API Key</summary>
 
 ### Acquiring an RPC API Key
