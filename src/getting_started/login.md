@@ -81,6 +81,10 @@ If you wish to designate more than one Ethereum RPC providers, or if your provid
 ]
 ```
 Your node will attempt to use the Ethereum RPC providers in the order you have listed them.  Possible "auth" types are Basic, Bearer, and Raw.
+* `Basic` will base64 encode the string value in the form of `user:password` and generate a header of `Authorization: Basic <the base64 encoding of user:password>`
+* `Bearer` will use the value as a bearer token and generate a header of `Authorization: Bearer <value>`
+* `Raw` will use the value directly and generate a header of `Authorization: <values>`
+
 Additionally, you may view, add, and remove RPC providers from a running node at the terminal prompt using the `get-providers`, `add-rpcurl-provider`, and `remove-provider` commands.
 
 </details>
