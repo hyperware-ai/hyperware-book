@@ -17,11 +17,12 @@ After logging in, `.tar.gz` archives are available for download.
 
 A `.tar.gz` file is like a `.zip` file.
 You can extract it with the following programs (amongst others):
-OS      | Program
-------- | -------
-Windows | [7-zip](https://7-zip.org)
-macOS   | Finder, built-in
-Linux   | `tar zxf` or built-in File explorer
+
+| OS      | Program                             |
+|---------|-------------------------------------|
+| Windows | [7-zip](https://7-zip.org)          |
+| macOS   | Finder, built-in                    |
+| Linux   | `tar zxf` or built-in File explorer |
 
 To run the node, first `Reset Password & Networking Info`.
 The node must be owned by a connected wallet: see [Transferring onchain ownership](#transferring-onchain-ownership) for how to transfer the node onchain.
