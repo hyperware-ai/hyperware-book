@@ -103,7 +103,7 @@ Rust process directories, like the ones here, contain:
 Another standard Rust `Cargo.toml` file, a [virtual manifest](https://doc.rust-lang.org/cargo/reference/workspaces.html#virtual-workspace) is also included in `my-chat-app/` root.
 
 Also within the package directory is a `pkg/` directory.
-The `pkg/` dirctory contains two files:
+The `pkg/` directory contains two files:
 - `manifest.json` — required: specifes information Hyperware needs to run the package, and
 - `scripts.json` — optional: specifies details needed to run [scripts](../cookbook/writing_scripts.html).
 
